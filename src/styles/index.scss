@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Bona+Nova+SC:regular,italic,700);
+@import url(https://fonts.googleapis.com/css?family=Marck+Script:regular);
 
 :root {
   font-family: Montserrat, sans-serif;
@@ -21,6 +23,10 @@
   text-decoration: none;
   border: none;
   box-sizing: border-box;
+}
+h1 {
+  padding: 0;
+  margin: 0;
 }
 
 .container {

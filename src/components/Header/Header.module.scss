@@ -15,11 +15,15 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   width: 8rem;
+  cursor: pointer;
 }
 .image {
   display: block;
   max-width: 100%;
+  margin: 2rem 0;
 }
 
 .nav {
@@ -32,6 +36,13 @@
 }
 
 .link {
+  display: block;
+  font-weight: 500;
   color: $white;
   text-shadow: $pink-shadow 0 4px 5px;
+  transition: 0.3s linear all;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }

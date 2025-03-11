@@ -1,0 +1,201 @@
+@use '../../styles/variables.scss' as *;
+
+.home {
+  position: relative;
+  min-height: 120rem;
+  height: 100dvh;
+  background: $background url('/images/background/pink-background.jpg') center/cover no-repeat;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -22%;
+    left: 0;
+    background: url('/images/background/border.png') center/ cover no-repeat;
+
+    width: 100%;
+    height: 50%;
+
+    animation: borderAnim 3000ms ease-in-out infinite;
+
+    @keyframes borderAnim {
+      0% {
+        transform: translateY(-0.5rem) rotate(-0.5deg);
+      }
+      50% {
+        transform: translateY(0rem) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-0.5rem) rotate(-0.5deg);
+      }
+    }
+  }
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  gap: 2rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20rem;
+  position: relative;
+
+  font-family: 'Bona Nova SC';
+  font-weight: 700;
+  font-size: 12.8rem;
+  line-height: 1.15;
+  letter-spacing: 0.5rem;
+
+  color: $white;
+  text-shadow: $pink-shadow 0 4px 5px;
+
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 9.2rem;
+    left: 52.4rem;
+    width: clamp(35rem, 40vw, 55rem);
+    height: clamp(35rem, 40vw, 55rem);
+    background: url('/images/background/heart-draft.png') center/cover no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+
+    animation: heartDraftAnim 3000ms ease-in-out infinite;
+
+    @keyframes heartDraftAnim {
+      0% {
+        transform: rotate(-2deg) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: rotate(0deg) scale(1.02);
+        opacity: 0.8;
+      }
+      100% {
+        transform: rotate(-2deg) scale(1);
+        opacity: 0.5;
+      }
+    }
+  }
+}
+.name,
+.surname {
+  max-width: 101rem;
+  width: 100%;
+}
+
+.surname {
+  text-align: end;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.quote {
+  position: absolute;
+  top: 9rem;
+  left: 1rem;
+  max-width: 40rem;
+  text-align: center;
+  font-family: 'Marck Script';
+  font-size: 5rem;
+  color: $pink-text;
+  transform: rotate(-13.5deg);
+  animation: quoteAnim 3000ms ease-in-out infinite;
+
+  @keyframes quoteAnim {
+    0% {
+      transform: rotate(-13.5deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(-13.5deg);
+    }
+  }
+}
+
+.teacher {
+  width: 66rem;
+  img {
+    max-width: 100%;
+  }
+}
+.items {
+  position: absolute;
+  top: 7rem;
+  right: 1em;
+  width: 48rem;
+  height: 37rem;
+  z-index: 1;
+}
+.note {
+  position: relative;
+  top: 9rem;
+  left: 3rem;
+  width: 18.3rem;
+  transform: rotate(2.77deg);
+  animation: noteAnim 3000ms ease-in-out infinite;
+
+  @keyframes noteAnim {
+    0% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(5deg);
+    }
+  }
+}
+.ruler {
+  position: relative;
+  top: 7rem;
+  left: 18rem;
+  width: 13.7rem;
+  animation: rulerAnim 3000ms ease-in-out infinite;
+
+  @keyframes rulerAnim {
+    0% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-5deg);
+    }
+  }
+}
+.calc {
+  position: relative;
+  top: 3rem;
+  left: 8rem;
+  width: 17.2rem;
+  transform: rotate(-32.54deg);
+  animation: calcAnim 3000ms ease-in-out infinite;
+
+  @keyframes calcAnim {
+    0% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-5deg);
+    }
+  }
+}
