@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from './Header.module.scss';
 import logo from '../../assets/images/logo/logo.png';
@@ -6,6 +6,7 @@ import logo from '../../assets/images/logo/logo.png';
 import { DefaultContent } from '../../types/defaultContentTypes';
 
 export default function Header({ content }: { content: DefaultContent }): React.ReactElement {
+  const [scrolled, setScrolled] = useState(false);
   const listItems = [
     { id: 'home', label: content.homeNav },
     { id: 'about', label: content.aboutNav },
@@ -13,8 +14,19 @@ export default function Header({ content }: { content: DefaultContent }): React.
     { id: 'reviews', label: content.reviewsNav },
     { id: 'contacts', label: content.contactsNav },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={!scrolled ? styles.header : `${styles.header} ${styles.scrolled}`}>
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.logo}>
           <a href="#home">
