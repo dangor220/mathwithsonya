@@ -6,11 +6,13 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  font-size: 2.6rem;
+  font-size: 3.3rem;
+  border-bottom: 2px solid transparent;
   transition: 0.3s ease-in-out all;
 }
 .scrolled {
   backdrop-filter: blur(10px);
+  border-bottom: $border 2px solid;
 
   .logo {
     filter: drop-shadow(2px 4px 6px $shadow);
