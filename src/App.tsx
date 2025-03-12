@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import defaultContent from './data/defaultContent';
 
@@ -7,6 +7,7 @@ import Main from './components/Main/Main';
 
 export default function App(): React.ReactElement {
   const [content, setContent] = useState(defaultContent);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     axios
@@ -22,8 +23,8 @@ export default function App(): React.ReactElement {
 
   return (
     <>
-      <Header content={content[0]} />
-      <Main content={content[0]} />
+      <Header content={content[0]} ref={headerRef} />
+      <Main content={content[0]} headerRef={headerRef} />
     </>
   );
 }

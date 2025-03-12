@@ -5,11 +5,17 @@ import About from '../About/About';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 
-export default function Main({ content }: { content: DefaultContent }): React.ReactElement {
+export default function Main({
+  content,
+  headerRef,
+}: {
+  content: DefaultContent;
+  headerRef: React.RefObject<HTMLDivElement | null>;
+}): React.ReactElement {
   return (
     <main>
       <Home content={content} />
-      <About content={content} />
+      <About content={content} headerRef={headerRef} />
     </main>
   );
 }

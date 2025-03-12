@@ -35,8 +35,9 @@
 }
 .click {
   position: absolute;
-  top: 23rem;
-  left: -1rem;
+  top: 20%;
+  left: -1%;
+  width: 27%;
   animation: arrowAnim 3000ms ease-in-out infinite;
 
   @keyframes arrowAnim {
@@ -52,12 +53,16 @@
   }
 }
 
+.position {
+  position: relative;
+}
+
 .button {
   position: absolute;
-  left: 55px;
-  top: 51.8rem;
-  width: 14rem;
-  height: 21.8rem;
+  left: 9%;
+  top: 44.6%;
+  width: 24%;
+  height: 19%;
   z-index: 1;
   background-color: transparent;
   transition: 0.3s linear all;

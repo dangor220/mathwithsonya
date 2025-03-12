@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 
 import styles from './Header.module.scss';
 import logo from '../../assets/images/logo/logo.png';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 
-export default function Header({ content }: { content: DefaultContent }): React.ReactElement {
+const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }, ref) => {
   const [scrolled, setScrolled] = useState(false);
   const listItems = [
     { id: 'home', label: content.homeNav },
@@ -27,7 +27,7 @@ export default function Header({ content }: { content: DefaultContent }): React.
   }, []);
 
   return (
-    <header className={scrolled ? `${styles.header} ${styles.scrolled}` : styles.header}>
+    <header className={scrolled ? `${styles.header} ${styles.scrolled}` : styles.header} ref={ref}>
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.logo}>
           <a href="#home">
@@ -48,4 +48,6 @@ export default function Header({ content }: { content: DefaultContent }): React.
       </div>
     </header>
   );
-}
+});
+
+export default Header;
