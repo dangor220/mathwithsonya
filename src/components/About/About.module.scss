@@ -1,0 +1,70 @@
+@use '../../styles/variables.scss' as *;
+
+.about {
+  position: relative;
+}
+.title {
+  font-family: 'Bona Nova SC';
+  font-weight: 700;
+  font-size: 6.4rem;
+  color: $pink;
+  text-shadow: $shadow 0 4px 5px;
+  text-align: center;
+  padding: 11.6rem 0;
+}
+
+.content {
+  display: flex;
+  font-size: 2.4rem;
+  gap: 2rem;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  flex: 50%;
+  white-space: pre-line;
+}
+.graduate {
+  flex: 50%;
+  max-width: 60rem;
+  position: relative;
+}
+.image {
+  width: 100%;
+}
+.click {
+  position: absolute;
+  top: 23rem;
+  left: -1rem;
+  animation: arrowAnim 3000ms ease-in-out infinite;
+
+  @keyframes arrowAnim {
+    0% {
+      transform: translateY(-2rem) rotate(3deg);
+    }
+    50% {
+      transform: translateY(0rem) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-2rem) rotate(3deg);
+    }
+  }
+}
+
+.button {
+  position: absolute;
+  left: 55px;
+  top: 51.8rem;
+  width: 14rem;
+  height: 21.8rem;
+  z-index: 1;
+  background-color: transparent;
+  transition: 0.3s linear all;
+  transform: rotate3d(2, -1, 0.9, -23deg);
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f7323243;
+  }
+}

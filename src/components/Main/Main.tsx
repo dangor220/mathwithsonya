@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Home from '../Home/Home';
+import About from '../About/About';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 
@@ -8,6 +9,7 @@ export default function Main({ content }: { content: DefaultContent }): React.Re
   return (
     <main>
       <Home content={content} />
+      <About content={content} />
     </main>
   );
 }

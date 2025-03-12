@@ -19,6 +19,7 @@ export default function Header({ content }: { content: DefaultContent }): React.
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -26,7 +27,7 @@ export default function Header({ content }: { content: DefaultContent }): React.
   }, []);
 
   return (
-    <header className={!scrolled ? styles.header : `${styles.header} ${styles.scrolled}`}>
+    <header className={scrolled ? `${styles.header} ${styles.scrolled}` : styles.header}>
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.logo}>
           <a href="#home">
