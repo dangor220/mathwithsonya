@@ -1,7 +1,7 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 import styles from './Header.module.scss';
-import logo from '../../assets/images/logo/logo.png';
+import logo from '../../assets/images/logo/logo.gif';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 
