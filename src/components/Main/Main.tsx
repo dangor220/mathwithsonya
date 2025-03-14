@@ -4,6 +4,7 @@ import Home from '../Home/Home';
 import About from '../About/About';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
+import Services from '../Services/Services';
 
 export default function Main({
   content,
@@ -16,6 +17,7 @@ export default function Main({
     <main>
       <Home content={content} />
       <About content={content} headerRef={headerRef} />
+      <Services content={content} headerRef={headerRef} />
     </main>
   );
 }

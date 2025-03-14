@@ -4,15 +4,12 @@ export interface About {
 }
 
 export interface ServiceOptions {
-  myHome: string;
-  yourHome: string;
-  online: string;
+  [key: string]: { id: number; type: string; text: string; price: string };
 }
 
 export interface Services {
   title: string;
   options: ServiceOptions;
-  text: string;
 }
 
 export interface Review {
