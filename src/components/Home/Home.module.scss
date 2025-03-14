@@ -2,8 +2,6 @@
 
 .home {
   position: relative;
-  min-height: 120rem;
-  height: 100dvh;
   background: $background url('/images/background/pink-background.jpg') center/cover no-repeat;
   overflow: hidden;
   &::after {
@@ -34,8 +32,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
   gap: 5rem;
 }
 
@@ -60,8 +56,8 @@
   &::before {
     content: '';
     position: absolute;
-    top: -20%;
-    left: 43%;
+    top: -35%;
+    left: 42%;
     width: clamp(15rem, 45vw, 55rem);
     height: clamp(15rem, 45vw, 55rem);
     background: url('/images/background/heart-draft.png') center/cover no-repeat;
@@ -103,12 +99,12 @@
 }
 .quote {
   position: absolute;
-  top: 9rem;
-  left: 1rem;
-  max-width: 40rem;
+  top: 10%;
+  left: -1%;
+  max-width: clamp(1.4rem, 35vw, 40rem);
   text-align: center;
   font-family: 'Marck Script';
-  font-size: 5rem;
+  font-size: clamp(1.4rem, 3.75vw, 5rem);
   color: $pink-text;
   transform: rotate(-13.5deg);
   animation: quoteAnim 3000ms ease-in-out infinite;
@@ -127,24 +123,16 @@
 }
 
 .teacher {
-  width: 66rem;
+  width: clamp(19rem, 48.95vw, 66rem);
   img {
     max-width: 100%;
   }
 }
-.items {
-  position: absolute;
-  top: 7rem;
-  right: 1em;
-  width: 48rem;
-  height: 37rem;
-  z-index: 1;
-}
 .note {
-  position: relative;
-  top: 9rem;
-  left: 3rem;
-  width: 18.3rem;
+  position: absolute;
+  top: 20%;
+  right: 24%;
+  width: clamp(5rem, 13.85vw, 18.3rem);
   transform: rotate(2.77deg);
   animation: noteAnim 3000ms ease-in-out infinite;
 
@@ -161,10 +149,10 @@
   }
 }
 .ruler {
-  position: relative;
-  top: 7rem;
-  left: 18rem;
-  width: 13.7rem;
+  position: absolute;
+  top: 39%;
+  right: 17%;
+  width: clamp(3rem, 11.14vw, 13.7rem);
   animation: rulerAnim 3000ms ease-in-out infinite;
 
   @keyframes rulerAnim {
@@ -180,10 +168,10 @@
   }
 }
 .calc {
-  position: relative;
-  top: 3rem;
-  left: 8rem;
-  width: 17.2rem;
+  position: absolute;
+  top: 11%;
+  right: 8%;
+  width: clamp(4.2rem, 13.5vw, 17.2rem);
   transform: rotate(-32.54deg);
   animation: calcAnim 3000ms ease-in-out infinite;
 
