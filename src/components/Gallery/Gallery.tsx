@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import { ColumnsPhotoAlbum } from 'react-photo-album';
 import 'react-photo-album/columns.css';
-
 import { Slides } from '../../types/defaultContentTypes';
 import useHandleScrollbar from '../../hooks/useHandleScrollbar';
 
@@ -23,6 +22,7 @@ export default function Gallery({
         photos={slides}
         onClick={({ index: current }) => setIndex(current)}
         columns={1}
+        spacing={30}
       />
 
       <Lightbox
