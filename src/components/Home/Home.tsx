@@ -1,10 +1,10 @@
 import React from 'react';
 
 import styles from './Home.module.scss';
-import teacher from '../../assets/images/home/teacher/sonya.png';
-import note from '../../assets/images/home/items/note.png';
-import ruler from '../../assets/images/home/items/ruler.png';
-import calc from '../../assets/images/home/items/calc.png';
+import teacher from '@/assets/images/home/teacher/sonya.png';
+import note from '@/assets/images/home/items/note.png';
+import ruler from '@/assets/images/home/items/ruler.png';
+import calc from '@/assets/images/home/items/calc.png';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 

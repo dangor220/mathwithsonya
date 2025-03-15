@@ -4,11 +4,11 @@ import Lightbox from 'yet-another-react-lightbox';
 import styles from './About.module.scss';
 import 'yet-another-react-lightbox/styles.css';
 
-import graduate from '../../assets/images/about/graduate.png';
-import arrow from '../../assets/images/about/arrow.png';
-import page_1 from '../../assets/images/about/diplom/page_1.jpg';
-import page_2 from '../../assets/images/about/diplom/page_2.jpg';
-import page_3 from '../../assets/images/about/diplom/page_3.jpg';
+import graduate from '@/assets/images/about/graduate.png';
+import arrow from '@/assets/images/about/arrow.png';
+import page_1 from '@/assets/images/about/diplom/page_1.jpg';
+import page_2 from '@/assets/images/about/diplom/page_2.jpg';
+import page_3 from '@/assets/images/about/diplom/page_3.jpg';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 import useHandleScrollbar from '../../hooks/useHandleScrollbar';

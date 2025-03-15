@@ -25,9 +25,10 @@
   font-family: 'Bona Nova SC';
   font-size: 3.6rem;
   font-weight: 700;
-  color: $white;
-  text-shadow: $pink-shadow 0 2px 5px;
-  background-color: $pink;
+
+  color: $pink;
+  text-shadow: none;
+  background-color: transparent;
   padding: 2rem 0;
   border: 4px solid $pink;
   border-radius: 1.3rem;
@@ -35,16 +36,16 @@
   cursor: pointer;
 
   &:hover {
-    color: $pink;
-    text-shadow: none;
-    background-color: transparent;
+    color: $white;
+    text-shadow: $pink-shadow 0 2px 5px;
+    background-color: $pink;
   }
 }
 
 .active {
-  color: $pink;
-  text-shadow: none;
-  background-color: transparent;
+  color: $white;
+  text-shadow: $pink-shadow 0 2px 5px;
+  background-color: $pink;
   cursor: default;
 }
 
