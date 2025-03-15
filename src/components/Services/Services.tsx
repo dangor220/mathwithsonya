@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
 
+import Gallery from '../Gallery/Gallery';
 import styles from './Services.module.scss';
 
 export default function Services({
@@ -11,11 +12,11 @@ export default function Services({
   content: DefaultContent;
   headerRef: React.RefObject<HTMLDivElement | null>;
 }): React.ReactElement {
-  const [tab, setTab] = useState('myHome');
+  const [activeTab, setActiveTab] = useState('myHome');
   const arrayOptions = Object.entries(content.services.options);
 
-  const handleTabs = (tab: string) => {
-    setTab(tab);
+  const handleTab = (tab: string) => {
+    setActiveTab(tab);
   };
 
   return (
@@ -25,9 +26,9 @@ export default function Services({
         <div className={styles.tabs}>
           {arrayOptions.map(([tab, obj]) => (
             <button
-              className={styles.tab}
+              className={`${styles.tab} ${activeTab === tab ? styles.active : ''}`}
               onClick={() => {
-                handleTabs(tab);
+                handleTab(tab);
               }}
               key={obj.id}>
               {obj.type}
@@ -36,10 +37,12 @@ export default function Services({
         </div>
         <div className={styles.content}>
           <div className={styles.description}>
-            <div className={styles.text}>{content.services.options[tab].text}</div>
-            <div className={styles.price}>{content.services.options[tab].price}</div>
+            <div className={styles.text}>{content.services.options[activeTab].text}</div>
+            <div className={styles.price}>{content.services.options[activeTab].price}</div>
           </div>
-          <div className={styles.images}></div>
+          <div className={styles.images}>
+            <Gallery slides={content.services.options[activeTab].slides} headerRef={headerRef} />
+          </div>
         </div>
       </div>
     </div>

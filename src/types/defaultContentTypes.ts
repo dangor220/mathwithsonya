@@ -4,7 +4,12 @@ export interface About {
 }
 
 export interface ServiceOptions {
-  [key: string]: { id: number; type: string; text: string; price: string };
+  [key: string]: { id: number; type: string; text: string; price: string; slides: Slides[] };
+}
+export interface Slides {
+  src: string;
+  width: number;
+  height: number;
 }
 
 export interface Services {
