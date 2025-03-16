@@ -15,7 +15,7 @@ export default function Reviews({ content }: { content: DefaultContent }): React
   return (
     <section className={styles.reviews} id="reviews">
       <div className={`container ${styles.wrapper}`}>
-        <div className={styles.title}>{content.reviews.title}</div>
+        <h2 className={styles.title}>{content.reviews.title}</h2>
         <div className={styles.content}>
           <Swiper
             autoplay={{

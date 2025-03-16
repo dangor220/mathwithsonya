@@ -23,7 +23,7 @@ export default function Services({
   return (
     <section className={styles.services} id="services">
       <div className={`container ${styles.wrapper}`}>
-        <div className={styles.title}>{content.services.title}</div>
+        <h2 className={styles.title}>{content.services.title}</h2>
         <div className={styles.tabs}>
           {arrayOptions.map(([tab, obj]) => (
             <button

@@ -27,7 +27,7 @@ export default function About({
   return (
     <section className={styles.about} id="about">
       <div className={`container ${styles.wrapper}`}>
-        <div className={styles.title}>{content.about.title}</div>
+        <h2 className={styles.title}>{content.about.title}</h2>
         <div className={styles.content}>
           <div className={styles.text}>{content.about.text}</div>
           <div className={styles.graduate}>
