@@ -21,7 +21,7 @@ export default function Services({
   };
 
   return (
-    <div className={styles.services} id="services">
+    <section className={styles.services} id="services">
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.title}>{content.services.title}</div>
         <div className={styles.tabs}>
@@ -62,6 +62,6 @@ export default function Services({
           </AnimatePresence>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -21,6 +21,7 @@ export interface Review {
   name: string;
   about: string;
   review: string;
+  image: string;
 }
 
 export interface Reviews {

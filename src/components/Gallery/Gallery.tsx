@@ -5,6 +5,8 @@ import 'react-photo-album/columns.css';
 import { Slides } from '../../types/defaultContentTypes';
 import useHandleScrollbar from '../../hooks/useHandleScrollbar';
 
+import './Gallery.module.scss';
+
 export default function Gallery({
   slides,
   headerRef,

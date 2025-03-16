@@ -1,6 +1,50 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, A11y } from 'swiper/modules';
+
+import { DefaultContent } from '../../types/defaultContentTypes';
+
 import styles from './Reviews.module.scss';
 
-export default function Reviews(): React.ReactElement {
-  return <div>Reviews</div>;
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/autoplay';
+
+export default function Reviews({ content }: { content: DefaultContent }): React.ReactElement {
+  return (
+    <section className={styles.reviews} id="reviews">
+      <div className={`container ${styles.wrapper}`}>
+        <div className={styles.title}>{content.reviews.title}</div>
+        <div className={styles.content}>
+          <Swiper
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            pagination={{ clickable: true }}
+            modules={[Autoplay, Pagination, A11y]}
+            spaceBetween={50}
+            slidesPerView={2}>
+            {content.reviews.list.map((item, id) => (
+              <SwiperSlide key={id}>
+                <div className={styles.card}>
+                  <div className={styles.user}>
+                    <img className={styles.image} src={item.image} alt={item.name} />
+                  </div>
+                  <div className={styles.review}>
+                    <div className={styles.text}>{`"${item.review}"`}</div>
+                    <div className={styles.info}>
+                      <div className={styles.name}>{item.name + ','} </div>
+                      <div className={styles.comment}>{item.about}</div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
 }
