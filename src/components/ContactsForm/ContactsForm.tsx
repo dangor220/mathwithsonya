@@ -36,6 +36,11 @@ export default function ContactsForm(): React.ReactNode {
       return;
     }
 
+    const formData = new FormData(formRef.current);
+    formData.delete('g-recaptcha-response');
+
+    const url = `https://formhub.dev/io/${apiOpenKey}`;
+
     setMessageStatus(MessageStatus.Loading);
 
     try {
@@ -54,9 +59,6 @@ export default function ContactsForm(): React.ReactNode {
         setMessageStatus(MessageStatus.Failed);
         return;
       }
-
-      const formData = new FormData(formRef.current);
-      const url = `https://formhub.dev/io/${apiOpenKey}`;
 
       const response = await fetch(url, {
         method: 'POST',
