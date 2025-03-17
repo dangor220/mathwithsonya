@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const { captchaToken } = req.body;
 
-  const secretKey = process.env.VITE_RECAPTCHA_SECRET_KEY;
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
   if (!secretKey) {
     throw new Error('RECAPTCHA_SECRET_KEY is not defined');
