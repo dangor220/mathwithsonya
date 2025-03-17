@@ -46,7 +46,7 @@ export default function ContactsForm(): React.ReactNode {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: captchaToken,
+        body: JSON.stringify({ captchaToken }),
       });
 
       const recaptchaResult = await recaptchaResponse.json();
