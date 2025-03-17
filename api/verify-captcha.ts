@@ -1,3 +1,5 @@
+import { URLSearchParams } from 'url';
+
 export default async function handler(req, res) {
   try {
     const { captchaToken } = req.body;
