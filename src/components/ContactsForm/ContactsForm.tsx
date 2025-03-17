@@ -31,7 +31,7 @@ export default function ContactsForm(): React.ReactNode {
     if (!formRef.current) return;
 
     if (!captchaToken) {
-      alert('Please verify you are not a robot!');
+      alert('Пожалуйста, подтвердите, что вы не робот');
       return;
     }
 
@@ -41,6 +41,22 @@ export default function ContactsForm(): React.ReactNode {
     setMessageStatus(MessageStatus.Loading);
 
     try {
+      const recaptchaResponse = await fetch('/api/verify-captcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ captchaToken }),
+      });
+
+      const recaptchaResult = await recaptchaResponse.json();
+
+      if (!recaptchaResult.success) {
+        alert('Ошибка валидации reCAPTCHA. Пожалуйста, попробуйте еще раз.');
+        setMessageStatus(MessageStatus.Failed);
+        return;
+      }
+
       const response = await fetch(url, {
         method: 'POST',
         body: formData,
