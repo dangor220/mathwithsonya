@@ -41,8 +41,6 @@ export default function ContactsForm(): React.ReactNode {
     setMessageStatus(MessageStatus.Loading);
 
     try {
-      console.log(captchaToken);
-
       const recaptchaResponse = await fetch('/api/verify-captcha', {
         method: 'POST',
         headers: {

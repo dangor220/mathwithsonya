@@ -2,10 +2,9 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { captchaToken } = req.body;
 
-    console.log(captchaToken);
-    // if (!captchaToken) {
-    //   return res.status(400).json({ message: 'Ошибка: не пройдена проверка reCAPTCHA' });
-    // }
+    if (!captchaToken) {
+      return res.status(400).json({ message: 'Ошибка: не пройдена проверка reCAPTCHA' });
+    }
 
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
