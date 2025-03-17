@@ -91,7 +91,7 @@ export default function ContactsForm(): React.ReactNode {
     }
   };
 
-  const handleCaptchaChange = (value: string) => {
+  const handleCaptchaChange = (value: string | null) => {
     setCaptchaToken(value);
   };
 
