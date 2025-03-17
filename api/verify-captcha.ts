@@ -1,29 +1,40 @@
 export default async function handler(req, res) {
-  const { captchaToken } = req.body;
+  try {
+    const { captchaToken } = req.body;
 
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
-  if (!secretKey) {
-    throw new Error('RECAPTCHA_SECRET_KEY is not defined');
-  }
+    if (!secretKey) {
+      return res
+        .status(500)
+        .json({ success: false, message: 'RECAPTCHA_SECRET_KEY is not defined' });
+    }
 
-  if (!captchaToken) {
-    return res.status(400).json({ success: false, message: 'No captcha token provided' });
-  }
+    if (!captchaToken) {
+      return res.status(400).json({ success: false, message: 'No captcha token provided' });
+    }
 
-  const googleResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
-    method: 'POST',
-    body: new URLSearchParams({
-      secret: secretKey,
-      response: captchaToken,
-    }),
-  });
+    const googleResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      body: new URLSearchParams({
+        secret: secretKey,
+        response: captchaToken,
+      }),
+    });
 
-  const googleResult = await googleResponse.json();
+    if (!googleResponse.ok) {
+      return res.status(500).json({ success: false, message: 'Failed to verify reCAPTCHA' });
+    }
 
-  if (googleResult.success) {
+    const googleResult = await googleResponse.json();
+
+    if (!googleResult.success) {
+      return res.status(400).json({ success: false, message: 'reCAPTCHA verification failed' });
+    }
+
     return res.status(200).json({ success: true });
-  } else {
-    return res.status(400).json({ success: false, message: 'reCAPTCHA verification failed' });
+  } catch (error) {
+    console.error('Error during reCAPTCHA verification:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error' });
   }
 }
