@@ -72,6 +72,7 @@ export default function ContactsForm(): React.ReactNode {
           setMessage('');
           setMessageStatus(MessageStatus.Success);
           recaptchaRef.current?.reset();
+          setCaptchaToken(null);
         } else {
           console.log('Error: ' + result);
           setMessageStatus(MessageStatus.Failed);
