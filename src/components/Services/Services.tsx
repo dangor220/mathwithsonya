@@ -40,9 +40,9 @@ export default function Services({
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, x: 400 }}
+              initial={{ opacity: 0, x: -400 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 400 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               className={styles.description}>
               <div className={styles.text}>{content.services.options[activeTab].text}</div>
@@ -52,9 +52,9 @@ export default function Services({
           <AnimatePresence mode="wait">
             <motion.div
               key={`${activeTab}-images`}
-              initial={{ opacity: 0, y: 400 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 400 }}
+              initial={{ opacity: 0, x: 400 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               className={styles.images}>
               <Gallery slides={content.services.options[activeTab].slides} headerRef={headerRef} />

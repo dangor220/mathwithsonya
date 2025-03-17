@@ -9,9 +9,11 @@ export default function App(): React.ReactElement {
   const [content, setContent] = useState(defaultContent);
   const headerRef = useRef(null);
 
+  const mockApiKey = import.meta.env.VITE_MOCKAPI_KEY;
+
   useEffect(() => {
     axios
-      .get('https://67d00b15823da0212a845b28.mockapi.io/data')
+      .get(`https://${mockApiKey}.mockapi.io/data`)
       .then((response) => {
         setContent(response.data);
       })

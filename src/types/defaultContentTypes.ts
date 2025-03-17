@@ -32,6 +32,10 @@ export interface Reviews {
 
 export interface Contacts {
   title: string;
+  telegram: string;
+  phone: string;
+  mail: string;
+  help: string;
 }
 
 export interface ContentItem {
