@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { captchaToken } = req.body;
 
-    if (!captcha) {
+    if (!captchaToken) {
       return res.status(400).json({ message: 'Ошибка: не пройдена проверка reCAPTCHA' });
     }
 
