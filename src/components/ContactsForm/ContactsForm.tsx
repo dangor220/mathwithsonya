@@ -51,6 +51,8 @@ export default function ContactsForm(): React.ReactNode {
 
       const recaptchaResult = await recaptchaResponse.json();
 
+      console.log(recaptchaResult);
+
       if (!recaptchaResult.success) {
         alert('Ошибка валидации reCAPTCHA. Пожалуйста, попробуйте еще раз.');
         setMessageStatus(MessageStatus.Failed);
