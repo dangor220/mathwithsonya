@@ -1,39 +1,28 @@
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' });
-  }
+  if (req.method === 'POST') {
+    const { captchaToken } = req.body;
 
-  const { captchaToken } = req.body;
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (!captcha) {
+      return res.status(400).json({ message: 'Ошибка: не пройдена проверка reCAPTCHA' });
+    }
 
-  if (!secretKey) {
-    return res.status(500).json({ message: 'RECAPTCHA_SECRET_KEY is not defined' });
-  }
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
-  try {
-    const googleResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
       method: 'POST',
       body: new URLSearchParams({
         secret: secretKey,
         response: captchaToken,
       }),
     });
+    const data = await response.json();
 
-    const googleResult = await googleResponse.json();
-
-    if (googleResult.success) {
-      return res.status(200).json({ success: true });
-    } else {
-      return res.status(400).json({
-        success: false,
-        error: googleResult['error-codes'],
-      });
+    if (!data.success) {
+      return res.status(400).json({ message: 'Ошибка: неверная проверка reCAPTCHA' });
     }
-  } catch (error) {
-    console.error('Error occurred:', error);
-    return res.status(500).json({
-      message: 'Internal Server Error',
-      error: error.message || 'Unknown error',
-    });
+
+    res.status(200).json({ message: 'Форма успешно отправлена!' });
+  } else {
+    res.status(405).json({ message: 'Метод не разрешен' });
   }
 }
