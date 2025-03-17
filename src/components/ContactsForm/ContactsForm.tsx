@@ -41,17 +41,17 @@ export default function ContactsForm(): React.ReactNode {
     setMessageStatus(MessageStatus.Loading);
 
     try {
+      console.log(captchaToken);
+
       const recaptchaResponse = await fetch('/api/verify-captcha', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(captchaToken),
+        body: captchaToken,
       });
 
       const recaptchaResult = await recaptchaResponse.json();
-
-      console.log(recaptchaResult);
 
       if (!recaptchaResult.success) {
         alert('Ошибка валидации reCAPTCHA. Пожалуйста, попробуйте еще раз.');
