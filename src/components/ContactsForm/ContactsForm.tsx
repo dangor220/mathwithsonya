@@ -22,6 +22,7 @@ export default function ContactsForm(): React.ReactNode {
   const [messageStatus, setMessageStatus] = useState<MessageStatus>(MessageStatus.Idle);
 
   const formRef = useRef<HTMLFormElement>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const apiOpenKey = import.meta.env.VITE_API_KEY;
   const apiRecaptchaKey = import.meta.env.VITE_RECAPTCHA_KEY;
@@ -51,8 +52,6 @@ export default function ContactsForm(): React.ReactNode {
 
       const recaptchaResult = await recaptchaResponse.json();
 
-      console.log(recaptchaResult);
-
       if (!recaptchaResult.success) {
         alert('Ошибка валидации reCAPTCHA. Пожалуйста, попробуйте еще раз.');
         setMessageStatus(MessageStatus.Failed);
@@ -72,6 +71,7 @@ export default function ContactsForm(): React.ReactNode {
           setTel('');
           setMessage('');
           setMessageStatus(MessageStatus.Success);
+          recaptchaRef.current?.reset();
         } else {
           console.log('Error: ' + result);
           setMessageStatus(MessageStatus.Failed);
@@ -162,7 +162,7 @@ export default function ContactsForm(): React.ReactNode {
         />
       </div>
       <input type="hidden" name="redirect-to" value="no-redirect"></input>
-      <ReCAPTCHA sitekey={apiRecaptchaKey} onChange={handleCaptchaChange} />
+      <ReCAPTCHA ref={recaptchaRef} sitekey={apiRecaptchaKey} onChange={handleCaptchaChange} />
       <button
         className={styles.submit}
         id="submit-button"
