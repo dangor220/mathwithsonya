@@ -24,9 +24,16 @@ export default async function handler(req, res) {
     if (googleResult.success) {
       return res.status(200).json({ success: true });
     } else {
-      return res.status(400).json({ success: false, error: googleResult['error-codes'] });
+      return res.status(400).json({
+        success: false,
+        error: googleResult['error-codes'],
+      });
     }
   } catch (error) {
-    return res.status(500).json({ message: 'Server Error', error: error.message });
+    console.error('Error occurred:', error);
+    return res.status(500).json({
+      message: 'Internal Server Error',
+      error: error.message || 'Unknown error',
+    });
   }
 }
