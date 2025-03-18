@@ -4,6 +4,7 @@ import defaultContent from './data/defaultContent';
 
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 
 export default function App(): React.ReactElement {
   const [content, setContent] = useState(defaultContent);
@@ -27,6 +28,7 @@ export default function App(): React.ReactElement {
     <>
       <Header content={content[0]} ref={headerRef} />
       <Main content={content[0]} headerRef={headerRef} />
+      <Footer />
     </>
   );
 }

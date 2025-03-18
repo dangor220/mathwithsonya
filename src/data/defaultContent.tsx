@@ -163,7 +163,7 @@ const defaultContent: DefaultContent[] = [
       telegram: 'https://t.me/sonechka_ger',
       phone: '+79116951932',
       mail: 'sonyager.22@gmail.com',
-      help: 'Как добраться:',
+      help: 'Место проведения уроков и связь',
       formName: 'Как к вам обращаться?',
       formMessage: 'Записаться на пробный урок',
       formSuccess: 'Сообщение отправлено',
