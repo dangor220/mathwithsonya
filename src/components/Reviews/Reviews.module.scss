@@ -4,11 +4,11 @@
     background: $pink !important;
   }
   .swiper-wrapper {
-    margin-bottom: 5.3rem;
+    margin-bottom: 8rem;
   }
 
   .swiper-slide {
-    display: flex !important; // Позволяет карточке занять всю доступную высоту
+    display: flex !important;
     height: auto !important;
   }
 }
