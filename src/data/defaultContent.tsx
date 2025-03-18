@@ -169,6 +169,8 @@ const defaultContent: DefaultContent[] = [
       formSuccess: 'Сообщение отправлено',
       formFailed: 'Ошибка при отправке',
       formSend: 'Отправить',
+      formCaptcha: 'Подтвердите что вы не робот',
+      formPhone: 'Введите корректный номер',
     },
   },
 ];

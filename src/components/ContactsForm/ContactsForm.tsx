@@ -14,6 +14,7 @@ enum MessageStatus {
   Success = 'success',
   Failed = 'failed',
   Captcha = 'captcha',
+  Phone = 'phone',
 }
 
 export default function ContactsForm({ content }: { content: DefaultContent }): React.ReactNode {
@@ -21,6 +22,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
   const [tel, setTel] = useState('');
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState<boolean>(false);
+  const [phoneError, setPhoneError] = useState<boolean>(false);
   const [message, setMessage] = useState('');
   const [messageStatus, setMessageStatus] = useState<MessageStatus>(MessageStatus.Idle);
 
@@ -33,6 +35,17 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     if (!formRef.current) return;
+
+    if (!validatePhone(tel)) {
+      setMessageStatus(MessageStatus.Phone);
+      setPhoneError(true);
+      setTimeout(() => {
+        setMessageStatus(MessageStatus.Idle);
+      }, 2000);
+      return;
+    } else {
+      setPhoneError(false);
+    }
 
     if (!captchaToken) {
       setMessageStatus(MessageStatus.Captcha);
@@ -114,7 +127,9 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
       case MessageStatus.Failed:
         return content.contacts.formFailed;
       case MessageStatus.Captcha:
-        return 'Подтвердите что вы не робот';
+        return content.contacts.formCaptcha;
+      case MessageStatus.Phone:
+        return content.contacts.formPhone;
       default:
         return content.contacts.formSend;
     }
@@ -124,6 +139,11 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
     setMessageStatus(MessageStatus.Idle);
     setCaptchaError(false);
     setCaptchaToken(value);
+  };
+
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+    return phoneRegex.test(phone);
   };
 
   return (
@@ -147,7 +167,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           }}
         />
         <InputMask
-          className={styles.phone}
+          className={phoneError ? styles.phone + ' ' + styles.phoneError : styles.phone}
           placeholder="+7 (___) ___-__-__"
           mask="+7 (___) ___-__-__"
           replacement={{ _: /\d/ }}
@@ -159,7 +179,9 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
             e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
           ) => {
             setTel(e.target.value);
-          }}></InputMask>
+            setPhoneError(false);
+          }}
+        />
       </div>
 
       <div className={styles.content}>

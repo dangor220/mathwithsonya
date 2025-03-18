@@ -40,6 +40,8 @@ export interface Contacts {
   formSuccess: string;
   formFailed: string;
   formSend: string;
+  formCaptcha: string;
+  formPhone: string;
 }
 
 export interface ContentItem {
