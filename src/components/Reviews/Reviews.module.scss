@@ -12,6 +12,11 @@
     height: auto !important;
   }
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
 
 .title {
   font-family: 'Bona Nova SC';
@@ -20,7 +25,13 @@
   color: $pink;
   text-shadow: $shadow 0 2px 5px;
   text-align: center;
-  padding: 11.6rem 0;
+  padding: clamp(1rem, 2vw, 3rem) 0;
+  padding-bottom: 0;
+}
+.content {
+  display: flex;
+  flex: 1;
+  align-items: center;
 }
 .card {
   display: flex;

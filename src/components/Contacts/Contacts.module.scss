@@ -1,5 +1,8 @@
 @use '@/styles/variables.scss' as *;
 
+.wrapper {
+  height: 100dvh;
+}
 .title {
   font-family: 'Bona Nova SC';
   font-weight: 700;
@@ -7,11 +10,11 @@
   color: $pink;
   text-shadow: $shadow 0 2px 5px;
   text-align: center;
-  padding: 11.6rem 0;
+  padding: clamp(1rem, 2vw, 3rem) 0;
 }
 
 .content {
-  margin: 3rem 0;
+  margin-top: 2rem;
   font-size: 2.4rem;
 }
 .help {
