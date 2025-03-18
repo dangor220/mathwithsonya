@@ -1,5 +1,7 @@
 @use '../../styles/variables.scss' as *;
-
+.wrapper {
+  overflow: hidden;
+}
 .title {
   font-family: 'Bona Nova SC';
   font-size: 6.4rem;
