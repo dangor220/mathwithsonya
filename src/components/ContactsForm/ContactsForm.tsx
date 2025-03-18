@@ -18,6 +18,7 @@ export default function ContactsForm(): React.ReactNode {
   const [user, setUser] = useState('');
   const [tel, setTel] = useState('');
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<boolean>(false);
   const [message, setMessage] = useState('');
   const [messageStatus, setMessageStatus] = useState<MessageStatus>(MessageStatus.Idle);
 
@@ -32,8 +33,10 @@ export default function ContactsForm(): React.ReactNode {
     if (!formRef.current) return;
 
     if (!captchaToken) {
-      alert('Пожалуйста, подтвердите, что вы не робот');
+      setCaptchaError(true);
       return;
+    } else {
+      setCaptchaError(false);
     }
 
     const formData = new FormData(formRef.current);
@@ -165,14 +168,21 @@ export default function ContactsForm(): React.ReactNode {
         />
       </div>
       <input type="hidden" name="redirect-to" value="no-redirect"></input>
-      <ReCAPTCHA ref={recaptchaRef} sitekey={apiRecaptchaKey} onChange={handleCaptchaChange} />
-      <button
-        className={styles.submit}
-        id="submit-button"
-        type="submit"
-        disabled={messageStatus === MessageStatus.Loading}>
-        {renderButtonContent()}
-      </button>
+      <div className={styles.submit}>
+        <button
+          className={styles.button}
+          id="submit-button"
+          type="submit"
+          disabled={messageStatus === MessageStatus.Loading}>
+          {renderButtonContent()}
+        </button>
+        <ReCAPTCHA
+          className={captchaError ? styles.recaptchaError : ''}
+          ref={recaptchaRef}
+          sitekey={apiRecaptchaKey}
+          onChange={handleCaptchaChange}
+        />
+      </div>
     </form>
   );
 }
