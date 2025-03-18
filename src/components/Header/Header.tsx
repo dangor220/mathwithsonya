@@ -6,10 +6,15 @@ import styles from './Header.module.scss';
 import logo from '@/assets/images/logo/logo.gif';
 
 import { DefaultContent } from '../../types/defaultContentTypes';
+import Hamburger from '../Hamburger/Hamburger';
+import useHandleScrollbar from '../../hooks/useHandleScrollbar';
 
 const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }, ref) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  useHandleScrollbar(ref as React.RefObject<HTMLDivElement | null>, menuIsOpen);
 
   const listItems = [
     { id: 'home', label: content.homeNav },
@@ -53,7 +58,11 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
             <img className={styles.image} src={logo} alt="logo" />
           </Link>
         </div>
-        <nav className={styles.nav}>
+        <nav
+          className={`${styles.nav} ${menuIsOpen ? styles.open : ''}`}
+          onClick={() => {
+            setMenuIsOpen(!menuIsOpen);
+          }}>
           <ul className={styles.list}>
             {listItems.map((item) => (
               <li className={styles.item} key={item.id}>
@@ -65,7 +74,10 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
                   offset={
                     -(ref as React.RefObject<HTMLElement>).current?.getBoundingClientRect().height +
                     1
-                  }>
+                  }
+                  onClick={() => {
+                    setMenuIsOpen(!menuIsOpen);
+                  }}>
                   {item.label}
                 </Link>
                 {activeSection === item.id && (
@@ -79,6 +91,12 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
             ))}
           </ul>
         </nav>
+        <Hamburger
+          menuIsOpen={menuIsOpen}
+          onClick={() => {
+            setMenuIsOpen(!menuIsOpen);
+          }}
+        />
       </div>
     </header>
   );

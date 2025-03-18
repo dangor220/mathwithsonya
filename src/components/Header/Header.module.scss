@@ -45,10 +45,35 @@
 .nav {
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: $nav-wrapper;
+    backdrop-filter: blur(0.5rem);
+    transition: 0.3s all ease-in-out;
+  }
+}
+.open {
+  visibility: visible;
+  opacity: 1;
 }
 .list {
   display: flex;
   gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .link {
@@ -61,6 +86,11 @@
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
+    padding: 1rem 1rem;
   }
 }
 
