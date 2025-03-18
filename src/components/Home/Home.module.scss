@@ -3,6 +3,7 @@
 .home {
   position: relative;
   background: $background url('/images/background/pink-background.jpg') center/cover no-repeat;
+  height: 100dvh;
   overflow: hidden;
   &::after {
     content: '';
@@ -32,19 +33,21 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  justify-content: space-between;
+  gap: clamp(2rem, 3.125vw, 5rem);
+  height: 100%;
 }
 
 .title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20rem;
+  margin-top: clamp(5rem, 15.6vmin, 20rem);
   position: relative;
 
   font-family: 'Bona Nova SC';
   font-weight: 700;
-  font-size: clamp(2rem, 12.3vw, 12.8rem);
+  font-size: clamp(2rem, 12.3vmin, 12.8rem);
   line-height: 1.15;
   letter-spacing: 0.5rem;
 
@@ -58,8 +61,8 @@
     position: absolute;
     top: -35%;
     left: 42%;
-    width: clamp(15rem, 45vw, 55rem);
-    height: clamp(15rem, 45vw, 55rem);
+    width: clamp(15rem, 45vmin, 55rem);
+    height: clamp(15rem, 45vmin, 55rem);
     background: url('/images/background/heart-draft.png') center/cover no-repeat;
     opacity: 0.5;
     z-index: -1;
@@ -92,7 +95,7 @@
 }
 .name,
 .surname {
-  max-width: 101rem;
+  max-width: clamp(15.8rem, 7.89 * 12.3vmin, 101rem);
   width: 100%;
 }
 
@@ -102,17 +105,24 @@
 .hero {
   display: flex;
   justify-content: center;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: end;
   position: relative;
+  flex: 1;
+  max-width: clamp(15.8rem, 7.89 * 12.3vmin, 100%);
   z-index: 1;
 }
 .quote {
   position: absolute;
   top: 10%;
   left: -1%;
-  max-width: clamp(1.4rem, 35vw, 40rem);
+  max-width: clamp(1.4rem, 35vmin, 40rem);
   text-align: center;
   font-family: 'Marck Script';
-  font-size: clamp(1.4rem, 3.75vw, 5rem);
+  font-size: clamp(1.4rem, 4.2vmin, 5rem);
   color: $pink-text;
   transform: rotate(-13.5deg);
   animation: quoteAnim 3000ms ease-in-out infinite;
@@ -131,7 +141,7 @@
 }
 
 .teacher {
-  width: clamp(19rem, 48.95vw, 66rem);
+  width: clamp(19rem, 48.95vmin, 66rem);
   img {
     max-width: 100%;
   }
@@ -140,7 +150,7 @@
   position: absolute;
   top: 20%;
   right: 24%;
-  width: clamp(5rem, 13.85vw, 18.3rem);
+  width: clamp(5rem, 13.85vmin, 18.3rem);
   transform: rotate(2.77deg);
   animation: noteAnim 3000ms ease-in-out infinite;
 
@@ -160,7 +170,7 @@
   position: absolute;
   top: 39%;
   right: 17%;
-  width: clamp(3rem, 11.14vw, 13.7rem);
+  width: clamp(3rem, 11.14vmin, 13.7rem);
   animation: rulerAnim 3000ms ease-in-out infinite;
 
   @keyframes rulerAnim {
@@ -179,7 +189,7 @@
   position: absolute;
   top: 11%;
   right: 8%;
-  width: clamp(4.2rem, 13.5vw, 17.2rem);
+  width: clamp(4.2rem, 13.5vmin, 17.2rem);
   transform: rotate(-32.54deg);
   animation: calcAnim 3000ms ease-in-out infinite;
 
