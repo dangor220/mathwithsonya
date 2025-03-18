@@ -27,7 +27,6 @@ export interface Review {
 export interface Reviews {
   title: string;
   list: Review[];
-  makeReview: string;
 }
 
 export interface Contacts {
@@ -36,6 +35,11 @@ export interface Contacts {
   phone: string;
   mail: string;
   help: string;
+  formName: string;
+  formMessage: string;
+  formSuccess: string;
+  formFailed: string;
+  formSend: string;
 }
 
 export interface ContentItem {

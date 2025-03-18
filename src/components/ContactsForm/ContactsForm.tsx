@@ -6,15 +6,17 @@ import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import styles from './ContactsForm.module.scss';
+import { DefaultContent } from '../../types/defaultContentTypes';
 
 enum MessageStatus {
   Idle = 'idle',
   Loading = 'loading',
   Success = 'success',
   Failed = 'failed',
+  Captcha = 'captcha',
 }
 
-export default function ContactsForm(): React.ReactNode {
+export default function ContactsForm({ content }: { content: DefaultContent }): React.ReactNode {
   const [user, setUser] = useState('');
   const [tel, setTel] = useState('');
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -33,6 +35,7 @@ export default function ContactsForm(): React.ReactNode {
     if (!formRef.current) return;
 
     if (!captchaToken) {
+      setMessageStatus(MessageStatus.Captcha);
       setCaptchaError(true);
       return;
     } else {
@@ -107,15 +110,19 @@ export default function ContactsForm(): React.ReactNode {
           </>
         );
       case MessageStatus.Success:
-        return 'Сообщение отправлено';
+        return content.contacts.formSuccess;
       case MessageStatus.Failed:
-        return 'Ошибка при отправке';
+        return content.contacts.formFailed;
+      case MessageStatus.Captcha:
+        return 'Подтвердите что вы не робот';
       default:
-        return 'Отправить';
+        return content.contacts.formSend;
     }
   };
 
   const handleCaptchaChange = (value: string | null) => {
+    setMessageStatus(MessageStatus.Idle);
+    setCaptchaError(false);
     setCaptchaToken(value);
   };
 
@@ -132,7 +139,7 @@ export default function ContactsForm(): React.ReactNode {
           className={styles.name}
           type="text"
           name="name"
-          placeholder={'Как к вам обращаться?'}
+          placeholder={content.contacts.formName}
           required
           value={user}
           onChange={(e) => {
@@ -160,7 +167,7 @@ export default function ContactsForm(): React.ReactNode {
           className={styles.message}
           name="message"
           value={message}
-          placeholder={'Сообщение'}
+          placeholder={content.contacts.formMessage}
           required
           onChange={(e) => {
             setMessage(e.target.value);
