@@ -1,4 +1,5 @@
 import React from 'react';
+import { Element } from 'react-scroll';
 
 import styles from './Home.module.scss';
 import teacher from '@/assets/images/home/teacher/sonya.png';
@@ -10,24 +11,26 @@ import { DefaultContent } from '../../types/defaultContentTypes';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
   return (
-    <section className={styles.home} id="home">
-      <div className={`container ${styles.wrapper}`}>
-        <h1 className={styles.title}>
-          <span className={styles.name}>{content.name}</span>
-          <span className={styles.surname}>{content.surname}</span>
-        </h1>
-        <div className={styles.hero}>
-          <blockquote className={styles.quote}>{content.quote}</blockquote>
-          <div className={styles.teacher}>
-            <img src={teacher} alt="Софья Герасимова" />
-          </div>
-          <div className={styles.items}>
-            <img className={styles.note} src={note} alt="Тетрадь" />
-            <img className={styles.calc} src={calc} alt="Калькулятор" />
-            <img className={styles.ruler} src={ruler} alt="Линейка" />
+    <Element name="home" id="home">
+      <section className={styles.home}>
+        <div className={`container ${styles.wrapper}`}>
+          <h1 className={styles.title}>
+            <span className={styles.name}>{content.name}</span>
+            <span className={styles.surname}>{content.surname}</span>
+          </h1>
+          <div className={styles.hero}>
+            <blockquote className={styles.quote}>{content.quote}</blockquote>
+            <div className={styles.teacher}>
+              <img src={teacher} alt="Софья Герасимова" />
+            </div>
+            <div className={styles.items}>
+              <img className={styles.note} src={note} alt="Тетрадь" />
+              <img className={styles.calc} src={calc} alt="Калькулятор" />
+              <img className={styles.ruler} src={ruler} alt="Линейка" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Element>
   );
 }

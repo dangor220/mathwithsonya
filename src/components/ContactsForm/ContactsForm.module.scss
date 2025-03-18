@@ -36,15 +36,16 @@
 }
 
 .button {
-  background-color: $pink;
-  color: $white;
+  background-color: transparent;
+
+  color: $pink;
   cursor: pointer;
   transition: 0.3s all ease-in;
   flex: 1;
 
   &:hover {
-    background-color: transparent;
-    color: $pink;
+    background-color: $pink;
+    color: $white;
   }
 }
 

@@ -57,6 +57,7 @@
   color: $white;
   text-shadow: $pink-shadow 0 2px 5px;
   transition: 0.3s linear all;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);

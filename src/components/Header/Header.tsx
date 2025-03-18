@@ -1,4 +1,5 @@
 import { forwardRef, useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
 import { motion } from 'motion/react';
 
 import styles from './Header.module.scss';
@@ -48,25 +49,31 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
     <header className={scrolled ? `${styles.header} ${styles.scrolled}` : styles.header} ref={ref}>
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.logo}>
-          <a href="#home">
+          <Link to={'home'} smooth={true} duration={500}>
             <img className={styles.image} src={logo} alt="logo" />
-          </a>
+          </Link>
         </div>
         <nav className={styles.nav}>
           <ul className={styles.list}>
             {listItems.map((item) => (
               <li className={styles.item} key={item.id}>
-                <a className={styles.link} href={`#${item.id}`}>
+                <Link
+                  className={styles.link}
+                  to={item.id}
+                  smooth={true}
+                  duration={800}
+                  offset={
+                    -(ref as React.RefObject<HTMLElement>).current?.getBoundingClientRect().height +
+                    1
+                  }>
                   {item.label}
-                </a>
+                </Link>
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="underline"
                     className={styles.active}
-                    initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}></motion.div>
+                    transition={{ duration: 0.3 }}></motion.div>
                 )}
               </li>
             ))}
