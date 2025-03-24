@@ -12,11 +12,15 @@
 }
 .scrolled {
   background-color: rgba($color: #f2b9b9, $alpha: 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.5rem);
 
   .link {
     text-shadow: $header-shadow 0px 2px 5px;
   }
+}
+.menuOpen {
+  backdrop-filter: blur(0.5rem);
+  height: 100dvh;
 }
 .wrapper {
   display: flex;
@@ -35,6 +39,9 @@
   &:hover {
     opacity: 1;
   }
+}
+.logoBlur {
+  filter: blur(0.5rem);
 }
 .image {
   display: block;
@@ -55,7 +62,6 @@
     width: 100%;
     height: 100dvh;
     background-color: $nav-wrapper;
-    backdrop-filter: blur(0.5rem);
     transition: 0.3s all ease-in-out;
   }
 }

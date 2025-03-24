@@ -51,9 +51,13 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   }, []);
 
   return (
-    <header className={scrolled ? `${styles.header} ${styles.scrolled}` : styles.header} ref={ref}>
+    <header
+      className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${
+        menuIsOpen ? styles.menuOpen : ''
+      }`}
+      ref={ref}>
       <div className={`container ${styles.wrapper}`}>
-        <div className={styles.logo}>
+        <div className={`${styles.logo} ${menuIsOpen ? styles.logoBlur : ''}`}>
           <Link to={'home'} smooth={true} duration={500}>
             <img className={styles.image} src={logo} alt="logo" />
           </Link>
