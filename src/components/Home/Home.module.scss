@@ -2,19 +2,18 @@
 
 .home {
   position: relative;
-  background: $background url('/images/background/pink-background.jpg') center/cover no-repeat;
-  height: 100dvh;
   overflow: hidden;
+  height: 100dvh;
+  background: $background url('/images/background/pink-background.jpg') center/cover no-repeat;
+
   &::after {
     content: '';
     position: absolute;
     bottom: -25%;
     left: 0;
-    background: url('/images/background/border.png') center/ cover no-repeat;
-
     width: 100%;
     height: 50%;
-
+    background: url('/images/background/border.png') center/ cover no-repeat;
     animation: borderAnim 3000ms ease-in-out infinite;
 
     @keyframes borderAnim {
@@ -30,11 +29,10 @@
     }
   }
 }
+
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(2rem, 3.125vw, 5rem);
   height: 100%;
 }
 
@@ -42,8 +40,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   margin-top: clamp(5rem, 15.6vmin, 20rem);
-  position: relative;
 
   font-family: 'Bona Nova SC';
   font-weight: 700;
@@ -53,13 +52,22 @@
 
   color: $white;
   text-shadow: $pink-shadow 0 2px 5px;
-
   z-index: 1;
+}
+
+.name,
+.surname {
+  max-width: clamp(15.8rem, 7.89 * 12.3vmin, 101rem);
+  width: 100%;
+}
+
+.name {
+  position: relative;
 
   &::before {
     content: '';
     position: absolute;
-    top: -35%;
+    top: -65%;
     left: 42%;
     width: clamp(15rem, 45vmin, 55rem);
     height: clamp(15rem, 45vmin, 55rem);
@@ -93,32 +101,37 @@
     }
   }
 }
-.name,
-.surname {
-  max-width: clamp(15.8rem, 7.89 * 12.3vmin, 101rem);
-  width: 100%;
-}
 
 .surname {
   text-align: end;
 }
+
 .hero {
   display: flex;
   justify-content: center;
+  flex: 1;
+  position: relative;
 }
-.content {
+
+.teacher {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
+  height: 100%;
+  max-height: 50dvh;
   position: relative;
-  flex: 1;
-  max-width: clamp(15.8rem, 7.89 * 12.3vmin, 100%);
   z-index: 1;
+  .image {
+    width: auto;
+    height: 100%;
+    max-height: 50dvh;
+    object-fit: contain;
+  }
 }
 .quote {
   position: absolute;
-  top: 10%;
-  left: -1%;
+  top: 5%;
+  left: calc(clamp(1.4rem, 35vmin, 40rem) * -1 + 27%);
   max-width: clamp(1.4rem, 35vmin, 40rem);
   text-align: center;
   font-family: 'Marck Script';
@@ -139,18 +152,19 @@
     }
   }
 }
-
-.teacher {
-  width: clamp(19rem, 48.95vmin, 66rem);
-  img {
-    max-width: 100%;
-  }
+.items {
+  position: absolute;
+  top: 0;
+  right: calc(clamp(1.4rem, 35vmin, 40rem) * -1 + 27%);
+  width: clamp(1.4rem, 35vmin, 40rem);
+  height: 100%;
 }
+
 .note {
   position: absolute;
-  top: 20%;
-  right: 24%;
-  width: clamp(5rem, 13.85vmin, 18.3rem);
+  top: 18%;
+  left: 0%;
+  max-width: 47%;
   transform: rotate(2.77deg);
   animation: noteAnim 3000ms ease-in-out infinite;
 
@@ -166,11 +180,12 @@
     }
   }
 }
+
 .ruler {
   position: absolute;
-  top: 39%;
-  right: 17%;
-  width: clamp(3rem, 11.14vmin, 13.7rem);
+  top: 40%;
+  left: 33%;
+  max-width: 35%;
   animation: rulerAnim 3000ms ease-in-out infinite;
 
   @keyframes rulerAnim {
@@ -185,11 +200,12 @@
     }
   }
 }
+
 .calc {
   position: absolute;
-  top: 11%;
-  right: 8%;
-  width: clamp(4.2rem, 13.5vmin, 17.2rem);
+  top: 4%;
+  right: 5%;
+  max-width: 43%;
   transform: rotate(-32.54deg);
   animation: calcAnim 3000ms ease-in-out infinite;
 

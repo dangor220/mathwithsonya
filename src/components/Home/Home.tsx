@@ -17,16 +17,16 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
           <span className={styles.surname}>{content.surname}</span>
         </h1>
         <div className={styles.hero}>
-          <div className={styles.content}>
-            <blockquote className={styles.quote}>{content.quote}</blockquote>
-            <div className={styles.teacher}>
-              <img src={teacher} alt="Софья Герасимова" />
-            </div>
+          <div className={styles.teacher}>
+            <blockquote className={styles.quote}>
+              Любовь к математике начинается с хорошего учителя!
+            </blockquote>
+            <img className={styles.image} src={teacher} alt="Софья Герасимова" />
             <div className={styles.items}>
               <img className={styles.note} src={note} alt="Тетрадь" />
               <img className={styles.calc} src={calc} alt="Калькулятор" />
               <img className={styles.ruler} src={ruler} alt="Линейка" />
-            </div>{' '}
+            </div>
           </div>
         </div>
       </div>
