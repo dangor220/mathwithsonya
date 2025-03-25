@@ -24,8 +24,16 @@ export default function Reviews({ content }: { content: DefaultContent }): React
             }}
             pagination={{ clickable: true }}
             modules={[Autoplay, Pagination, A11y]}
-            spaceBetween={50}
-            slidesPerView={2}>
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 50,
+              },
+            }}>
             {content.reviews.list.map((item, id) => (
               <SwiperSlide key={id}>
                 <div className={styles.card}>

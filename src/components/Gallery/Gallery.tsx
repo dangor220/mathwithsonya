@@ -23,7 +23,7 @@ export default function Gallery({
       <ColumnsPhotoAlbum
         photos={slides}
         onClick={({ index: current }) => setIndex(current)}
-        columns={1}
+        columns={3}
         spacing={30}
       />
 

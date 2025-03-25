@@ -65,7 +65,9 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
         <nav
           className={`${styles.nav} ${menuIsOpen ? styles.open : ''}`}
           onClick={() => {
-            setMenuIsOpen(!menuIsOpen);
+            if (window.innerWidth <= 768) {
+              setMenuIsOpen(!menuIsOpen);
+            }
           }}>
           <ul className={styles.list}>
             {listItems.map((item) => (
@@ -80,7 +82,9 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
                     1
                   }
                   onClick={() => {
-                    setMenuIsOpen(!menuIsOpen);
+                    if (window.innerWidth <= 768) {
+                      setMenuIsOpen(!menuIsOpen);
+                    }
                   }}>
                   {item.label}
                 </Link>

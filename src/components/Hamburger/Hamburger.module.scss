@@ -18,6 +18,10 @@
   @media (max-width: 768px) {
     display: block;
   }
+
+  @media (max-width: 425px) {
+    width: 5rem;
+  }
 }
 
 .hamburger span {
@@ -25,7 +29,7 @@
   position: absolute;
   height: 0.6rem;
   width: 100%;
-  background: #edb0b0;
+  background: $pink-text;
   border-radius: 1.3rem;
   opacity: 1;
   left: 0;
@@ -46,16 +50,26 @@
 .hamburger span:nth-child(2),
 .hamburger span:nth-child(3) {
   top: 1.8rem;
+
+  @media (max-width: 425px) {
+    top: 1.6rem;
+  }
 }
 
 .hamburger span:nth-child(4) {
   top: 3.6rem;
+  @media (max-width: 425px) {
+    top: 3.2rem;
+  }
 }
 
 .hamburger.open span:nth-child(1) {
   top: 1.8rem;
   width: 0%;
   left: 50%;
+  @media (max-width: 425px) {
+    top: 1.6rem;
+  }
 }
 
 .hamburger.open span:nth-child(2) {
@@ -76,4 +90,8 @@
   top: 1.8rem;
   width: 0%;
   left: 50%;
+
+  @media (max-width: 425px) {
+    top: 1.6rem;
+  }
 }
