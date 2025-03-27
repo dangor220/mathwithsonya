@@ -31,6 +31,10 @@ export default function Reviews({ content }: { content: DefaultContent }): React
               },
               768: {
                 slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1024: {
+                slidesPerView: 2,
                 spaceBetween: 50,
               },
             }}>

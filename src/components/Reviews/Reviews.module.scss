@@ -28,7 +28,7 @@
   color: $pink;
   text-shadow: $shadow 0 2px 5px;
   text-align: center;
-  padding: clamp(1rem, 2vw, 3rem) 0;
+  padding: 4rem 0;
 
   @media (max-width: 768px) {
     font-size: $medium-title;
@@ -60,8 +60,9 @@
   }
 }
 .user {
-  max-width: clamp(10rem, 1.6vw, 15.8rem);
-  max-height: clamp(10rem, 1.6vw, 15.8rem);
+  max-width: clamp(8rem, 2.17vw, 10rem);
+  max-height: clamp(8rem, 2.17vw, 10rem);
+
   margin-bottom: 5rem;
 
   @media (max-width: 768px) {

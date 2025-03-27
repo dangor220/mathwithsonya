@@ -24,7 +24,12 @@ export default function Gallery({
         photos={slides}
         onClick={({ index: current }) => setIndex(current)}
         columns={3}
-        spacing={30}
+        spacing={(containerWidth) => {
+          if (containerWidth > 768) {
+            return 30;
+          }
+          return 15;
+        }}
       />
 
       <Lightbox

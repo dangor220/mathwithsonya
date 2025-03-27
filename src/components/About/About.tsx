@@ -3,6 +3,7 @@ import Lightbox from 'yet-another-react-lightbox';
 
 import styles from './About.module.scss';
 import 'yet-another-react-lightbox/styles.css';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
 import graduate from '@/assets/images/about/graduate.png';
 import arrow from '@/assets/images/about/arrow.png';
@@ -48,6 +49,7 @@ export default function About({
         slides={[{ src: page_1 }, { src: page_2 }, { src: page_3 }]}
         controller={{ closeOnBackdropClick: true }}
         noScroll={{ disabled: true }}
+        plugins={[Zoom]}
         styles={{
           container: {
             background: '#000000a9',

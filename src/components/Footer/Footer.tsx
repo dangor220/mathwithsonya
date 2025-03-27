@@ -19,7 +19,10 @@ export default function Footer(): React.ReactElement {
           </p>
         </div>
         <div className={styles.center}>
-          <p>© 2025 Герасимова Софья Алексеевна. Все права защищены.</p>
+          <p>
+            © 2025 Герасимова Софья Алексеевна.
+            <br /> Все права защищены.
+          </p>
         </div>
         <div className={styles.right}>
           <p>
