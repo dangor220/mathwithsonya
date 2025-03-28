@@ -1,9 +1,11 @@
 @use '@/styles/variables.scss' as *;
+
 .map {
   position: relative;
   overflow: hidden;
   flex: 1;
 }
+
 .frame {
   width: 100%;
   height: calc(var(--vh, 1vh) * 50);

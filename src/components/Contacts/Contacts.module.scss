@@ -1,13 +1,14 @@
 @use '@/styles/variables.scss' as *;
 
 .title {
-  font-family: 'Bona Nova SC';
-  font-weight: 700;
-  font-size: 6.4rem;
-  color: $pink;
-  text-shadow: $shadow 0 2px 5px;
   text-align: center;
   padding: 4rem 0;
+
+  font-family: 'Bona Nova SC';
+  font-size: 6.4rem;
+  font-weight: 700;
+  color: $pink;
+  text-shadow: $shadow 0 2px 5px;
 
   @media (max-width: 768px) {
     font-size: $medium-title;
@@ -31,9 +32,11 @@
     font-size: $x-small;
   }
 }
+
 .help {
   margin-bottom: 2rem;
 }
+
 .contact {
   display: flex;
   gap: 2rem;
@@ -44,6 +47,7 @@
     margin-bottom: 2rem;
   }
 }
+
 .list {
   display: flex;
   flex-direction: column;
@@ -54,13 +58,15 @@
     justify-content: space-between;
   }
 }
+
 .link {
   display: flex;
   color: $pink;
 
   svg {
     font-size: 7rem;
-    transition: 0.3s all ease-in-out;
+    transition: all 0.3s ease-in-out;
+
     &:hover {
       transform: scale(1.08);
     }

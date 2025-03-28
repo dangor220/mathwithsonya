@@ -17,6 +17,7 @@
     font-size: $x-small;
   }
 }
+
 .data {
   display: flex;
   justify-content: space-between;
@@ -27,6 +28,7 @@
     flex-direction: column;
   }
 }
+
 .submit {
   display: flex;
   gap: 2rem;
@@ -36,11 +38,13 @@
     flex-direction: column-reverse;
   }
 }
+
 .name,
 .phone {
   width: 100%;
   min-width: 0;
 }
+
 .name {
   flex: 2;
 }
@@ -48,6 +52,7 @@
 .phone {
   flex: 1;
 }
+
 .name,
 .phone,
 .message,
@@ -56,9 +61,11 @@
   border: 4px solid $pink;
   border-radius: 1.3rem;
 }
+
 .content {
   width: 100%;
 }
+
 .message {
   width: 100%;
   resize: none;
@@ -66,7 +73,6 @@
 
 .button {
   background-color: transparent;
-
   color: $pink;
   cursor: pointer;
   transition: 0.3s all ease-in;
@@ -84,6 +90,7 @@
     border-radius: 1.3rem;
   }
 }
+
 .phoneError {
   border: 3px solid $require;
 }

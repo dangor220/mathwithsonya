@@ -1,8 +1,10 @@
 @use '@/styles/variables.scss' as *;
+
 :global {
   .swiper-pagination-bullet-active {
     background: $pink !important;
   }
+
   .swiper-wrapper {
     margin-bottom: 8rem;
 
@@ -16,6 +18,7 @@
     height: auto !important;
   }
 }
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -33,15 +36,18 @@
   @media (max-width: 768px) {
     font-size: $medium-title;
   }
+
   @media (max-width: 425px) {
     font-size: $small-title;
   }
 }
+
 .content {
   display: flex;
   flex: 1;
   align-items: center;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -55,28 +61,32 @@
   @media (max-width: 768px) {
     padding: 3.6rem 2.5rem;
   }
+
   @media (max-width: 425px) {
     padding: 2.6rem 1.5rem;
   }
 }
+
 .user {
   max-width: clamp(8rem, 2.17vw, 10rem);
   max-height: clamp(8rem, 2.17vw, 10rem);
-
   margin-bottom: 5rem;
 
   @media (max-width: 768px) {
     margin-bottom: 3rem;
   }
+
   @media (max-width: 425px) {
     margin-bottom: 2rem;
   }
 }
+
 .image {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
+
 .review {
   display: flex;
   flex-direction: column;
@@ -90,9 +100,11 @@
     font-size: $medium;
     gap: 2rem;
   }
+
   @media (max-width: 425px) {
     font-size: $small;
   }
+
   @media (max-width: 375px) {
     font-size: $x-small;
   }

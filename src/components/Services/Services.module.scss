@@ -1,10 +1,13 @@
 @use '../../styles/variables.scss' as *;
+
 .services {
   min-height: 100svh;
 }
+
 .wrapper {
   overflow: hidden;
 }
+
 .title {
   font-family: 'Bona Nova SC';
   font-size: $large-title;
@@ -17,6 +20,7 @@
   @media (max-width: 768px) {
     font-size: $medium-title;
   }
+
   @media (max-width: 425px) {
     font-size: $small-title;
   }
@@ -27,6 +31,7 @@
   gap: 2rem;
   justify-content: space-between;
   margin-bottom: 2.5rem;
+
   @media (max-width: 768px) {
     flex-wrap: wrap;
   }
@@ -37,7 +42,6 @@
   font-family: 'Bona Nova SC';
   font-size: $big;
   font-weight: 700;
-
   color: $pink;
   text-shadow: none;
   background-color: transparent;
@@ -57,9 +61,11 @@
     font-size: $large;
     min-width: 200px;
   }
+
   @media (max-width: 425px) {
     font-size: $medium;
   }
+
   @media (max-width: 375px) {
     font-size: $small;
   }
@@ -82,16 +88,20 @@
   @media (max-width: 768px) {
     font-size: $medium;
   }
+
   @media (max-width: 425px) {
     font-size: $small;
   }
+
   @media (max-width: 375px) {
     font-size: $x-small;
   }
 }
+
 .description {
   flex: 2;
 }
+
 .text {
   white-space: pre-line;
 }

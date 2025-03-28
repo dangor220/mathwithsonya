@@ -10,6 +10,7 @@
   transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   z-index: 1000;
 }
+
 .scrolled {
   background-color: rgba($color: #f2b9b9, $alpha: 0.15);
   backdrop-filter: blur(0.5rem);
@@ -94,9 +95,11 @@
     font-size: $large-nav;
     padding: 1rem 1rem;
   }
+
   @media (max-width: 425px) {
     font-size: $medium-nav;
   }
+
   @media (max-width: 375px) {
     font-size: $small-nav;
   }
@@ -104,6 +107,7 @@
 
 .active {
   position: relative;
+
   &::after {
     content: '';
     position: absolute;
@@ -122,9 +126,11 @@
     backdrop-filter: blur(0.5rem);
     height: 100dvh;
   }
+
   .logoBlur {
     filter: blur(0.5rem);
   }
+
   .open {
     visibility: visible;
     opacity: 1;
