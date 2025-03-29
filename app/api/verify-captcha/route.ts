@@ -1,38 +1,45 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const { captchaToken } = req.body;
+export async function POST(req: Request) {
+  try {
+    const { captchaToken } = await req.json();
 
     if (!captchaToken) {
-      return res
-        .status(400)
-        .json({ success: false, message: 'Ошибка: не пройдена проверка reCAPTCHA' });
+      return NextResponse.json(
+        { success: false, message: 'Ошибка: не пройдена проверка reCAPTCHA' },
+        { status: 400 },
+      );
     }
 
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-
     if (!secretKey) {
-      return res.status(500).json({ success: false, message: 'Ошибка: секретный ключ не задан' });
+      return NextResponse.json(
+        { success: false, message: 'Ошибка: секретный ключ не найден' },
+        { status: 500 },
+      );
     }
 
-    const response = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         secret: secretKey,
         response: captchaToken,
       }),
     });
+
     const data = await response.json();
 
     if (!data.success) {
-      return res
-        .status(400)
-        .json({ success: false, message: 'Ошибка: неверная проверка reCAPTCHA' });
+      return NextResponse.json(
+        { success: false, message: 'Ошибка: неверная проверка reCAPTCHA' },
+        { status: 400 },
+      );
     }
 
-    res.status(200).json({ success: true, message: 'Форма успешно отправлена!' });
-  } else {
-    res.status(405).json({ success: false, message: 'Метод не разрешен' });
+    return NextResponse.json({ success: true, message: 'Форма успешно отправлена!' });
+  } catch (error) {
+    console.error('Ошибка при валидации:', error);
+    return NextResponse.json({ success: false, message: 'Ошибка на сервере' }, { status: 500 });
   }
 }
