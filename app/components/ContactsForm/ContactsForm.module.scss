@@ -85,6 +85,19 @@
   }
 }
 
+.recaptcha {
+  height: 7.8rem;
+  @media (max-width: 375px) {
+    height: 6.6rem;
+    transform: scale(0.85);
+    transform-origin: 0 0;
+  }
+  @media (max-width: 320px) {
+    height: 6rem;
+    transform: scale(0.77);
+    transform-origin: 0 0;
+  }
+}
 .recaptchaError {
   iframe {
     border: 3px solid $require;

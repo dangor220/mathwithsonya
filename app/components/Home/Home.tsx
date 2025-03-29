@@ -54,11 +54,16 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
             <blockquote className={styles.quote}>
               Любовь к математике начинается с хорошего учителя!
             </blockquote>
-            <Image className={styles.image} src={teacher} alt="Софья Герасимова" />
+            <Image
+              className={styles.image}
+              src={teacher}
+              loading={'eager'}
+              alt="Софья Герасимова"
+            />
             <div className={styles.items}>
-              <Image className={styles.note} src={note} alt="Тетрадь" />
-              <Image className={styles.calc} src={calc} alt="Калькулятор" />
-              <Image className={styles.ruler} src={ruler} alt="Линейка" />
+              <Image className={styles.note} src={note} loading={'eager'} alt="Тетрадь" />
+              <Image className={styles.calc} src={calc} loading={'eager'} alt="Калькулятор" />
+              <Image className={styles.ruler} src={ruler} loading={'eager'} alt="Линейка" />
             </div>
           </div>
         </div>

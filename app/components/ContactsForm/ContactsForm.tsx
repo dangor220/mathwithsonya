@@ -205,12 +205,14 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           disabled={messageStatus === MessageStatus.Loading}>
           {renderButtonContent()}
         </button>
-        <ReCAPTCHA
-          className={captchaError ? styles.recaptchaError : ''}
-          ref={recaptchaRef}
-          sitekey={apiRecaptchaKey || ''}
-          onChange={handleCaptchaChange}
-        />
+        <div className={styles.recaptcha}>
+          <ReCAPTCHA
+            className={captchaError ? styles.recaptchaError : ''}
+            ref={recaptchaRef}
+            sitekey={apiRecaptchaKey || ''}
+            onChange={handleCaptchaChange}
+          />
+        </div>
       </div>
     </form>
   );
