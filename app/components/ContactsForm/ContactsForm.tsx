@@ -63,7 +63,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
     setMessageStatus(MessageStatus.Loading);
 
     try {
-      const recaptchaResponse = await fetch('/api/verify-captcha', {
+      const recaptchaResponse = await fetch('/api/route', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
