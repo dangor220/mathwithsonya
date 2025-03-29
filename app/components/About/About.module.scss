@@ -122,7 +122,8 @@
   width: 28.4%;
   height: 17.9%;
   z-index: 1;
-  clip-path: polygon(10% 100%, 86% 100%, 95% 2%, 11% 0%);
+  clip-path: polygon(9% 100%, 87% 100%, 95% 2%, 11% 0%);
+  transform: rotate(168.9deg);
   background-color: transparent;
   transition: all 0.3s linear;
   cursor: pointer;
