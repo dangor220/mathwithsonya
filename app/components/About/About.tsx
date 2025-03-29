@@ -33,14 +33,9 @@ export default function About({
         <div className={styles.content}>
           <div className={styles.text}>{content.about.text}</div>
           <div className={styles.graduate}>
-            <div className={styles.position}>
-              <Image src={graduate} className={styles.image} alt="Софья с красным дипломом" />
-              <Image src={arrow} className={styles.click} alt="Нажми на диплом" />
-              <button
-                className={styles.button}
-                type="button"
-                onClick={() => setOpen(true)}></button>
-            </div>
+            <Image src={graduate} className={styles.image} alt="Софья с красным дипломом" />
+            <Image src={arrow} className={styles.click} alt="Нажми на диплом" />
+            <button className={styles.button} type="button" onClick={() => setOpen(true)}></button>
           </div>
         </div>
       </div>
