@@ -179,7 +179,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
             e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
           ) => {
             setTel(e.target.value);
-            setPhoneError(false);
+            setPhoneError(e.target.value === '' ? false : !validatePhone(e.target.value));
           }}
         />
       </div>
