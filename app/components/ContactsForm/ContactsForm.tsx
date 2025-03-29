@@ -208,7 +208,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
         <ReCAPTCHA
           className={captchaError ? styles.recaptchaError : ''}
           ref={recaptchaRef}
-          sitekey={apiRecaptchaKey}
+          sitekey={apiRecaptchaKey || ''}
           onChange={handleCaptchaChange}
         />
       </div>
