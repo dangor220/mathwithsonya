@@ -116,15 +116,16 @@
 
 .button {
   position: absolute;
-  top: 44.6%;
-  left: 9%;
-  width: 24%;
-  height: 19%;
+
+  top: 45.6%;
+  left: 6.5%;
+  width: 28.4%;
+  height: 17.9%;
   z-index: 1;
+  clip-path: polygon(10% 100%, 86% 100%, 95% 2%, 11% 0%);
   background-color: transparent;
-  transform: rotate3d(2, -1, 0.9, -23deg);
+  transition: all 0.3s linear;
   cursor: pointer;
-  transition: 0.3s linear all;
 
   &:hover {
     background-color: #f7323243;
