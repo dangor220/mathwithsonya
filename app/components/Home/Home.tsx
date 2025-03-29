@@ -7,7 +7,8 @@ import note from '@/public/images/home/items/note.png';
 import ruler from '@/public/images/home/items/ruler.png';
 import calc from '@/public/images/home/items/calc.png';
 
-import { DefaultContent } from '../../types/defaultContentTypes';
+import { DefaultContent } from '@/types/defaultContentTypes';
+import { motion } from 'motion/react';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
   useEffect(() => {
@@ -45,26 +46,39 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
   return (
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>
-        <h1 className={styles.title}>
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 2, delay: 0.5 } }}
+          className={styles.title}>
           <span className={styles.name}>{content.name}</span>
           <span className={styles.surname}>{content.surname}</span>
-        </h1>
+        </motion.h1>
         <div className={styles.hero}>
           <div className={styles.teacher}>
-            <blockquote className={styles.quote}>
+            <motion.blockquote
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 1 } }}
+              className={styles.quote}>
               Любовь к математике начинается с хорошего учителя!
-            </blockquote>
-            <Image
-              className={styles.image}
-              src={teacher}
-              loading={'eager'}
-              alt="Софья Герасимова"
-            />
-            <div className={styles.items}>
+            </motion.blockquote>
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } }}>
+              <Image
+                className={styles.image}
+                src={teacher}
+                loading={'eager'}
+                alt="Софья Герасимова"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}
+              className={styles.items}>
               <Image className={styles.note} src={note} loading={'eager'} alt="Тетрадь" />
               <Image className={styles.calc} src={calc} loading={'eager'} alt="Калькулятор" />
               <Image className={styles.ruler} src={ruler} loading={'eager'} alt="Линейка" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

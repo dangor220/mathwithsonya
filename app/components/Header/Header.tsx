@@ -54,7 +54,9 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } }}
       className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${
         menuIsOpen ? styles.menuOpen : ''
       }`}
@@ -116,7 +118,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
           }}
         />
       </div>
-    </header>
+    </motion.header>
   );
 });
 
