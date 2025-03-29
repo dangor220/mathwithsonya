@@ -1,4 +1,6 @@
-export default async function handler(req, res) {
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { captchaToken } = req.body;
 
@@ -9,6 +11,10 @@ export default async function handler(req, res) {
     }
 
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+    if (!secretKey) {
+      return res.status(500).json({ success: false, message: 'Ошибка: секретный ключ не задан' });
+    }
 
     const response = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
       method: 'POST',
