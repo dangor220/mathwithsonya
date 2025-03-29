@@ -1,0 +1,49 @@
+@use '@/styles/variables.scss' as *;
+
+.footer {
+  background: $background-footer;
+  padding: 1.5rem 0;
+  color: $footer;
+}
+
+.wrapper {
+  display: flex;
+  font-size: $x-small;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  @media (max-width: 425px) {
+    font-size: $xs-small;
+  }
+}
+
+.left,
+.right {
+  flex: 1;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  flex: 2;
+  text-align: center;
+}
+
+.link {
+  color: $footer;
+
+  &:hover {
+    text-decoration: underline;
+    color: $black;
+  }
+}

@@ -1,0 +1,15 @@
+@use '@/styles/variables.scss' as *;
+
+.map {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+
+.frame {
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 50);
+  border: 0.5rem solid $pink;
+  padding: 0.5rem;
+  border-radius: 1.3rem;
+}

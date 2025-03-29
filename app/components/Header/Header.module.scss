@@ -1,0 +1,138 @@
+@use '@/styles/variables.scss' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: clamp(1.6rem, 3vw, 3.3rem);
+  border-bottom: 2px solid transparent;
+  transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.scrolled {
+  background-color: rgba($color: #f2b9b9, $alpha: 0.15);
+  backdrop-filter: blur(0.5rem);
+
+  .link {
+    text-shadow: $header-shadow 0px 2px 5px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: clamp(7rem, 3.4vw, 10rem);
+  opacity: 0.7;
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+
+  @media (max-width: 425px) {
+    margin: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: $nav-wrapper;
+    transition: 0.3s all ease-in-out;
+  }
+}
+
+.list {
+  display: flex;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.link {
+  display: block;
+  font-weight: 500;
+  color: $white;
+  text-shadow: $pink-shadow 0 2px 5px;
+  transition: 0.3s linear all;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    font-size: $large-nav;
+    padding: 1rem 1rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: $medium-nav;
+  }
+
+  @media (max-width: 375px) {
+    font-size: $small-nav;
+  }
+}
+
+.active {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 50%;
+    height: 0.4rem;
+    background-color: #edb0b0;
+    transform: translateX(-50%);
+    border-radius: 0.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menuOpen {
+    backdrop-filter: blur(0.5rem);
+    height: 100dvh;
+  }
+
+  .logoBlur {
+    filter: blur(0.5rem);
+  }
+
+  .open {
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,78 @@
+@use '@/styles/variables.scss' as *;
+
+.title {
+  text-align: center;
+  padding: 4rem 0;
+
+  font-family: var(--font-bona-nova-sc), sans-serif;
+  font-size: 6.4rem;
+  font-weight: 700;
+  color: $pink;
+  text-shadow: $shadow 0 2px 5px;
+
+  @media (max-width: 768px) {
+    font-size: $medium-title;
+  }
+  @media (max-width: 425px) {
+    font-size: $small-title;
+  }
+}
+
+.content {
+  margin-top: 2rem;
+  font-size: $large;
+
+  @media (max-width: 768px) {
+    font-size: $medium;
+  }
+  @media (max-width: 425px) {
+    font-size: $small;
+  }
+  @media (max-width: 375px) {
+    font-size: $x-small;
+  }
+}
+
+.help {
+  margin-bottom: 2rem;
+}
+
+.contact {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.link {
+  display: flex;
+  color: $pink;
+
+  svg {
+    font-size: 7rem;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 425px) {
+      font-size: 5rem;
+    }
+  }
+}
