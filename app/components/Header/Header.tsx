@@ -17,7 +17,6 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [isFirstRender, setIsFirstRender] = useState(true);
 
   const headerIsVisible = useHideHeader();
   useHandleScrollbar(ref as React.RefObject<HTMLDivElement | null>, menuIsOpen);
@@ -50,7 +49,6 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
       });
     };
     handleScroll();
-    setIsFirstRender(false);
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
