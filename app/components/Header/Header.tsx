@@ -11,12 +11,15 @@ import logo from '@/public/images/logo/logo.gif';
 import { DefaultContent } from '@/app/types/defaultContentTypes';
 import Hamburger from '../Hamburger/Hamburger';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
+import useHideHeader from '@/hooks/useHideHeader';
 
 const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }, ref) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
+  const headerIsVisible = useHideHeader();
   useHandleScrollbar(ref as React.RefObject<HTMLDivElement | null>, menuIsOpen);
 
   const listItems = [
@@ -47,6 +50,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
       });
     };
     handleScroll();
+    setIsFirstRender(false);
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -55,13 +59,18 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } }}
+      initial={{ y: 0 }}
+      animate={{ y: headerIsVisible ? 0 : '-100%' }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${
         menuIsOpen ? styles.menuOpen : ''
       }`}
       ref={ref}>
-      <div className={`container ${styles.wrapper}`}>
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
+        className={`container ${styles.wrapper}`}>
         <div className={`${styles.logo} ${menuIsOpen ? styles.logoBlur : ''}`}>
           <Link to={'home'} smooth={true} duration={500}>
             <Image
@@ -117,7 +126,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
             setMenuIsOpen(!menuIsOpen);
           }}
         />
-      </div>
+      </motion.div>
     </motion.header>
   );
 });
