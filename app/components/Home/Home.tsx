@@ -8,9 +8,14 @@ import ruler from '@/public/images/home/items/ruler.png';
 import calc from '@/public/images/home/items/calc.png';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.4]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
+  const translateY = useTransform(y, (value) => `translateY(${value}px)`);
+
   useEffect(() => {
     const handleHeight = () => {
       const vh = document.documentElement.clientHeight * 0.01;
@@ -47,6 +52,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>
         <motion.h1
+          style={{ transform: translateY }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 2, delay: 0.5 } }}
           className={styles.title}>
@@ -62,6 +68,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
               Любовь к математике начинается с хорошего учителя!
             </motion.blockquote>
             <motion.div
+              style={{ scale }}
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } }}>
               <Image

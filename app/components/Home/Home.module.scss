@@ -5,7 +5,6 @@
   background: $background url('/images/home/background/pink-background.jpg') center/cover no-repeat;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
-  overflow: hidden;
 
   &::after {
     content: '';
