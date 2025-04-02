@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import styles from './Home.module.scss';
@@ -11,9 +11,11 @@ import { DefaultContent } from '@/types/defaultContentTypes';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.4]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1.4 : 1.18]);
+  const scaleQuote = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1.6 : 1.18]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -400]);
   const translateY = useTransform(y, (value) => `translateY(${value}px)`);
 
   useEffect(() => {
@@ -38,6 +40,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
       if (mobileFactors < 2) {
         handleHeight();
       }
+      setIsMobile(window.innerWidth <= 768);
     };
     handleHeight();
 
@@ -62,15 +65,30 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
         <div className={styles.hero}>
           <div className={styles.teacher}>
             <motion.blockquote
+              style={{ scale: scaleQuote }}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 1 } }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                rotate: [-13.5, -10, -13.5],
+              }}
+              transition={{
+                duration: 1,
+                delay: 1,
+                rotate: {
+                  duration: 3,
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                },
+              }}
               className={styles.quote}>
               Любовь к математике начинается с хорошего учителя!
             </motion.blockquote>
             <motion.div
               style={{ scale }}
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } }}>
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } }}>
               <Image
                 className={styles.image}
                 src={teacher}
@@ -79,8 +97,10 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
               />
             </motion.div>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}
+              style={{ scale: scaleQuote }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1 }}
               className={styles.items}>
               <Image className={styles.note} src={note} loading={'eager'} alt="Тетрадь" />
               <Image className={styles.calc} src={calc} loading={'eager'} alt="Калькулятор" />

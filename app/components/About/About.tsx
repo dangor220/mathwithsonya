@@ -49,6 +49,7 @@ export default function About({
               duration: 1,
             },
           }}
+          viewport={{ amount: 0.3 }}
           className={styles.title}>
           {content.about.title}
         </motion.h2>
