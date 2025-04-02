@@ -96,10 +96,6 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
                   to={item.id}
                   smooth={true}
                   duration={800}
-                  offset={
-                    -(ref as React.RefObject<HTMLElement>).current?.getBoundingClientRect().height +
-                    1
-                  }
                   onClick={() => {
                     if (window.innerWidth <= 768) {
                       setMenuIsOpen(!menuIsOpen);
