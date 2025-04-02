@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 
 import styles from './About.module.scss';
@@ -14,6 +14,7 @@ import page_3 from '@/public/images/about/diplom/page_3.jpg';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
+import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 
 export default function About({
   content,
@@ -23,20 +24,66 @@ export default function About({
   headerRef: React.RefObject<HTMLDivElement | null>;
 }): React.ReactElement {
   const [open, setOpen] = React.useState(false);
+  const { scrollY } = useScroll();
+  const [scrollDirection, setScrollDirection] = useState('up');
+
+  useMotionValueEvent(scrollY, 'change', (current) => {
+    const prev = scrollY.getPrevious() ?? current;
+    const diff = current - prev;
+    setScrollDirection(diff > 0 ? 'down' : 'up');
+  });
 
   useHandleScrollbar(headerRef, open);
 
   return (
     <section className={styles.about} id="about">
       <div className={`container ${styles.wrapper}`}>
-        <h2 className={styles.title}>{content.about.title}</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.title}>
+          {content.about.title}
+        </motion.h2>
         <div className={styles.content}>
-          <div className={styles.text}>{content.about.text}</div>
-          <div className={styles.graduate}>
+          <motion.div
+            initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                bounce: 0.4,
+                duration: 1,
+              },
+            }}
+            className={styles.text}>
+            {content.about.text}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                bounce: 0.4,
+                duration: 1,
+                delay: 0.3,
+              },
+            }}
+            className={styles.graduate}>
             <Image src={graduate} className={styles.image} alt="Софья с красным дипломом" />
             <Image src={arrow} className={styles.click} alt="Нажми на диплом" />
             <button className={styles.button} type="button" onClick={() => setOpen(true)}></button>
-          </div>
+          </motion.div>
         </div>
       </div>
       <Lightbox

@@ -7,6 +7,7 @@ export default function useHideHeader() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
       setLastScrollY(currentScrollY);
     };

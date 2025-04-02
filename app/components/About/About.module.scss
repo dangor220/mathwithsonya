@@ -126,11 +126,26 @@
   transform: rotate(168.9deg);
   background-color: transparent;
   transition: all 0.3s linear;
+  animation: attract 3000ms ease-in-out infinite;
   cursor: pointer;
 
   @media (hover: hover) {
     &:hover {
       background-color: #f7323243;
+    }
+  }
+
+  @media (max-width: 768px) and (hover: none) {
+    @keyframes attract {
+      0% {
+        background-color: transparent;
+      }
+      50% {
+        background-color: #f7323243;
+      }
+      100% {
+        background-color: transparent;
+      }
     }
   }
 }
