@@ -24,6 +24,11 @@
   @media (max-width: 425px) {
     width: 5rem;
   }
+
+  @media (orientation: landscape) or (max-height: 425px) {
+    width: 5rem;
+    height: 3.5rem;
+  }
 }
 
 .hamburger span {
@@ -56,6 +61,9 @@
   @media (max-width: 425px) {
     top: 1.6rem;
   }
+  @media (orientation: landscape) or (max-height: 425px) {
+    top: 1.5rem;
+  }
 }
 
 .hamburger span:nth-child(4) {
@@ -63,6 +71,9 @@
 
   @media (max-width: 425px) {
     top: 3.2rem;
+  }
+  @media (orientation: landscape) or (max-height: 425px) {
+    top: 3rem;
   }
 }
 
