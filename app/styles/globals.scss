@@ -69,9 +69,11 @@ h1 {
   left: -1rem;
   transition: 0.3s ease-in-out all;
 
-  &:hover {
-    top: 0rem;
-    left: 0rem;
+  @media (hover: hover) {
+    &:hover {
+      top: 0rem;
+      left: 0rem;
+    }
   }
 
   @media (max-width: 768px) {

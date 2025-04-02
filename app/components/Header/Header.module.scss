@@ -35,8 +35,10 @@
   transition: 0.3s ease-in-out all;
   cursor: pointer;
 
-  &:hover {
-    opacity: 1;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -111,8 +113,10 @@
   transition: 0.3s linear all;
   cursor: pointer;
 
-  &:hover {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   @media (max-width: 768px) {

@@ -79,9 +79,11 @@
   transition: 0.3s all ease-in;
   flex: 1;
 
-  &:hover {
-    background-color: $pink;
-    color: $white;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $pink;
+      color: $white;
+    }
   }
 }
 

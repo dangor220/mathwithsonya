@@ -42,8 +42,10 @@
 .link {
   color: $footer;
 
-  &:hover {
-    text-decoration: underline;
-    color: $black;
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+      color: $black;
+    }
   }
 }

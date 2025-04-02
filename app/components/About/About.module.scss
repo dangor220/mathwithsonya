@@ -128,7 +128,9 @@
   transition: all 0.3s linear;
   cursor: pointer;
 
-  &:hover {
-    background-color: #f7323243;
+  @media (hover: hover) {
+    &:hover {
+      background-color: #f7323243;
+    }
   }
 }

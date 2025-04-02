@@ -51,10 +51,12 @@
   transition: 0.3s all ease-in-out;
   cursor: pointer;
 
-  &:hover {
-    color: $white;
-    text-shadow: $pink-shadow 0 2px 5px;
-    background-color: $pink;
+  @media (hover: hover) {
+    &:hover {
+      color: $white;
+      text-shadow: $pink-shadow 0 2px 5px;
+      background-color: $pink;
+    }
   }
 
   @media (max-width: 768px) {
