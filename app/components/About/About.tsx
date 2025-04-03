@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 
 import styles from './About.module.scss';
@@ -14,24 +14,18 @@ import page_3 from '@/public/images/about/diplom/page_3.jpg';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
-import { motion, useMotionValueEvent, useScroll } from 'motion/react';
+import { motion } from 'motion/react';
 
 export default function About({
   content,
   headerRef,
+  scrollDirection,
 }: {
   content: DefaultContent;
   headerRef: React.RefObject<HTMLDivElement | null>;
+  scrollDirection: string;
 }): React.ReactElement {
   const [open, setOpen] = React.useState(false);
-  const { scrollY } = useScroll();
-  const [scrollDirection, setScrollDirection] = useState('up');
-
-  useMotionValueEvent(scrollY, 'change', (current) => {
-    const prev = scrollY.getPrevious() ?? current;
-    const diff = current - prev;
-    setScrollDirection(diff > 0 ? 'down' : 'up');
-  });
 
   useHandleScrollbar(headerRef, open);
 
@@ -39,7 +33,7 @@ export default function About({
     <section className={styles.about} id="about">
       <div className={`container ${styles.wrapper}`}>
         <motion.h2
-          initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
           whileInView={{
             opacity: 1,
             y: 0,
@@ -49,13 +43,13 @@ export default function About({
               duration: 1,
             },
           }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ amount: 0.3 }}
           className={styles.title}>
           {content.about.title}
         </motion.h2>
         <div className={styles.content}>
           <motion.div
-            initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+            initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
             whileInView={{
               opacity: 1,
               y: 0,
@@ -65,7 +59,6 @@ export default function About({
                 duration: 1,
               },
             }}
-            viewport={{ once: true }}
             className={styles.text}>
             {content.about.text}
           </motion.div>

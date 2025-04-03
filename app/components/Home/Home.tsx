@@ -51,6 +51,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
       window.removeEventListener('orientationchange', handleOrientation);
     };
   }, []);
+
   return (
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>

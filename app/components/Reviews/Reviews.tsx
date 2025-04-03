@@ -11,13 +11,44 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
+import { motion } from 'motion/react';
 
-export default function Reviews({ content }: { content: DefaultContent }): React.ReactElement {
+export default function Reviews({
+  content,
+  scrollDirection,
+}: {
+  content: DefaultContent;
+  scrollDirection: string;
+}): React.ReactElement {
   return (
     <section className={styles.reviews} id="reviews">
       <div className={`container ${styles.wrapper}`}>
-        <h2 className={styles.title}>{content.reviews.title}</h2>
-        <div className={styles.content}>
+        <motion.h2
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.title}>
+          {content.reviews.title}
+        </motion.h2>
+        <motion.div
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.content}>
           <Swiper
             autoplay={{
               delay: 6000,
@@ -62,7 +93,7 @@ export default function Reviews({ content }: { content: DefaultContent }): React
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

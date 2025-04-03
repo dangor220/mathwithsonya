@@ -9,9 +9,11 @@ import styles from './Services.module.scss';
 export default function Services({
   content,
   headerRef,
+  scrollDirection,
 }: {
   content: DefaultContent;
   headerRef: React.RefObject<HTMLDivElement | null>;
+  scrollDirection: string;
 }): React.ReactElement {
   const [activeTab, setActiveTab] = useState('myHome');
   const arrayOptions = Object.entries(content.services.options);
@@ -23,8 +25,32 @@ export default function Services({
   return (
     <section className={styles.services} id="services">
       <div className={`container ${styles.wrapper}`}>
-        <h2 className={styles.title}>{content.services.title}</h2>
-        <div className={styles.tabs}>
+        <motion.h2
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.title}>
+          {content.services.title}
+        </motion.h2>
+        <motion.div
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.tabs}>
           {arrayOptions.map(([tab, obj]) => (
             <button
               className={`${styles.tab} ${activeTab === tab ? styles.active : ''}`}
@@ -35,8 +61,19 @@ export default function Services({
               {obj.type}
             </button>
           ))}
-        </div>
-        <div className={styles.content}>
+        </motion.div>
+        <motion.div
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.content}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -60,7 +97,7 @@ export default function Services({
               <Gallery slides={content.services.options[activeTab].slides} headerRef={headerRef} />
             </motion.div>
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

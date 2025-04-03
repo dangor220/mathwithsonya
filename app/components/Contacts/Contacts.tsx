@@ -8,14 +8,57 @@ import ContactsForm from '../ContactsForm/ContactsForm';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
+import { motion } from 'motion/react';
 
-export default function Contacts({ content }: { content: DefaultContent }): React.ReactElement {
+export default function Contacts({
+  content,
+  scrollDirection,
+}: {
+  content: DefaultContent;
+  scrollDirection: string;
+}): React.ReactElement {
   return (
     <section className={styles.contacts} id="contacts">
       <div className={`container ${styles.wrapper}`}>
-        <h2 className={styles.title}>{content.contacts.title}</h2>
-        <ContactsForm content={content} />
-        <div className={styles.content}>
+        <motion.h2
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.title}>
+          {content.contacts.title}
+        </motion.h2>
+        <motion.div
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}>
+          <ContactsForm content={content} />
+        </motion.div>
+        <motion.div
+          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              type: 'spring',
+              bounce: 0.4,
+              duration: 1,
+            },
+          }}
+          className={styles.content}>
           <div className={styles.help}>{content.contacts.help}</div>
           <div className={styles.contact}>
             <YandexMap />{' '}
@@ -50,7 +93,7 @@ export default function Contacts({ content }: { content: DefaultContent }): Reac
               </ul>
             </nav>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
