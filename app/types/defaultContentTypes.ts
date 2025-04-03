@@ -2,9 +2,17 @@ export interface About {
   title: string;
   text: string;
 }
-
+export interface Content {
+  title: string;
+  description: string;
+  features: string[];
+  price: number;
+  discount: string;
+  goal: string;
+  call_to_action: string;
+}
 export interface ServiceOptions {
-  [key: string]: { id: number; type: string; text: string; price: string; slides: Slides[] };
+  [key: string]: { id: number; type: string; content: Content; slides: Slides[] };
 }
 export interface Slides {
   src: string;

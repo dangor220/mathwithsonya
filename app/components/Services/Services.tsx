@@ -82,8 +82,34 @@ export default function Services({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               className={styles.description}>
-              <div className={styles.text}>{content.services.options[activeTab].text}</div>
-              <div className={styles.price}>{content.services.options[activeTab].price}</div>
+              <div className={styles.text}>
+                <div className={styles.description}>
+                  {content.services.options[activeTab].content.description}
+                </div>
+                <ul className={styles.list}>
+                  {content.services.options[activeTab].content.features.map((item, index) => (
+                    <li
+                      key={`${content.services.options[activeTab].id}-${index}`}
+                      className={styles.item}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className={styles.goal}>
+                  {content.services.options[activeTab].content.goal}
+                </div>
+                <div className={styles.call_to_action}>
+                  {content.services.options[activeTab].content.call_to_action}
+                </div>
+                <div className={styles.price}>
+                  Стоимость занятия:{' '}
+                  <span>{content.services.options[activeTab].content.price}</span> рублей за 60
+                  минут
+                  <div className={styles.discount}>
+                    {content.services.options[activeTab].content.discount}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
           <AnimatePresence mode="wait">
