@@ -49,7 +49,7 @@ export default function About({
               duration: 1,
             },
           }}
-          viewport={{ amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           className={styles.title}>
           {content.about.title}
         </motion.h2>
@@ -65,6 +65,7 @@ export default function About({
                 duration: 1,
               },
             }}
+            viewport={{ once: true }}
             className={styles.text}>
             {content.about.text}
           </motion.div>
