@@ -17,6 +17,13 @@ export default function Footer(): React.ReactElement {
               sonyager.22@gmail.com
             </a>
           </p>
+          <p>
+            <a
+              className={styles.link}
+              href="https://yandex.com/maps/geo/zhk_buninskiye_luga_2_4_1_podyezd_4/4204727603/?from=mapframe&ll=37.483346%2C55.545213&z=19">
+              Москва, ЖК Бунинские Луга, улица Александры Монаховой, 84к1, подъезд 4
+            </a>
+          </p>
         </div>
         <div className={styles.center}>
           <p>
