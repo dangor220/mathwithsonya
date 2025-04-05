@@ -5,7 +5,7 @@ import styles from './Loading.module.scss';
 
 import loader from '@/public/images/loading/load.gif';
 
-export default function Home(): React.ReactElement {
+export default function Loading(): React.ReactElement {
   return (
     <motion.div
       initial={{ opacity: 0 }}
