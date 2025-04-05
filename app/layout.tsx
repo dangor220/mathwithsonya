@@ -25,6 +25,9 @@ const bonaNovaSC = Bona_Nova_SC({
 export const metadata: Metadata = {
   title: 'Sonya and Math',
   description: 'Репетитор по математике',
+  appleWebApp: {
+    title: 'Math&Sonya',
+  },
 };
 
 export default function RootLayout({
