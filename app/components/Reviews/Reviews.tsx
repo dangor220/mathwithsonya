@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,13 +14,12 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/autoplay';
 import { motion } from 'motion/react';
 
-export default function Reviews({
-  content,
-  scrollDirection,
-}: {
+type Props = {
   content: DefaultContent;
   scrollDirection: string;
-}): React.ReactElement {
+};
+
+export default function Reviews({ content, scrollDirection }: Props): React.ReactElement {
   return (
     <section className={styles.reviews} id="reviews">
       <div className={`container ${styles.wrapper}`}>

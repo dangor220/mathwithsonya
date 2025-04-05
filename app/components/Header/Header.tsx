@@ -19,7 +19,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const headerIsVisible = useHideHeader();
-  useHandleScrollbar(ref as React.RefObject<HTMLDivElement | null>, menuIsOpen);
+  useHandleScrollbar(ref as React.RefObject<HTMLElement | null>, menuIsOpen);
 
   const listItems = [
     { id: 'home', label: content.homeNav },

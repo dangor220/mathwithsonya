@@ -1,23 +1,26 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
+
+function getScrollbarWidth(): number {
+  const div = document.createElement('div');
+  div.style.width = '100px';
+  div.style.height = '100px';
+  div.style.overflow = 'scroll';
+  div.style.position = 'absolute';
+  div.style.top = '-9999px';
+  document.body.appendChild(div);
+  const scrollbarWidth = div.offsetWidth - div.clientWidth;
+  document.body.removeChild(div);
+  return scrollbarWidth;
+}
 
 export default function useHandleScrollbar(
-  headerRef: React.RefObject<HTMLDivElement | null>,
+  headerRef: React.RefObject<HTMLElement | null>,
   open: boolean,
 ) {
-  const getScrollbarWidth = useCallback(() => {
-    const div = document.createElement('div');
-    div.style.width = '100px';
-    div.style.height = '100px';
-    div.style.overflow = 'scroll';
-    div.style.position = 'absolute';
-    div.style.top = '-9999px';
-    document.body.appendChild(div);
-    const scrollbarWidth = div.offsetWidth - div.clientWidth;
-    document.body.removeChild(div);
-    return scrollbarWidth;
-  }, []);
-
-  const hasScrollbar = () => document.body.scrollHeight > window.innerHeight;
+  const hasScrollbar = () => {
+    if (typeof window === 'undefined') return false;
+    return document.body.scrollHeight > window.innerHeight;
+  };
 
   useEffect(() => {
     if (!headerRef.current || !hasScrollbar()) {
@@ -41,5 +44,5 @@ export default function useHandleScrollbar(
       document.body.style.paddingRight = '';
       headerRef.current.style.width = '100%';
     }
-  }, [open, headerRef, getScrollbarWidth]);
+  }, [open, headerRef]);
 }

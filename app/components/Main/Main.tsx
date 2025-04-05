@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'motion/react';
 
@@ -9,13 +10,12 @@ import Contacts from '../Contacts/Contacts';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 
-export default function Main({
-  content,
-  headerRef,
-}: {
+type Props = {
   content: DefaultContent;
-  headerRef: React.RefObject<HTMLDivElement | null>;
-}): React.ReactElement {
+  headerRef: React.RefObject<HTMLElement | null>;
+};
+
+export default function Main({ content, headerRef }: Props): React.ReactElement {
   const { scrollY } = useScroll();
   const [scrollDirection, setScrollDirection] = useState('up');
 

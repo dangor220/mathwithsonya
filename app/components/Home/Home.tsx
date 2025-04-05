@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -11,7 +13,7 @@ import { DefaultContent } from '@/types/defaultContentTypes';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1.4 : 1.18]);
   const scaleQuote = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1.6 : 1.18]);
@@ -19,6 +21,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
   const translateY = useTransform(y, (value) => `translateY(${value}px)`);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
     const handleHeight = () => {
       const vh = document.documentElement.clientHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);

@@ -2,13 +2,12 @@ import React from 'react';
 
 import styles from './Hamburger.module.scss';
 
-export default function Hamburger({
-  onClick,
-  menuIsOpen,
-}: {
+type Props = {
   onClick: () => void;
   menuIsOpen: boolean;
-}): React.ReactElement {
+};
+
+export default function Hamburger({ onClick, menuIsOpen }: Props): React.ReactElement {
   return (
     <div
       className={menuIsOpen ? `${styles.hamburger} ${styles.open}` : styles.hamburger}

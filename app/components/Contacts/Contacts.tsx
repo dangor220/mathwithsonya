@@ -1,8 +1,9 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 import styles from './Contacts.module.scss';
 import { DefaultContent } from '@/types/defaultContentTypes';
-import YandexMap from '../YandexMap/YandexMap';
+
 import ContactsForm from '../ContactsForm/ContactsForm';
 
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -10,55 +11,37 @@ import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import { motion } from 'motion/react';
 
-export default function Contacts({
-  content,
-  scrollDirection,
-}: {
+const YandexMap = dynamic(() => import('../YandexMap/YandexMap'), { ssr: false });
+
+type Props = {
   content: DefaultContent;
   scrollDirection: string;
-}): React.ReactElement {
+};
+
+export default function Contacts({ content, scrollDirection }: Props): React.ReactElement {
+  const animationProps = {
+    initial: scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 },
+    whileInView: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <section className={styles.contacts} id="contacts">
       <div className={`container ${styles.wrapper}`}>
-        <motion.h2
-          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              bounce: 0.4,
-              duration: 1,
-            },
-          }}
-          className={styles.title}>
+        <motion.h2 {...animationProps} className={styles.title}>
           {content.contacts.title}
         </motion.h2>
-        <motion.div
-          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              bounce: 0.4,
-              duration: 1,
-            },
-          }}>
+        <motion.div {...animationProps}>
           <ContactsForm content={content} />
         </motion.div>
-        <motion.div
-          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              bounce: 0.4,
-              duration: 1,
-            },
-          }}
-          className={styles.content}>
+        <motion.div {...animationProps} className={styles.content}>
           <div className={styles.help}>{content.contacts.help}</div>
           <div className={styles.contact}>
             <YandexMap />{' '}
@@ -69,6 +52,8 @@ export default function Contacts({
                     className={styles.link}
                     href={content.contacts.telegram}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Открыть Telegram"
                     title={content.contacts.telegram}>
                     <TelegramIcon />
                   </a>
@@ -77,6 +62,7 @@ export default function Contacts({
                   <a
                     className={styles.link}
                     href={`tel:${content.contacts.phone}`}
+                    aria-label="Позвонить по телефону"
                     title={content.contacts.phone}>
                     <CallIcon />
                   </a>
@@ -86,6 +72,8 @@ export default function Contacts({
                     className={styles.link}
                     href={`mailto:${content.contacts.mail}`}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Написать на почту"
                     title={content.contacts.mail}>
                     <EmailIcon />
                   </a>

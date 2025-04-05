@@ -1,42 +1,30 @@
-'use client';
+import React from 'react';
 
-import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
-import defaultContent from './data/defaultContent';
+import ClientApp from '@/components/ClientApp/ClientApp';
 
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
-import Loading from './components/Loading/Loading';
+import defaultContent from '@/data/defaultContent';
 
-export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const [content, setContent] = useState(defaultContent);
-  const headerRef = useRef(null);
-
+async function getData() {
   const mockApiKey = process.env.NEXT_PUBLIC_MOCKAPI_KEY;
+  if (!mockApiKey) return defaultContent;
 
-  useEffect(() => {
-    axios
-      .get(`https://${mockApiKey}.mockapi.io/data`)
-      .then((response) => {
-        setContent(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log('Ошибка загрузки данных: ' + error);
-        setContent(defaultContent);
-        setLoading(false);
-      });
-  }, []);
+  try {
+    const res = await fetch(`https://${mockApiKey}.mockapi.io/data`, {
+      cache: 'force-cache',
+    });
 
-  if (loading) return <Loading />;
+    if (!res.ok) throw new Error('Ошибка загрузки данных');
 
-  return (
-    <>
-      <Header content={content[0]} ref={headerRef} />
-      <Main content={content[0]} headerRef={headerRef} />
-      <Footer />
-    </>
-  );
+    return await res.json();
+  } catch (error) {
+    console.error('Ошибка при загрузке данных:', error);
+    return defaultContent;
+  }
 }
+
+export default async function Home() {
+  const content = await getData();
+  return <ClientApp content={content[0]} />;
+}
+
+export const revalidate = 600;

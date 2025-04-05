@@ -1,20 +1,25 @@
+'use client';
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 
-import Gallery from '../Gallery/Gallery';
 import styles from './Services.module.scss';
+
+const Gallery = dynamic(() => import('../Gallery/Gallery'), { ssr: false });
+
+type Props = {
+  content: DefaultContent;
+  headerRef: React.RefObject<HTMLElement | null>;
+  scrollDirection: string;
+};
 
 export default function Services({
   content,
   headerRef,
   scrollDirection,
-}: {
-  content: DefaultContent;
-  headerRef: React.RefObject<HTMLDivElement | null>;
-  scrollDirection: string;
-}): React.ReactElement {
+}: Props): React.ReactElement {
   const [activeTab, setActiveTab] = useState('myHome');
   const arrayOptions = Object.entries(content.services.options);
 

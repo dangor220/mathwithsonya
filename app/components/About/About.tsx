@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
 import Lightbox from 'yet-another-react-lightbox';
@@ -16,15 +18,13 @@ import { DefaultContent } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 import { motion } from 'motion/react';
 
-export default function About({
-  content,
-  headerRef,
-  scrollDirection,
-}: {
+type Props = {
   content: DefaultContent;
-  headerRef: React.RefObject<HTMLDivElement | null>;
+  headerRef: React.RefObject<HTMLElement | null>;
   scrollDirection: string;
-}): React.ReactElement {
+};
+
+export default function About({ content, headerRef, scrollDirection }: Props): React.ReactElement {
   const [open, setOpen] = React.useState(false);
 
   useHandleScrollbar(headerRef, open);

@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import { ColumnsPhotoAlbum } from 'react-photo-album';
@@ -5,13 +6,12 @@ import 'react-photo-album/columns.css';
 import { Slides } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 
-export default function Gallery({
-  slides,
-  headerRef,
-}: {
+type Props = {
   slides: Slides[];
-  headerRef: React.RefObject<HTMLDivElement | null>;
-}): React.ReactElement {
+  headerRef: React.RefObject<HTMLElement | null>;
+};
+
+export default function Gallery({ slides, headerRef }: Props): React.ReactElement {
   const [index, setIndex] = useState(-1);
 
   useHandleScrollbar(headerRef, index >= 0);

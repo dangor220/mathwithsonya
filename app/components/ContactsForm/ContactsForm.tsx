@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useState } from 'react';
 import { InputMask } from '@react-input/mask';
 import ReCAPTCHA from 'react-google-recaptcha';
