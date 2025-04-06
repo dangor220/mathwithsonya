@@ -1,14 +1,17 @@
 'use client';
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { RenderImageContext, RenderImageProps, ColumnsPhotoAlbum } from 'react-photo-album';
+import NextJsImage from '@/components/NextJsImage/NextJsImage';
+
 import 'react-photo-album/columns.css';
+import 'yet-another-react-lightbox/styles.css';
+import styles from './Gallery.module.scss';
+
 import { Slides } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
-
-import styles from './Gallery.module.scss';
-import { motion } from 'motion/react';
 
 const Lightbox = dynamic(() => import('yet-another-react-lightbox'));
 
@@ -78,6 +81,7 @@ export default function Gallery({ slides, headerRef }: Props): React.ReactElemen
       <Lightbox
         index={index}
         slides={slides}
+        render={{ slide: NextJsImage }}
         open={index >= 0}
         close={() => setIndex(-1)}
         controller={{ closeOnBackdropClick: true }}
