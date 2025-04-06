@@ -130,7 +130,8 @@
     object-fit: contain;
 
     @media (max-width: 550px) {
-      max-height: fit-content;
+      max-height: none;
+      height: auto;
     }
   }
 }
