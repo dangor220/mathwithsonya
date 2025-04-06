@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import React from 'react';
-import Lightbox from 'yet-another-react-lightbox';
 
 import styles from './About.module.scss';
 import 'yet-another-react-lightbox/styles.css';
@@ -10,13 +10,14 @@ import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
 import graduate from '@/public/images/about/graduate.webp';
 import arrow from '@/public/images/about/arrow.webp';
-import page_1 from '@/public/images/about/diplom/page_1.webp';
-import page_2 from '@/public/images/about/diplom/page_2.webp';
-import page_3 from '@/public/images/about/diplom/page_3.webp';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 import { motion } from 'motion/react';
+
+import NextJsImage from '@/components/NextJsImage/NextJsImage';
+
+const Lightbox = dynamic(() => import('yet-another-react-lightbox'));
 
 type Props = {
   content: DefaultContent;
@@ -84,10 +85,30 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
       <Lightbox
         open={open}
         close={() => setOpen(false)}
-        slides={[{ src: page_1.src }, { src: page_2.src }, { src: page_3.src }]}
+        slides={[
+          {
+            src: '/images/about/diplom/page_1.webp',
+            width: 1755,
+            height: 1240,
+            alt: 'Диплом бакалавра. Страница 1.',
+          },
+          {
+            src: '/images/about/diplom/page_2.webp',
+            width: 1755,
+            height: 1240,
+            alt: 'Диплом бакалавра. Страница 2-3.',
+          },
+          {
+            src: '/images/about/diplom/page_3.webp',
+            width: 1755,
+            height: 1240,
+            alt: 'Диплом бакалавра. Страница 4.',
+          },
+        ]}
+        plugins={[Zoom]}
+        render={{ slide: NextJsImage }}
         controller={{ closeOnBackdropClick: true }}
         noScroll={{ disabled: true }}
-        plugins={[Zoom]}
         styles={{
           container: {
             background: '#000000a9',
