@@ -5,13 +5,14 @@ import styles from './Contacts.module.scss';
 import { DefaultContent } from '@/types/defaultContentTypes';
 
 import ContactsForm from '../ContactsForm/ContactsForm';
-
-import TelegramIcon from '@mui/icons-material/Telegram';
-import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from '@mui/icons-material/Email';
 import { motion } from 'motion/react';
 
-const YandexMap = dynamic(() => import('../YandexMap/YandexMap'), { ssr: false });
+const TelegramIcon = dynamic(() => import('@mui/icons-material/Telegram'));
+const CallIcon = dynamic(() => import('@mui/icons-material/Call'));
+const EmailIcon = dynamic(() => import('@mui/icons-material/Email'));
+const YandexMap = dynamic(() => import('../YandexMap/YandexMap'), {
+  ssr: false,
+});
 
 type Props = {
   content: DefaultContent;
