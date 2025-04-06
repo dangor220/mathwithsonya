@@ -17,7 +17,7 @@ import { motion } from 'motion/react';
 
 import NextJsImage from '@/components/NextJsImage/NextJsImage';
 
-const Lightbox = dynamic(() => import('yet-another-react-lightbox'));
+const Lightbox = dynamic(() => import('yet-another-react-lightbox'), { ssr: false });
 
 type Props = {
   content: DefaultContent;
@@ -76,8 +76,20 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
               },
             }}
             className={styles.graduate}>
-            <Image src={graduate} className={styles.image} alt="Софья с красным дипломом" />
-            <Image src={arrow} className={styles.click} alt="Нажми на диплом" />
+            <Image
+              src={graduate}
+              className={styles.image}
+              loading="lazy"
+              alt="Софья с красным дипломом"
+              quality={60}
+            />
+            <Image
+              src={arrow}
+              className={styles.click}
+              loading="lazy"
+              alt="Нажми на диплом"
+              quality={60}
+            />
             <button className={styles.button} type="button" onClick={() => setOpen(true)}></button>
           </motion.div>
         </div>
