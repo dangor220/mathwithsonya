@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 import styles from './Home.module.scss';
@@ -11,49 +11,15 @@ import calc from '@/public/images/home/items/calc.webp';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { useIsMobile } from '@/app/hooks/useIsMobile';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1.4 : 1.18]);
   const scaleQuote = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1.6 : 1.18]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -400]);
   const translateY = useTransform(y, (value) => `translateY(${value}px)`);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
-    const handleHeight = () => {
-      const vh = document.documentElement.clientHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    const handleOrientation = () => {
-      setTimeout(handleHeight, 300);
-    };
-    const handleResize = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const platform = navigator.platform.toLowerCase();
-      const screenWidth = window.innerWidth;
-
-      const isMobileUA = /android|iphone|ipad|ipod|windows phone/.test(userAgent);
-      const isMobilePlatform = /win|mac|linux/.test(platform) ? false : true;
-      const isMobileScreen = screenWidth <= 768;
-
-      const mobileFactors = [isMobileUA, isMobilePlatform, isMobileScreen].filter(Boolean).length;
-
-      if (mobileFactors < 2) {
-        handleHeight();
-      }
-      setIsMobile(window.innerWidth <= 768);
-    };
-    handleHeight();
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleOrientation);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleOrientation);
-    };
-  }, []);
 
   return (
     <section className={styles.home} id="home">
@@ -96,8 +62,10 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
               <Image
                 className={styles.image}
                 src={teacher}
-                loading={'eager'}
+                quality={65}
+                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
                 alt="Софья Герасимова"
+                priority
               />
             </motion.div>
             <motion.div
@@ -106,9 +74,9 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1 }}
               className={styles.items}>
-              <Image className={styles.note} src={note} loading={'eager'} alt="Тетрадь" />
-              <Image className={styles.calc} src={calc} loading={'eager'} alt="Калькулятор" />
-              <Image className={styles.ruler} src={ruler} loading={'eager'} alt="Линейка" />
+              <Image className={styles.note} src={note} loading="lazy" alt="Тетрадь" />
+              <Image className={styles.calc} src={calc} loading="lazy" alt="Калькулятор" />
+              <Image className={styles.ruler} src={ruler} loading="lazy" alt="Линейка" />
             </motion.div>
           </div>
         </div>

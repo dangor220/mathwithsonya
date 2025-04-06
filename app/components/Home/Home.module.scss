@@ -52,6 +52,8 @@
   color: $white;
   text-shadow: $pink-shadow 0 2px 5px;
   z-index: 1;
+
+  will-change: transform;
 }
 
 .name,
@@ -129,6 +131,8 @@
     max-height: calc(var(--vh, 1vh) * 50);
     object-fit: contain;
 
+    will-change: transform;
+
     @media (max-width: 550px) {
       max-height: none;
       height: auto;
@@ -146,6 +150,8 @@
   font-family: var(--font-marck-script), sans-serif;
   font-size: clamp(2.1rem, 4.1vmin, 5rem);
   color: $pink-text;
+
+  will-change: transform;
 
   @media (max-width: 700px) {
     top: -10%;
@@ -184,6 +190,8 @@
   position: relative;
   object-fit: contain;
   z-index: -100 !important;
+
+  will-change: transform;
 }
 
 .note {
