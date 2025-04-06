@@ -16,6 +16,7 @@ export interface ServiceOptions {
 }
 export interface Slides {
   src: string;
+  alt: string;
   width: number;
   height: number;
 }

@@ -40,51 +40,6 @@ h1 {
   padding: 0 2.5rem;
 }
 
-// react-photo-album
-.react-photo-album--button {
-  display: block;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $pink;
-    border-radius: 1.3rem;
-    z-index: -1;
-
-    @media (max-width: 425px) {
-      border-radius: 0.5rem;
-    }
-  }
-}
-
-.react-photo-album--image {
-  position: relative;
-  border-radius: 1.3rem;
-  top: -1rem;
-  left: -1rem;
-  transition: 0.3s ease-in-out all;
-
-  @media (hover: hover) {
-    &:hover {
-      top: 0rem;
-      left: 0rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    top: -0.5rem;
-    left: -0.5rem;
-  }
-
-  @media (max-width: 425px) {
-    border-radius: 0.5rem;
-  }
-}
 // swiper
 .swiper-pagination-bullet-active {
   background: $pink !important;

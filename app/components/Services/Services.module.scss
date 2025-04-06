@@ -4,10 +4,6 @@
   min-height: 100svh;
 }
 
-.wrapper {
-  overflow: hidden;
-}
-
 .title {
   font-family: var(--font-bona-nova-sc), sans-serif;
   font-size: $large-title;
@@ -119,5 +115,5 @@
 }
 
 .images {
-  flex: 1;
+  width: 100%;
 }
