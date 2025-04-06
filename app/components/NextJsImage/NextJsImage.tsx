@@ -48,7 +48,7 @@ export default function NextJsImage({ slide, offset, rect }: RenderSlideProps) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#f2b2ae',
+            color: 'rgba(248, 182, 182, 0.671)',
             zIndex: 1,
           }}>
           <CircularProgress color="inherit" />
