@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Lightbox from 'yet-another-react-lightbox';
+import dynamic from 'next/dynamic';
 import { RenderImageContext, RenderImageProps, ColumnsPhotoAlbum } from 'react-photo-album';
 import 'react-photo-album/columns.css';
 import { Slides } from '@/types/defaultContentTypes';
@@ -9,6 +9,8 @@ import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 
 import styles from './Gallery.module.scss';
 import { motion } from 'motion/react';
+
+const Lightbox = dynamic(() => import('yet-another-react-lightbox'));
 
 type Props = {
   slides: Slides[];
@@ -34,7 +36,6 @@ function renderNextImage(
         width: '100%',
         position: 'relative',
         aspectRatio: `${width} / ${height}`,
-        borderRadius: '1.3rem',
       }}>
       <Image
         fill
