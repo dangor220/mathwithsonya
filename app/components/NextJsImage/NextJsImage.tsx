@@ -45,11 +45,13 @@ export default function NextJsImage({ slide, offset, rect }: RenderSlideProps) {
           style={{
             position: 'absolute',
             inset: 0,
-            display: 'flex',
+            display: loading ? 'flex' : 'none',
             alignItems: 'center',
             justifyContent: 'center',
             color: 'rgba(248, 182, 182, 0.671)',
             zIndex: 1,
+            opacity: loading ? 1 : 0,
+            transition: 'opacity 0.3s ease',
           }}>
           <CircularProgress color="inherit" />
         </div>
@@ -59,7 +61,7 @@ export default function NextJsImage({ slide, offset, rect }: RenderSlideProps) {
         fill
         alt={slide.alt || ''}
         src={slide}
-        loading="eager"
+        loading="lazy"
         draggable={false}
         style={{
           objectFit: cover ? 'cover' : 'contain',
