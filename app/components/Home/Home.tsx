@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import styles from './Home.module.scss';
-import teacher from '@/public/images/home/teacher/sonya.png';
-import note from '@/public/images/home/items/note.png';
-import ruler from '@/public/images/home/items/ruler.png';
-import calc from '@/public/images/home/items/calc.png';
+import teacher from '@/public/images/home/teacher/sonya.webp';
+import note from '@/public/images/home/items/note.webp';
+import ruler from '@/public/images/home/items/ruler.webp';
+import calc from '@/public/images/home/items/calc.webp';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import { motion, useScroll, useTransform } from 'motion/react';

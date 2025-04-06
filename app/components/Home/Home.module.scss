@@ -2,7 +2,7 @@
 
 .home {
   position: relative;
-  background: $background url('/images/home/background/pink-background.jpg') center/cover no-repeat;
+  background: $background url('/images/home/background/pink-background.webp') center/cover no-repeat;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 
@@ -13,7 +13,7 @@
     left: 0;
     width: 100%;
     height: 50%;
-    background: url('/images/home/background/border.png') center/cover no-repeat;
+    background: url('/images/home/background/border.webp') center/cover no-repeat;
     animation: borderAnim 3000ms ease-in-out infinite;
 
     @keyframes borderAnim {
@@ -70,7 +70,7 @@
     left: 42%;
     width: clamp(15rem, 45vmin, 55rem);
     height: clamp(15rem, 45vmin, 55rem);
-    background: url('/images/home/background/heart-draft.png') center/cover no-repeat;
+    background: url('/images/home/background/heart-draft.webp') center/cover no-repeat;
     opacity: 0.5;
     z-index: -1;
     filter: drop-shadow($pink-shadow 0 2px 5px);

@@ -6,7 +6,7 @@ import { Link } from 'react-scroll';
 import { motion } from 'motion/react';
 
 import styles from './Header.module.scss';
-import logo from '@/public/images/logo/logo.gif';
+import logo from '@/public/images/logo/logo.webp';
 
 import { DefaultContent } from '@/app/types/defaultContentTypes';
 import Hamburger from '../Hamburger/Hamburger';

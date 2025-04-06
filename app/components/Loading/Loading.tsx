@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Loading.module.scss';
 
-import loader from '@/public/images/loading/load.gif';
+import loader from '@/public/images/loading/load.webp';
 
 export default function Loading(): React.ReactElement {
   return (

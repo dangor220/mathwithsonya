@@ -41,6 +41,7 @@ export interface Contacts {
   title: string;
   telegram: string;
   phone: string;
+  phone_separator: string;
   mail: string;
   help: string;
   formName: string;
@@ -50,6 +51,13 @@ export interface Contacts {
   formSend: string;
   formCaptcha: string;
   formPhone: string;
+  place: string;
+  place_link: string;
+  owner: string;
+  license: string;
+  developer: string;
+  developer_name: string;
+  developer_link: string;
 }
 
 export interface ContentItem {

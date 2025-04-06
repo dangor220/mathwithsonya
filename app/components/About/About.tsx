@@ -8,11 +8,11 @@ import styles from './About.module.scss';
 import 'yet-another-react-lightbox/styles.css';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
-import graduate from '@/public/images/about/graduate.png';
-import arrow from '@/public/images/about/arrow.png';
-import page_1 from '@/public/images/about/diplom/page_1.jpg';
-import page_2 from '@/public/images/about/diplom/page_2.jpg';
-import page_3 from '@/public/images/about/diplom/page_3.jpg';
+import graduate from '@/public/images/about/graduate.webp';
+import arrow from '@/public/images/about/arrow.webp';
+import page_1 from '@/public/images/about/diplom/page_1.webp';
+import page_2 from '@/public/images/about/diplom/page_2.webp';
+import page_3 from '@/public/images/about/diplom/page_3.webp';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';

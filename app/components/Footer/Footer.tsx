@@ -1,45 +1,45 @@
 import React from 'react';
 
+import { DefaultContent } from '@/types/defaultContentTypes';
+
 import styles from './Footer.module.scss';
 
-export default function Footer(): React.ReactElement {
+export default function Footer({ content }: { content: DefaultContent }): React.ReactElement {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.wrapper}`}>
         <div className={styles.left}>
           <p>
-            <a className={styles.link} href="tel:+79116951932">
-              +7 (911) 695-19-32
+            <a className={styles.link} href={content.contacts.place_link}>
+              {content.contacts.place}
             </a>
           </p>
           <p>
-            <a className={styles.link} href="mailto:sonyager.22@gmail.com">
-              sonyager.22@gmail.com
+            <a className={styles.link} href={`mailto:${content.contacts.mail}`}>
+              {content.contacts.mail}
             </a>
           </p>
           <p>
-            <a
-              className={styles.link}
-              href="https://yandex.com/maps/geo/zhk_buninskiye_luga_2_4_1_podyezd_4/4204727603/?from=mapframe&ll=37.483346%2C55.545213&z=19">
-              Москва, ЖК Бунинские Луга, улица Александры Монаховой, 84к1, подъезд 4
+            <a className={styles.link} href={`tel:${content.contacts.phone}`}>
+              {content.contacts.phone_separator}
             </a>
           </p>
         </div>
         <div className={styles.center}>
           <p>
-            © 2025 Герасимова Софья Алексеевна.
-            <br /> Все права защищены.
+            {content.contacts.owner}
+            <br /> {content.contacts.license}
           </p>
         </div>
         <div className={styles.right}>
           <p>
-            Разработка:{' '}
+            {content.contacts.developer}
             <a
               className={styles.link}
-              href="https://www.dangor.ru/"
+              href={content.contacts.developer_link}
               target="_blank"
               rel="noopener noreferrer">
-              dangor
+              {' ' + content.contacts.developer_name}
             </a>
           </p>
         </div>

@@ -38,22 +38,22 @@ const defaultContent: DefaultContent[] = [
           },
           slides: [
             {
-              src: '/images/services/home/1.jpg',
+              src: '/images/services/home/1.webp',
               width: 1280,
               height: 960,
             },
             {
-              src: '/images/services/home/2.jpg',
+              src: '/images/services/home/2.webp',
               width: 1280,
               height: 960,
             },
             {
-              src: '/images/services/home/3.jpg',
+              src: '/images/services/home/3.webp',
               width: 1280,
               height: 960,
             },
             {
-              src: '/images/services/home/4.jpg',
+              src: '/images/services/home/4.webp',
               width: 1280,
               height: 960,
             },
@@ -80,12 +80,12 @@ const defaultContent: DefaultContent[] = [
           },
           slides: [
             {
-              src: '/images/services/your-home/1.jpg',
+              src: '/images/services/your-home/1.webp',
               width: 1280,
               height: 960,
             },
             {
-              src: '/images/services/your-home/2.jpg',
+              src: '/images/services/your-home/2.webp',
               width: 1280,
               height: 960,
             },
@@ -112,17 +112,17 @@ const defaultContent: DefaultContent[] = [
           },
           slides: [
             {
-              src: '/images/services/online/1.jpg',
+              src: '/images/services/online/1.webp',
               width: 1280,
               height: 960,
             },
             {
-              src: '/images/services/online/2.jpg',
+              src: '/images/services/online/2.webp',
               width: 1280,
               height: 960,
             },
             {
-              src: '/images/services/online/3.jpg',
+              src: '/images/services/online/3.webp',
               width: 1280,
               height: 960,
             },
@@ -138,70 +138,70 @@ const defaultContent: DefaultContent[] = [
           about: 'мама ученика 6 класса',
           review:
             'Мы очень рады, что нашли Софью Алексеевну! Мой сын всегда боялся математики, но с её помощью он начал получать хорошие оценки. Она объясняет всё понятно и доступно, всегда находит подход к ребёнку. Спасибо за терпение и поддержку!',
-          image: '/images/reviews/users/user_0.jpg',
+          image: '/images/reviews/users/user_0.webp',
         },
         {
           name: 'Максим Третьяков',
           about: 'ученик 5 класса',
           review:
             'Хороший учитель! Иногда сложно, но потом понятно. Объясняет нормально, лучше, чем в школе.',
-          image: '/images/reviews/users/user_1.jpg',
+          image: '/images/reviews/users/user_1.webp',
         },
         {
           name: 'Дима Сидоров',
           about: 'ученик 7 класса',
           review:
             'Я раньше совсем не понимал, как решать задачи, но теперь всё стало проще. Софья Алексеевна объясняет так, что становится понятно даже самое сложное.',
-          image: '/images/reviews/users/user_2.jpg',
+          image: '/images/reviews/users/user_2.webp',
         },
         {
           name: 'Олег Петров',
           about: 'папа ученика 6 класса',
           review:
             'Я сам в школе математику не любил, сын тоже не особо. Но Софья Алексеевна как-то смогла его заинтересовать. Не скажу, что теперь отличник, но хоть двойки перестали приходить.',
-          image: '/images/reviews/users/user_3.jpg',
+          image: '/images/reviews/users/user_3.webp',
         },
         {
           name: 'Марина Лебедева',
           about: 'мама ученицы 5 класса',
           review:
             'Большое спасибо Софье Алексеевне за её профессионализм и подход к детям! Моя дочь стала гораздо увереннее в математике.',
-          image: '/images/reviews/users/user_4.jpg',
+          image: '/images/reviews/users/user_4.webp',
         },
         {
           name: 'Артём Малышев',
           about: 'ученик 8 класса',
           review:
             'Мне нравится, что можно спрашивать, когда не понятно. В школе иногда стесняюсь, а тут не страшно.',
-          image: '/images/reviews/users/user_5.jpg',
+          image: '/images/reviews/users/user_5.webp',
         },
         {
           name: 'Никита Васильев',
           about: 'ученик 7 класса',
           review:
             'Математика с Софьей Алексеевной - это весело и понятно! Очень благодарен за помощь!',
-          image: '/images/reviews/users/user_6.jpg',
+          image: '/images/reviews/users/user_6.webp',
         },
         {
           name: 'Наталья Сергеева',
           about: 'мама ученицы 5 класса',
           review:
             'Дочка говорит, что на уроках интересно, значит, хороший учитель. Раньше ненавидела задачи, теперь просто не любит. Прогресс!',
-          image: '/images/reviews/users/user_7.jpg',
+          image: '/images/reviews/users/user_7.webp',
         },
         {
           name: 'Мария Иванова',
           about: 'мама ученика 5 класса',
           review:
             'Сын не хочет признавать, но я вижу, что стал лучше разбираться в математике. Софья Алексеевна молодец, терпеливая, а ему только такого учителя и надо.',
-          image: '/images/reviews/users/user_0.jpg',
+          image: '/images/reviews/users/user_0.webp',
         },
         {
           name: 'Анна Соколова',
           about: 'мама ученицы 6 класса',
           review:
             'Софья Алексеевна очень добрая, дочка не боится спрашивать. Хотелось бы, чтобы и в школе так объясняли.',
-          image: '/images/reviews/users/user_1.jpg',
+          image: '/images/reviews/users/user_1.webp',
         },
       ],
     },
@@ -209,6 +209,7 @@ const defaultContent: DefaultContent[] = [
       title: 'Контакты',
       telegram: 'https://t.me/sonechka_ger',
       phone: '+79116951932',
+      phone_separator: '+7-911-695-19-32',
       mail: 'sonyager.22@gmail.com',
       help: 'Место проведения уроков и связь:',
       formName: 'Как к вам обращаться?',
@@ -218,6 +219,14 @@ const defaultContent: DefaultContent[] = [
       formSend: 'Записаться',
       formCaptcha: 'Подтвердите что вы не робот',
       formPhone: 'Введите корректный номер',
+      place: 'Москва, ЖК Бунинские Луга, улица Александры Монаховой, 84к1, подъезд 4',
+      place_link:
+        'https://yandex.com/maps/geo/zhk_buninskiye_luga_2_4_1_podyezd_4/4204727603/?from=mapframe&ll=37.483346%2C55.545213&z=19',
+      owner: '© 2025 Герасимова Софья Алексеевна.',
+      license: 'Все права защищены.',
+      developer: 'Разработка:',
+      developer_name: 'dangor',
+      developer_link: 'https://www.dangor.ru/',
     },
   },
 ];

@@ -13,7 +13,7 @@ export default function ClientApp({ content }: { content: DefaultContent }) {
     <>
       <Header content={content} ref={headerRef} />
       <Main content={content} headerRef={headerRef} />
-      <Footer />
+      <Footer content={content} />
     </>
   );
 }
