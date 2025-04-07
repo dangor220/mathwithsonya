@@ -133,8 +133,6 @@
     max-height: calc(var(--vh, 1vh) * 50);
     object-fit: contain;
 
-    will-change: transform, opacity;
-
     @media (max-width: 550px) {
       max-height: none;
       height: auto;
