@@ -70,7 +70,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
       ref={ref}>
       <div className={`container ${styles.wrapper}`}>
         <div className={`${styles.logo} ${menuIsOpen ? styles.logoBlur : ''}`}>
-          <Link to={'home'} smooth={true} duration={500}>
+          <Link to={'home'} href="#home" smooth={true} duration={500}>
             <Image
               className={styles.image}
               width={70}
@@ -94,6 +94,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
                 <Link
                   className={styles.link}
                   to={item.id}
+                  href={`#${item.id}`}
                   smooth={true}
                   duration={800}
                   onClick={() => {
