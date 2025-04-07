@@ -4,8 +4,8 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-import styles from './About.module.scss';
 import 'yet-another-react-lightbox/styles.css';
+import styles from './About.module.scss';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
 import graduate from '@/public/images/about/graduate.webp';
