@@ -6,9 +6,11 @@ import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 
 import { DefaultContent } from '@/app/types/defaultContentTypes';
+import { useIsMobile } from '@/app/hooks/useIsMobile';
 
 export default function ClientApp({ content }: { content: DefaultContent }) {
   const headerRef = useRef(null);
+  useIsMobile();
   return (
     <>
       <Header content={content} ref={headerRef} />

@@ -68,11 +68,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
         menuIsOpen ? styles.menuOpen : ''
       }`}
       ref={ref}>
-      <motion.div
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        className={`container ${styles.wrapper}`}>
+      <div className={`container ${styles.wrapper}`}>
         <div className={`${styles.logo} ${menuIsOpen ? styles.logoBlur : ''}`}>
           <Link to={'home'} smooth={true} duration={500}>
             <Image
@@ -124,7 +120,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
             setMenuIsOpen(!menuIsOpen);
           }}
         />
-      </motion.div>
+      </div>
     </motion.header>
   );
 });
