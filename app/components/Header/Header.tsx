@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { forwardRef, useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'motion/react';
@@ -9,9 +10,12 @@ import styles from './Header.module.scss';
 import logo from '@/public/images/logo/logo.webp';
 
 import { DefaultContent } from '@/app/types/defaultContentTypes';
-import Hamburger from '../Hamburger/Hamburger';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 import useHideHeader from '@/hooks/useHideHeader';
+
+const Hamburger = dynamic(() => import('@/components/Hamburger/Hamburger'), {
+  ssr: false,
+});
 
 const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }, ref) => {
   const [scrolled, setScrolled] = useState(false);
@@ -67,7 +71,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 1, ease: 'easeOut' }}
         className={`container ${styles.wrapper}`}>
         <div className={`${styles.logo} ${menuIsOpen ? styles.logoBlur : ''}`}>
           <Link to={'home'} smooth={true} duration={500}>

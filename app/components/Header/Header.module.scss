@@ -8,7 +8,7 @@
   font-size: clamp(1.6rem, 3vw, 3.3rem);
   border-bottom: 2px solid transparent;
   transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
-  will-change: 'transform, opacity';
+  will-change: transform, opacity;
   z-index: 1000;
 }
 
