@@ -91,7 +91,7 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
             />
             <button
               className={styles.button}
-              name="Открыть диплом"
+              aria-label="Открыть диплом"
               type="button"
               onClick={() => setOpen(true)}></button>
           </motion.div>
