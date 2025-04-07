@@ -43,7 +43,6 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
                 className={styles.image}
                 src={teacher}
                 quality={60}
-                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
                 alt="Софья Герасимова"
                 priority
               />

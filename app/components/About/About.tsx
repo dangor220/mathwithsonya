@@ -81,14 +81,13 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
               className={styles.image}
               loading="lazy"
               alt="Софья с красным дипломом"
-              quality={60}
             />
             <Image
               src={arrow}
               className={styles.click}
               loading="lazy"
               alt="Нажми на диплом"
-              quality={60}
+              quality={50}
             />
             <button className={styles.button} type="button" onClick={() => setOpen(true)}></button>
           </motion.div>
