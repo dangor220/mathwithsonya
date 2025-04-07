@@ -75,6 +75,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
           height={150}
           priority
           quality={50}
+          sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
           className={styles.bgBorderImage}
         />
       </div>
