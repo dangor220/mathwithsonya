@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+import teacher from '@/public/images/home/teacher/sonya.webp';
 import note from '@/public/images/home/items/note.webp';
 import ruler from '@/public/images/home/items/ruler.webp';
 import calc from '@/public/images/home/items/calc.webp';
@@ -37,7 +38,14 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
             <blockquote className={styles.quote}>
               Любовь к математике начинается с хорошего учителя!
             </blockquote>
-
+            <Image
+              className={styles.image}
+              src={teacher}
+              quality={60}
+              alt="Софья Герасимова"
+              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 992px"
+              priority
+            />
             <div className={styles.items}>
               <Image className={styles.note} src={note} quality={50} loading="lazy" alt="Тетрадь" />
               <Image
@@ -58,18 +66,16 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
           </div>
         </div>
       </div>
-      <div>
-        <Image
-          src={'/images/home/background/border.webp'}
-          alt="Background Border"
-          width={1920}
-          height={150}
-          priority
-          quality={50}
-          sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
-          className={styles.bgBorderImage}
-        />
-      </div>
+      <Image
+        src={'/images/home/background/border.webp'}
+        alt="Background Border"
+        width={1920}
+        height={150}
+        priority
+        quality={50}
+        sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
+        className={styles.bgBorderImage}
+      />
     </section>
   );
 }
