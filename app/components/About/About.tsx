@@ -89,7 +89,11 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
               alt="Нажми на диплом"
               quality={50}
             />
-            <button className={styles.button} type="button" onClick={() => setOpen(true)}></button>
+            <button
+              className={styles.button}
+              name="Открыть диплом"
+              type="button"
+              onClick={() => setOpen(true)}></button>
           </motion.div>
         </div>
       </div>
