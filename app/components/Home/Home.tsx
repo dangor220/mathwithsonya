@@ -45,6 +45,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
                 quality={60}
                 alt="Софья Герасимова"
                 sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
+                priority
               />
             </div>
             <div className={styles.items}>
