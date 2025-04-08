@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat, Marck_Script, Bona_Nova_SC } from 'next/font/google';
-import 'normalize.css';
+// import 'normalize.css';
 import './styles/globals.scss';
 
 const montserrat = Montserrat({
