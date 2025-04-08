@@ -1,5 +1,5 @@
-import 'normalize.css';
-import './styles/globals.scss';
+// import 'normalize.css';
+// import './styles/globals.scss';
 import { Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
 
