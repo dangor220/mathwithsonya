@@ -34,35 +34,29 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
           <span className={styles.surname}>{content.surname}</span>
         </motion.h1>
         <div className={styles.hero}>
+          <blockquote className={styles.quote}>
+            Любовь к математике начинается с хорошего учителя!
+          </blockquote>
           <div className={styles.teacher}>
-            <blockquote className={styles.quote}>
-              Любовь к математике начинается с хорошего учителя!
-            </blockquote>
             <Image
               className={styles.image}
               src={teacher}
-              quality={60}
+              fill
               alt="Софья Герасимова"
-              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 992px"
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 70vw, 992px"
               priority
             />
-            <div className={styles.items}>
-              <Image className={styles.note} src={note} quality={50} loading="lazy" alt="Тетрадь" />
-              <Image
-                className={styles.calc}
-                src={calc}
-                quality={50}
-                loading="lazy"
-                alt="Калькулятор"
-              />
-              <Image
-                className={styles.ruler}
-                src={ruler}
-                quality={50}
-                loading="lazy"
-                alt="Линейка"
-              />
-            </div>
+          </div>
+          <div className={styles.items}>
+            <Image className={styles.note} src={note} quality={50} loading="lazy" alt="Тетрадь" />
+            <Image
+              className={styles.calc}
+              src={calc}
+              quality={50}
+              loading="lazy"
+              alt="Калькулятор"
+            />
+            <Image className={styles.ruler} src={ruler} quality={50} loading="lazy" alt="Линейка" />
           </div>
         </div>
       </div>

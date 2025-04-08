@@ -31,20 +31,25 @@
     }
   }
 }
-
 .wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
 
+  > .title {
+    flex: 0 0 50%;
+  }
+
+  > .hero {
+    flex: 0 0 50%;
+  }
+}
 .title {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
-  margin-top: clamp(5rem, 15.6vmin, 20rem);
+  padding-top: clamp(5rem, 15.6vmin, 20rem);
 
   font-family: var(--font-bona-nova-sc), sans-serif;
   font-weight: 700;
@@ -110,35 +115,24 @@
 }
 
 .hero {
-  display: flex;
-  justify-content: center;
-  flex: 1;
   position: relative;
-  z-index: 1;
-}
-
-.teacher {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
   width: 100%;
   height: 100%;
-  max-height: 50vh;
-  max-height: calc(var(--vh, 1vh) * 50);
-  position: relative;
+  z-index: 1;
+}
+.teacher {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 
-  .image {
-    width: 100%;
-    max-height: 50vh;
-    max-height: calc(var(--vh, 1vh) * 50);
+  img {
+    height: 100%;
+    width: auto;
     object-fit: contain;
-
-    @media (max-width: 550px) {
-      max-height: none;
-      height: auto;
-    }
+    object-position: bottom;
   }
 }
+
 .quote {
   position: absolute;
   top: 0;
@@ -149,22 +143,24 @@
   text-align: center;
   font-family: var(--font-marck-script), sans-serif;
   font-size: clamp(2.1rem, 4.1vmin, 5rem);
+  text-shadow: $pink 0 2px 5px;
   color: $pink-text;
 
   will-change: transform, opacity;
 
-  @media (max-width: 700px) {
-    top: -10%;
-  }
-  @media (max-width: 375px) and (max-height: 570px) {
-    top: -15%;
-  }
   @media (max-width: 568px) {
     line-height: 1.4;
   }
   @media (max-width: 500px) {
     width: 95dvw;
     z-index: -100;
+  }
+
+  @media (max-width: 700px) {
+    top: -10%;
+  }
+  @media (max-width: 375px) and (max-height: 570px) {
+    top: -15%;
   }
 
   @media (max-height: 500px) {
@@ -180,7 +176,7 @@
   height: clamp(1.4rem, 35vmin, 40rem);
   z-index: -100;
 
-  @media (max-width: 468px) {
+  @media (max-width: 500px) {
     display: none;
   }
 }
@@ -219,13 +215,13 @@
 
   @keyframes calcAnim {
     0% {
-      transform: rotate(-5deg);
+      transform: rotate(-5deg) scale(1);
     }
     50% {
-      transform: rotate(0deg);
+      transform: rotate(0deg) scale(0.95);
     }
     100% {
-      transform: rotate(-5deg);
+      transform: rotate(-5deg) scale(1);
     }
   }
 }

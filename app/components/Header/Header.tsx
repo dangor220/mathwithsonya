@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { forwardRef, useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'motion/react';
@@ -9,13 +8,11 @@ import { motion } from 'motion/react';
 import styles from './Header.module.scss';
 import logo from '@/public/images/logo/logo.webp';
 
+import Hamburger from '@/components/Hamburger/Hamburger';
+
 import { DefaultContent } from '@/app/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 import useHideHeader from '@/hooks/useHideHeader';
-
-const Hamburger = dynamic(() => import('@/components/Hamburger/Hamburger'), {
-  ssr: false,
-});
 
 const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }, ref) => {
   const [scrolled, setScrolled] = useState(false);
