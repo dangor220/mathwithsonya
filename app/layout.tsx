@@ -1,6 +1,6 @@
-import 'normalize.css';
-import './styles/globals.scss';
-import { Montserrat } from 'next/font/google';
+// import 'normalize.css';
+// import './styles/globals.scss';
+import { Montserrat, Marck_Script, Bona_Nova_SC } from 'next/font/google';
 import type { Metadata } from 'next';
 
 const montserrat = Montserrat({
@@ -10,22 +10,21 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
   display: 'swap',
 });
-const marckScript = montserrat;
-const bonaNovaSC = montserrat;
-// const marckScript = Marck_Script({
-//   weight: ['400'],
-//   style: ['normal'],
-//   subsets: ['latin'],
-//   variable: '--font-marck-script',
-//   display: 'swap',
-// });
-// const bonaNovaSC = Bona_Nova_SC({
-//   weight: ['400', '700'],
-//   style: ['normal'],
-//   subsets: ['latin'],
-//   variable: '--font-bona-nova-sc',
-//   display: 'swap',
-// });
+
+const marckScript = Marck_Script({
+  weight: ['400'],
+  style: ['normal'],
+  subsets: ['latin'],
+  variable: '--font-marck-script',
+  display: 'swap',
+});
+const bonaNovaSC = Bona_Nova_SC({
+  weight: ['400', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  variable: '--font-bona-nova-sc',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Sonya and Math',
