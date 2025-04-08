@@ -1,5 +1,5 @@
-import 'normalize.css';
-import './styles/globals.scss';
+// import 'normalize.css';
+// import './styles/globals.scss';
 import { Montserrat, Marck_Script, Bona_Nova_SC } from 'next/font/google';
 import type { Metadata } from 'next';
 
