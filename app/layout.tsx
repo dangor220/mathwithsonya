@@ -1,16 +1,15 @@
-// import 'normalize.css';
-// import './styles/globals.scss';
+import 'normalize.css';
+import './styles/globals.scss';
 import { Montserrat, Marck_Script, Bona_Nova_SC } from 'next/font/google';
 import type { Metadata } from 'next';
 
 const montserrat = Montserrat({
-  weight: ['400'],
-  style: ['normal'],
-  subsets: ['cyrillic'],
+  weight: ['400', '500', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin', 'cyrillic'],
   variable: '--font-montserrat',
   display: 'swap',
 });
-
 const marckScript = Marck_Script({
   weight: ['400'],
   style: ['normal'],
