@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, A11y } from 'swiper/modules';
+import { Pagination, A11y } from 'swiper/modules';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 
@@ -50,12 +50,8 @@ export default function Reviews({ content, scrollDirection }: Props): React.Reac
           }}
           className={styles.content}>
           <Swiper
-            autoplay={{
-              delay: 6000,
-              disableOnInteraction: false,
-            }}
             pagination={{ clickable: true }}
-            modules={[Autoplay, Pagination, A11y]}
+            modules={[Pagination, A11y]}
             breakpoints={{
               320: {
                 slidesPerView: 1,
