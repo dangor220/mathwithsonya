@@ -11,6 +11,7 @@ export default function Loading({ loading }: { loading: boolean }) {
             className={styles.image}
             src={'/images/loading/loading.webp'}
             fill
+            priority
             alt="loading"
             unoptimized
           />
