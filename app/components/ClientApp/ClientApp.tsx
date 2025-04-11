@@ -11,12 +11,16 @@ import Loading from '../Loading/Loading';
 
 export default function ClientApp({ content }: { content: DefaultContent }) {
   const [loading, setLoading] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
   const headerRef = useRef(null);
   useIsMobile();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
+      setIsHidden(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 400);
     }, 300);
 
     return () => clearTimeout(timer);
@@ -24,7 +28,7 @@ export default function ClientApp({ content }: { content: DefaultContent }) {
 
   return (
     <>
-      {loading && <Loading loading={loading} />}
+      {loading && <Loading loading={isHidden} />}
       <Header content={content} ref={headerRef} />
       <Main content={content} headerRef={headerRef} />
       <Footer content={content} />
