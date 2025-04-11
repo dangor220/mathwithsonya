@@ -25,7 +25,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
         alt="Background"
         fill
         priority
-        quality={75}
+        quality={100}
         className={styles.bgImage}
       />
       <div className={`container ${styles.wrapper}`}>

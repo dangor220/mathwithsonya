@@ -1,10 +1,22 @@
+@keyframes gradientMove {
+  0% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
 .loaderWrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100dvh;
-  background: #f4e5df;
+  background: linear-gradient(90deg, #f4e5df, #f3d1d1);
+  background-size: 200% 100%;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -14,6 +26,7 @@
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0s linear 0.4s;
   visibility: visible;
   pointer-events: none;
+  animation: gradientMove 3s ease-in-out infinite;
 }
 
 .hidden {
