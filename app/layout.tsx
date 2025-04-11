@@ -42,6 +42,15 @@ export default function RootLayout({
     <html
       lang="ru"
       className={`${montserrat.variable} ${marckScript.variable} ${bonaNovaSC.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          href="/images/home/teacher/sonya.webp"
+          as="image"
+          type="image/webp"
+          sizes="(max-width: 480px) 60vw, (max-width: 768px) 75vw, (max-width: 1200px) 70vw, 992px"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
