@@ -20,14 +20,6 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
 
   return (
     <section className={styles.home} id="home">
-      <Image
-        src={'/images/home/background/pink-background.webp'}
-        alt="Background"
-        fill
-        priority
-        quality={100}
-        className={styles.bgImage}
-      />
       <div className={`container ${styles.wrapper}`}>
         <motion.h1 style={{ transform: translateY }} className={styles.title}>
           <span className={styles.name}>{content.name}</span>
@@ -59,13 +51,19 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
             <Image className={styles.ruler} src={ruler} quality={50} loading="lazy" alt="Линейка" />
           </div>
         </div>
-      </div>
+      </div>{' '}
+      <Image
+        src={'/images/home/background/pink-background.webp'}
+        alt="Background"
+        fill
+        quality={100}
+        className={styles.bgImage}
+      />
       <Image
         src={'/images/home/background/border.webp'}
         alt="Background Border"
         width={1920}
         height={150}
-        priority
         quality={50}
         sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 992px"
         className={styles.bgBorderImage}
