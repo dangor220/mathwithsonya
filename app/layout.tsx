@@ -9,6 +9,7 @@ const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-montserrat',
   display: 'swap',
+  preload: false,
 });
 const marckScript = Marck_Script({
   weight: ['400'],
@@ -16,6 +17,7 @@ const marckScript = Marck_Script({
   subsets: ['latin'],
   variable: '--font-marck-script',
   display: 'swap',
+  preload: false,
 });
 const bonaNovaSC = Bona_Nova_SC({
   weight: ['400', '700'],
@@ -23,6 +25,7 @@ const bonaNovaSC = Bona_Nova_SC({
   subsets: ['latin'],
   variable: '--font-bona-nova-sc',
   display: 'swap',
+  preload: false,
 });
 
 export const metadata: Metadata = {
