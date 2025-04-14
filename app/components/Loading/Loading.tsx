@@ -12,8 +12,8 @@ export default function Loading({ loading }: { loading: boolean }) {
         initial={{ opacity: 1, scale: 1 }}
         animate={loading ? { opacity: 0, scale: 1.02 } : { opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        className={styles.loaderWrapper}>
-        <div className={styles.loader}>
+        className={styles.loadingWrapper}>
+        <div className={styles.loading}>
           <div className={styles.imageWrapper}>
             <Image
               className={styles.image}
