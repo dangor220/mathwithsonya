@@ -106,13 +106,25 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                 loading="lazy"
                 alt="Софья с красным дипломом"
               />
-              <Image
-                src={arrow}
-                className={styles.click}
-                loading="lazy"
-                alt="Нажми на диплом"
-                quality={50}
-              />
+
+              <m.div
+                animate={{ y: [-32, 0, -32], rotate: [3, 0, 3] }}
+                transition={{
+                  duration: 3,
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                }}
+                className={styles.click}>
+                <Image
+                  src={arrow}
+                  loading="lazy"
+                  alt="Нажми на диплом"
+                  fill
+                  sizes="100dw"
+                  quality={50}
+                />
+              </m.div>
+
               <button
                 className={styles.button}
                 aria-label="Открыть диплом"
