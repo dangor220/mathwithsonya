@@ -60,7 +60,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
         src={'/images/home/background/pink-background.webp'}
         alt="Background"
         fill
-        sizes="100dw"
+        sizes="100vw"
         quality={100}
         className={styles.bgImage}
       />

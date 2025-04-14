@@ -120,7 +120,7 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                   loading="lazy"
                   alt="Нажми на диплом"
                   fill
-                  sizes="100dw"
+                  sizes="100vw"
                   quality={50}
                 />
               </m.div>
