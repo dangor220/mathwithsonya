@@ -1,13 +1,18 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import { InputMask } from '@react-input/mask';
-import ReCAPTCHA from 'react-google-recaptcha';
+import dynamic from 'next/dynamic';
 
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import styles from './ContactsForm.module.scss';
 import { DefaultContent } from '@/types/defaultContentTypes';
+
+import type ReCAPTCHA from 'react-google-recaptcha';
+const ReCAPTCHADynamic = dynamic(() => import('@/components/Recaptcha/ReCAPTCHAWithRef'), {
+  ssr: false,
+});
 
 enum MessageStatus {
   Idle = 'idle',
@@ -28,7 +33,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
   const [messageStatus, setMessageStatus] = useState<MessageStatus>(MessageStatus.Idle);
 
   const formRef = useRef<HTMLFormElement>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const apiOpenKey = process.env.NEXT_PUBLIC_API_KEY;
   const apiRecaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_KEY;
@@ -192,6 +197,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           value={message}
           placeholder={content.contacts.formMessage}
           required
+          minLength={20}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
@@ -207,7 +213,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           {renderButtonContent()}
         </button>
         <div className={styles.recaptcha}>
-          <ReCAPTCHA
+          <ReCAPTCHADynamic
             className={captchaError ? styles.recaptchaError : ''}
             ref={recaptchaRef}
             sitekey={apiRecaptchaKey || ''}
