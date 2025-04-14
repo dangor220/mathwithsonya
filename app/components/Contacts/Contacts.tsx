@@ -11,7 +11,7 @@ import * as m from 'motion/react-m';
 const TelegramIcon = dynamic(() => import('@mui/icons-material/Telegram'));
 const CallIcon = dynamic(() => import('@mui/icons-material/Call'));
 const EmailIcon = dynamic(() => import('@mui/icons-material/Email'));
-const YandexMap = dynamic(() => import('../YandexMap/YandexMap'), {
+const YandexMap = dynamic(() => import('@/components/YandexMap/YandexMap'), {
   ssr: false,
 });
 
@@ -47,7 +47,7 @@ export default function Contacts({ content, scrollDirection }: Props): React.Rea
           <m.div {...animationProps} className={styles.content}>
             <div className={styles.help}>{content.contacts.help}</div>
             <div className={styles.contact}>
-              <YandexMap />{' '}
+              <YandexMap />
               <nav className={styles.nav}>
                 <ul className={styles.list}>
                   <li className={styles.item}>
