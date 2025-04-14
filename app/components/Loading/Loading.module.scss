@@ -4,13 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100dvh;
-  background: linear-gradient(
-    45deg,
-    #f3d1d1,
-    #f4e5df,
-    #e2c2c2,
-    #f8e2e7
-  ); /* Более плавный и мягкий градиент */
+  background: linear-gradient(45deg, #f3d1d1, #f4e5df, #e2c2c2, #f8e2e7);
   background-size: 200% 200%;
   z-index: 9999;
   display: flex;
