@@ -13,7 +13,9 @@ import arrow from '@/public/images/about/arrow.webp';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
 import useHandleScrollbar from '@/hooks/useHandleScrollbar';
-import { motion } from 'motion/react';
+
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 import NextJsImage from '@/components/NextJsImage/NextJsImage';
 
@@ -33,23 +35,8 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
   return (
     <section className={styles.about} id="about">
       <div className={`container ${styles.wrapper}`}>
-        <motion.h2
-          initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              type: 'spring',
-              bounce: 0.4,
-              duration: 1,
-            },
-          }}
-          viewport={{ amount: 0.3 }}
-          className={styles.title}>
-          {content.about.title}
-        </motion.h2>
-        <div className={styles.content}>
-          <motion.div
+        <LazyMotion features={domAnimation}>
+          <m.h2
             initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
             whileInView={{
               opacity: 1,
@@ -60,41 +47,61 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                 duration: 1,
               },
             }}
-            className={styles.text}>
-            {content.about.text}
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                type: 'spring',
-                bounce: 0.4,
-                duration: 1,
-                delay: 0.3,
-              },
-            }}
-            className={styles.graduate}>
-            <Image
-              src={graduate}
-              className={styles.image}
-              loading="lazy"
-              alt="Софья с красным дипломом"
-            />
-            <Image
-              src={arrow}
-              className={styles.click}
-              loading="lazy"
-              alt="Нажми на диплом"
-              quality={50}
-            />
-            <button
-              className={styles.button}
-              aria-label="Открыть диплом"
-              type="button"
-              onClick={() => setOpen(true)}></button>
-          </motion.div>
+            viewport={{ amount: 0.3 }}
+            className={styles.title}>
+            {content.about.title}
+          </m.h2>
+        </LazyMotion>
+
+        <div className={styles.content}>
+          <LazyMotion features={domAnimation}>
+            <m.div
+              initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                  type: 'spring',
+                  bounce: 0.4,
+                  duration: 1,
+                },
+              }}
+              className={styles.text}>
+              {content.about.text}
+            </m.div>
+            <m.div
+              initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                  type: 'spring',
+                  bounce: 0.4,
+                  duration: 1,
+                  delay: 0.3,
+                },
+              }}
+              className={styles.graduate}>
+              <Image
+                src={graduate}
+                className={styles.image}
+                loading="lazy"
+                alt="Софья с красным дипломом"
+              />
+              <Image
+                src={arrow}
+                className={styles.click}
+                loading="lazy"
+                alt="Нажми на диплом"
+                quality={50}
+              />
+              <button
+                className={styles.button}
+                aria-label="Открыть диплом"
+                type="button"
+                onClick={() => setOpen(true)}></button>
+            </m.div>
+          </LazyMotion>
         </div>
       </div>
       <Lightbox

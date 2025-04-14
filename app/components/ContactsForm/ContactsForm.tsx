@@ -3,14 +3,17 @@ import React, { useRef, useState } from 'react';
 import { InputMask } from '@react-input/mask';
 import dynamic from 'next/dynamic';
 
-import Stack from '@mui/material/Stack';
-import CircularProgress from '@mui/material/CircularProgress';
-
 import styles from './ContactsForm.module.scss';
 import { DefaultContent } from '@/types/defaultContentTypes';
 
 import type ReCAPTCHA from 'react-google-recaptcha';
 const ReCAPTCHADynamic = dynamic(() => import('@/components/Recaptcha/ReCAPTCHAWithRef'), {
+  ssr: false,
+});
+const Stack = dynamic(() => import('@mui/material/Stack'), {
+  ssr: false,
+});
+const CircularProgress = dynamic(() => import('@mui/material/CircularProgress'), {
   ssr: false,
 });
 
