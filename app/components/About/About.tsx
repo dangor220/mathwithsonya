@@ -4,9 +4,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-import 'yet-another-react-lightbox/styles.css';
 import styles from './About.module.scss';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
 import graduate from '@/public/images/about/graduate.webp';
 import arrow from '@/public/images/about/arrow.webp';
@@ -17,9 +15,9 @@ import useHandleScrollbar from '@/hooks/useHandleScrollbar';
 import { LazyMotion, domAnimation } from 'motion/react';
 import * as m from 'motion/react-m';
 
-import NextJsImage from '@/components/NextJsImage/NextJsImage';
-
-const Lightbox = dynamic(() => import('yet-another-react-lightbox'), { ssr: false });
+const LightboxWithZoom = dynamic(() => import('@/components/LightboxWithZoom/LightboxWithZoom'), {
+  ssr: false,
+});
 
 type Props = {
   content: DefaultContent;
@@ -29,6 +27,26 @@ type Props = {
 
 export default function About({ content, headerRef, scrollDirection }: Props): React.ReactElement {
   const [open, setOpen] = React.useState(false);
+  const slides = [
+    {
+      src: '/images/about/diplom/page_1.webp',
+      width: 1755,
+      height: 1240,
+      alt: 'Диплом бакалавра. Страница 1.',
+    },
+    {
+      src: '/images/about/diplom/page_2.webp',
+      width: 1755,
+      height: 1240,
+      alt: 'Диплом бакалавра. Страница 2-3.',
+    },
+    {
+      src: '/images/about/diplom/page_3.webp',
+      width: 1755,
+      height: 1240,
+      alt: 'Диплом бакалавра. Страница 4.',
+    },
+  ];
 
   useHandleScrollbar(headerRef, open);
 
@@ -104,46 +122,7 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
           </LazyMotion>
         </div>
       </div>
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={[
-          {
-            src: '/images/about/diplom/page_1.webp',
-            width: 1755,
-            height: 1240,
-            alt: 'Диплом бакалавра. Страница 1.',
-          },
-          {
-            src: '/images/about/diplom/page_2.webp',
-            width: 1755,
-            height: 1240,
-            alt: 'Диплом бакалавра. Страница 2-3.',
-          },
-          {
-            src: '/images/about/diplom/page_3.webp',
-            width: 1755,
-            height: 1240,
-            alt: 'Диплом бакалавра. Страница 4.',
-          },
-        ]}
-        plugins={[Zoom]}
-        render={{ slide: NextJsImage }}
-        controller={{ closeOnBackdropClick: true }}
-        noScroll={{ disabled: true }}
-        styles={{
-          container: {
-            background: '#000000a9',
-            backdropFilter: 'blur(2px)',
-          },
-          button: {
-            background: '#0000002a',
-            borderRadius: '50%',
-            padding: 10,
-            color: '#fff',
-          },
-        }}
-      />
+      <LightboxWithZoom slides={slides} open={open} setOpen={setOpen} />
     </section>
   );
 }

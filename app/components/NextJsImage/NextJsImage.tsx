@@ -59,6 +59,7 @@ export default function NextJsImage({ slide, offset, rect }: RenderSlideProps) {
 
       <Image
         fill
+        sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 1755px"
         alt={slide.alt || ''}
         src={slide}
         loading="lazy"
@@ -68,7 +69,7 @@ export default function NextJsImage({ slide, offset, rect }: RenderSlideProps) {
           cursor: click ? 'pointer' : undefined,
         }}
         onClick={offset === 0 ? () => click?.({ index: currentIndex }) : undefined}
-        onLoadingComplete={() => setLoading(false)}
+        onLoad={() => setLoading(false)}
       />
     </div>
   );

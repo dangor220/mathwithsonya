@@ -10,7 +10,9 @@ import calc from '@/public/images/home/items/calc.webp';
 import styles from './Home.module.scss';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
-import { motion, useScroll, useTransform } from 'motion/react';
+
+import { LazyMotion, domAnimation, useScroll, useTransform } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export default function Home({ content }: { content: DefaultContent }): React.ReactElement {
   const { scrollYProgress } = useScroll();
@@ -21,10 +23,12 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
   return (
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>
-        <motion.h1 style={{ transform: translateY }} className={styles.title}>
-          <span className={styles.name}>{content.name}</span>
-          <span className={styles.surname}>{content.surname}</span>
-        </motion.h1>
+        <LazyMotion features={domAnimation}>
+          <m.h1 style={{ transform: translateY }} className={styles.title}>
+            <span className={styles.name}>{content.name}</span>
+            <span className={styles.surname}>{content.surname}</span>
+          </m.h1>
+        </LazyMotion>
         <div className={styles.hero}>
           <blockquote className={styles.quote}>
             Любовь к математике начинается с хорошего учителя!
@@ -56,6 +60,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
         src={'/images/home/background/pink-background.webp'}
         alt="Background"
         fill
+        sizes="100dw"
         quality={100}
         className={styles.bgImage}
       />
