@@ -190,19 +190,18 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
         />
       </div>
 
-      <div className={styles.content}>
-        <textarea
-          className={styles.message}
-          name="message"
-          value={message}
-          placeholder={content.contacts.formMessage}
-          required
-          minLength={20}
-          onChange={(e) => {
-            setMessage(e.target.value);
-          }}
-        />
-      </div>
+      <textarea
+        className={styles.message}
+        name="message"
+        value={message}
+        placeholder={content.contacts.formMessage}
+        required
+        minLength={20}
+        onChange={(e) => {
+          setMessage(e.target.value);
+        }}
+      />
+
       <input type="hidden" name="redirect-to" value="no-redirect"></input>
       <div className={styles.submit}>
         <button
