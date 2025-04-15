@@ -60,7 +60,7 @@
   text-shadow: $pink-shadow 0 2px 5px;
   z-index: 1;
 
-  will-change: transform, opacity;
+  will-change: transform;
 }
 
 .name,
@@ -119,6 +119,11 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .teacher {
   position: relative;
@@ -145,16 +150,41 @@
   font-family: var(--font-marck-script), sans-serif;
   font-size: clamp(2.1rem, 4.1vmin, 5rem);
   text-shadow: $pink 0 2px 5px;
-  color: $pink-text;
+  color: $dark-text;
 
-  will-change: transform, opacity;
+  animation: quoteAnim 3000ms ease-in-out infinite;
 
+  @keyframes quoteAnim {
+    0% {
+      transform: rotate(-13deg);
+    }
+    50% {
+      transform: rotate(-17deg);
+    }
+    100% {
+      transform: rotate(-13deg);
+    }
+  }
   @media (max-width: 568px) {
     line-height: 1.4;
   }
   @media (max-width: 500px) {
-    width: 95dvw;
-    z-index: -100;
+    position: static;
+    width: 100%;
+    transform: translateY(-10%);
+    z-index: 100;
+
+    @keyframes quoteAnim {
+      0% {
+        transform: translateY(-10%) rotate(-10deg);
+      }
+      50% {
+        transform: translateY(-10%) rotate(-7deg);
+      }
+      100% {
+        transform: translateY(-10%) rotate(-10deg);
+      }
+    }
   }
 
   @media (max-width: 700px) {
@@ -192,9 +222,8 @@
 .ruler {
   position: relative;
   object-fit: contain;
+  opacity: 0.64;
   z-index: -100 !important;
-
-  will-change: transform, opacity;
 }
 
 .note {
