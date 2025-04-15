@@ -7,6 +7,7 @@ import React from 'react';
 import styles from './About.module.scss';
 
 import graduate from '@/public/images/about/graduate.webp';
+import sonya from '@/public/images/about/sonya&cat.webp';
 import arrow from '@/public/images/about/arrow.webp';
 
 import { DefaultContent } from '@/types/defaultContentTypes';
@@ -72,66 +73,106 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
         </LazyMotion>
 
         <div className={styles.content}>
-          <LazyMotion features={domAnimation}>
-            <m.div
-              initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  type: 'spring',
-                  bounce: 0.4,
-                  duration: 1,
-                },
-              }}
-              className={styles.text}>
-              {content.about.text}
-            </m.div>
-            <m.div
-              initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  type: 'spring',
-                  bounce: 0.4,
-                  duration: 1,
-                  delay: 0.3,
-                },
-              }}
-              className={styles.graduate}>
-              <Image
-                src={graduate}
-                className={styles.image}
-                loading="lazy"
-                alt="Софья с красным дипломом"
-              />
-
+          <div className={styles.contentRow}>
+            <LazyMotion features={domAnimation}>
               <m.div
-                animate={{ y: [-32, 0, -32], rotate: [3, 0, 3] }}
-                transition={{
-                  duration: 3,
-                  ease: 'easeInOut',
-                  repeat: Infinity,
+                initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: 'spring',
+                    bounce: 0.4,
+                    duration: 1,
+                  },
                 }}
-                className={styles.click}>
+                className={styles.text}>
+                {content.about.text_1}
+              </m.div>
+              <m.div
+                initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: 'spring',
+                    bounce: 0.4,
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                }}
+                className={styles.teacher}>
                 <Image
-                  src={arrow}
+                  src={graduate}
+                  className={styles.image}
                   loading="lazy"
-                  alt="Нажми на диплом"
-                  fill
-                  sizes="100vw"
-                  quality={50}
+                  alt="Софья с красным дипломом"
+                />
+
+                <m.div
+                  animate={{ y: [-32, 0, -32], rotate: [3, 0, 3] }}
+                  transition={{
+                    duration: 3,
+                    ease: 'easeInOut',
+                    repeat: Infinity,
+                  }}
+                  className={styles.click}>
+                  <Image
+                    src={arrow}
+                    loading="lazy"
+                    alt="Нажми на диплом"
+                    fill
+                    sizes="100vw"
+                    quality={50}
+                  />
+                </m.div>
+
+                <button
+                  className={styles.button}
+                  aria-label="Открыть диплом"
+                  type="button"
+                  onClick={() => setOpen(true)}></button>
+              </m.div>
+            </LazyMotion>
+          </div>
+          <div className={styles.contentRow}>
+            <LazyMotion features={domAnimation}>
+              <m.div
+                initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: 'spring',
+                    bounce: 0.4,
+                    duration: 1,
+                  },
+                }}
+                className={styles.text}>
+                {content.about.text_2}
+              </m.div>
+              <m.div
+                initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: 'spring',
+                    bounce: 0.4,
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                }}
+                className={styles.teacher}>
+                <Image
+                  src={sonya}
+                  className={styles.image}
+                  loading="lazy"
+                  alt="Софья играет с котом"
                 />
               </m.div>
-
-              <button
-                className={styles.button}
-                aria-label="Открыть диплом"
-                type="button"
-                onClick={() => setOpen(true)}></button>
-            </m.div>
-          </LazyMotion>
+            </LazyMotion>
+          </div>
         </div>
       </div>
       <LightboxWithZoom slides={slides} open={open} setOpen={setOpen} />

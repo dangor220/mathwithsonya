@@ -49,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: clamp(5rem, 15.6vmin, 20rem);
+  padding-top: clamp(5rem, 9.6vmin, 10rem);
 
   font-family: var(--font-bona-nova-sc), sans-serif;
   font-weight: 700;
@@ -143,7 +143,7 @@
 .quote {
   position: absolute;
   top: 0;
-  left: calc(clamp(1.4rem, 35vmin, 40rem) * -1 + 37%);
+  left: calc(clamp(1.4rem, 35vmin, 40rem) * -1 + 35%);
   width: clamp(3rem, 35vmin, 40rem);
   opacity: 0.8;
 
