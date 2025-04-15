@@ -145,6 +145,7 @@
   top: 0;
   left: calc(clamp(1.4rem, 35vmin, 40rem) * -1 + 37%);
   width: clamp(3rem, 35vmin, 40rem);
+  opacity: 0.8;
 
   text-align: center;
   font-family: var(--font-marck-script), sans-serif;
@@ -222,7 +223,7 @@
 .ruler {
   position: relative;
   object-fit: contain;
-  opacity: 0.64;
+  opacity: 0.5;
   z-index: -100 !important;
 }
 

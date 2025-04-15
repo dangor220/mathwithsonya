@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { RenderImageContext, RenderImageProps, ColumnsPhotoAlbum } from 'react-photo-album';
@@ -25,31 +26,33 @@ function renderNextImage(
   { photo, width, height }: RenderImageContext,
 ) {
   return (
-    <motion.div
-      whileHover={{
-        scale: 1.02,
-        transition: { duration: 0.5 },
-      }}
-      initial={{ scale: 1 }}
-      animate={{ scale: 1 }}
-      transition={{
-        duration: 0.3,
-      }}
-      style={{
-        width: '100%',
-        position: 'relative',
-        aspectRatio: `${width} / ${height}`,
-      }}>
-      <Image
-        fill
-        src={photo}
-        alt={alt}
-        title={title}
-        sizes={sizes}
-        className={styles.galleryImage}
-        placeholder={'blurDataURL' in photo ? 'blur' : undefined}
-      />
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        whileHover={{
+          scale: 1.02,
+          transition: { duration: 0.5 },
+        }}
+        initial={{ scale: 1 }}
+        animate={{ scale: 1 }}
+        transition={{
+          duration: 0.3,
+        }}
+        style={{
+          width: '100%',
+          position: 'relative',
+          aspectRatio: `${width} / ${height}`,
+        }}>
+        <Image
+          fill
+          src={photo}
+          alt={alt}
+          title={title}
+          sizes={sizes}
+          className={styles.galleryImage}
+          placeholder={'blurDataURL' in photo ? 'blur' : undefined}
+        />
+      </m.div>
+    </LazyMotion>
   );
 }
 
