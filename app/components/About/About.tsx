@@ -49,6 +49,8 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
     },
   ];
 
+  console.log(content.about.text_1);
+
   useHandleScrollbar(headerRef, open);
 
   return (

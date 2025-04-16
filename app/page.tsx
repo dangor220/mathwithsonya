@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ClientApp from '@/components/ClientApp/ClientApp';
-
 import defaultContent from '@/data/defaultContent';
 
 async function getData() {
@@ -10,7 +9,7 @@ async function getData() {
 
   try {
     const res = await fetch(`https://${mockApiKey}.mockapi.io/data`, {
-      cache: 'force-cache',
+      next: { revalidate: 600 },
     });
 
     if (!res.ok) throw new Error('Ошибка загрузки данных');
@@ -26,5 +25,3 @@ export default async function Home() {
   const content = await getData();
   return <ClientApp content={content[0]} />;
 }
-
-export const revalidate = 600;
