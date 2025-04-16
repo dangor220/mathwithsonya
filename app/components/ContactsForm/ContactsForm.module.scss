@@ -73,6 +73,7 @@
   color: $pink;
   cursor: pointer;
   transition: 0.3s all ease-in;
+  min-height: 5.6rem;
   flex: 1;
 
   @media (hover: hover) {

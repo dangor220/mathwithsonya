@@ -199,7 +199,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
         value={message}
         placeholder={content.contacts.formMessage}
         required
-        minLength={20}
+        minLength={10}
         onChange={(e) => {
           setMessage(e.target.value);
         }}
@@ -214,7 +214,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           disabled={messageStatus === MessageStatus.Loading}>
           {renderButtonContent()}
         </button>
-        {message.length >= 20 && (
+        {message.length >= 10 && (
           <div className={styles.recaptcha}>
             <ReCAPTCHADynamic
               className={captchaError ? styles.recaptchaError : ''}
