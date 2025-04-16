@@ -23,7 +23,40 @@ export default function ClientApp({ content }: { content: DefaultContent }) {
       }, 400);
     }, 300);
 
-    return () => clearTimeout(timer);
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Софья Алексеевна',
+      jobTitle: 'Репетитор по математике',
+      description:
+        'Репетитор по математике 4–9 классы. Онлайн, на выезд и у преподавателя. Москва, Бунинские Луга, Коммунарка, метро Потапово, Новомосковская, Бунинская Аллея.',
+      url: 'https://www.mathwithsonya.ru',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Москва',
+        streetAddress: 'улица Александры Монаховой, 84к1, подъезд 4',
+      },
+      areaServed: [
+        { '@type': 'Place', name: 'Бунинские Луга' },
+        { '@type': 'Place', name: 'Александры Монаховой' },
+        { '@type': 'Place', name: 'Коммунарка' },
+        { '@type': 'Place', name: 'метро Потапово' },
+        { '@type': 'Place', name: 'метро Бунинская Аллея' },
+        { '@type': 'Place', name: 'метро Новомосковская' },
+      ],
+      sameAs: ['https://t.me/sonechka_ger', 'https://www.mathwithsonya.ru'],
+      email: 'sonyager.22@gmail.com',
+      telephone: '+7-911-695-19-32',
+    });
+
+    document.head.appendChild(script);
+
+    return () => {
+      clearTimeout(timer);
+      document.head.removeChild(script);
+    };
   }, []);
 
   return (
