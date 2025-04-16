@@ -39,6 +39,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
               src={teacher}
               fill
               alt="Софья Герасимова"
+              quality={85}
               sizes="(max-width: 375px) 40vw, (max-width: 425px) 50vw, (max-width: 480px) 60vw, (max-width: 768px) 75vw, (max-width: 1200px) 70vw, 700px"
               priority
             />
