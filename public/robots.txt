@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.mathwithsonya.ru
+
+# Sitemaps
+Sitemap: https://www.mathwithsonya.ru/sitemap.xml
