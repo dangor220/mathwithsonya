@@ -109,6 +109,9 @@ export default function Services({
                   <div className={styles.call_to_action}>
                     {content.services.options[activeTab].content.call_to_action}
                   </div>
+                  {content.services.options[activeTab].content.place && (
+                    <div>{content.services.options[activeTab].content.place}</div>
+                  )}
                   <div className={styles.price}>
                     Стоимость занятия:{' '}
                     <span>{content.services.options[activeTab].content.price}</span> рублей

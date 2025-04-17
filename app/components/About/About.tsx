@@ -87,7 +87,22 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                   },
                 }}
                 className={styles.text}>
-                {content.about.text_1}
+                <div>
+                  {content.about.greeting} {content.about.education}
+                </div>
+                <div>
+                  {content.about.teaching_mission} {content.about.teaching_goal}
+                </div>
+                <div>
+                  <h3>{content.about.experience_block.title}</h3>
+                  <ul>
+                    {content.about.experience_block.places.map((place, index) => (
+                      <li key={index}>{place}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>{content.about.individual_approach}</div>
               </m.div>
               <m.div
                 initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
@@ -149,7 +164,16 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                   },
                 }}
                 className={styles.text}>
-                {content.about.text_2}
+                <div>
+                  <h3>{content.about.section_title}</h3>
+                  <ul>
+                    {content.about.advantages.map((advantage, index) => (
+                      <li key={index}>{advantage}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>{content.about.emotional_reward}</div>
+                <div>{content.about.final_message}</div>
               </m.div>
               <m.div
                 initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}

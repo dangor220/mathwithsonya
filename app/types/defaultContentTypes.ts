@@ -1,7 +1,20 @@
 export interface About {
   title: string;
-  text_1: string;
-  text_2: string;
+  greeting: string;
+  education: string;
+  teaching_mission: string;
+  teaching_goal: string;
+  individual_approach: string;
+  section_title: string;
+  emotional_reward: string;
+  final_message: string;
+  experience_block: Experience;
+  advantages: string[];
+}
+
+export interface Experience {
+  title: string;
+  places: string[];
 }
 export interface Content {
   title: string;
@@ -11,6 +24,7 @@ export interface Content {
   discount: string;
   goal: string;
   call_to_action: string;
+  place?: string;
   attention?: string;
 }
 export interface ServiceOptions {
