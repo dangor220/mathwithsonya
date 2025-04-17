@@ -70,6 +70,13 @@ export interface Contacts {
   formPhone: string;
   place: string;
   place_link: string;
+}
+export interface Footer {
+  phone: string;
+  phone_separator: string;
+  mail: string;
+  place: string;
+  place_link: string;
   owner: string;
   license: string;
   developer: string;
@@ -91,6 +98,7 @@ export interface ContentItem {
   services: Services;
   reviews: Reviews;
   contacts: Contacts;
+  footer: Footer;
 }
 
 export type DefaultContent = ContentItem;

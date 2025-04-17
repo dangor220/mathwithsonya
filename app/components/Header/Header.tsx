@@ -46,11 +46,11 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   useHandleScrollbar(ref as React.RefObject<HTMLElement | null>, menuIsOpen);
 
   const listItems = [
-    { id: 'home', label: content.homeNav },
-    { id: 'about', label: content.aboutNav },
-    { id: 'services', label: content.servicesNav },
-    { id: 'reviews', label: content.reviewsNav },
-    { id: 'contacts', label: content.contactsNav },
+    { id: 'home', label: content.homeNav ?? 'Главная' },
+    { id: 'about', label: content.aboutNav ?? 'Обо мне' },
+    { id: 'services', label: content.servicesNav ?? 'Услуги' },
+    { id: 'reviews', label: content.reviewsNav ?? 'Отзывы' },
+    { id: 'contacts', label: content.contactsNav ?? 'Контакты' },
   ];
 
   useEffect(() => {
