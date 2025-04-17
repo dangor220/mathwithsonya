@@ -14,7 +14,7 @@ const defaultContent: DefaultContent[] = [
       surname: 'Алексеевна',
       seo_title: 'Репетитор по математике для 4–9 классов в Москве и онлайн — Софья Алексеевна',
       quote: 'Любовь к математике начинается с хорошего учителя!',
-      item__images: true,
+      item_images: true,
       teacher_image: true,
     },
 

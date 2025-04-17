@@ -47,7 +47,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
               />
             </div>
           )}
-          {home.item__images && home.item__images === true && (
+          {home.item_images && home.item_images === true && (
             <div className={styles.items}>
               <Image className={styles.note} src={note} quality={50} loading="lazy" alt="Тетрадь" />
               <Image

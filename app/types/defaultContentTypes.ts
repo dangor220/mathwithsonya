@@ -10,7 +10,7 @@ export interface Home {
   surname: string;
   seo_title: string;
   quote: string;
-  item__images: boolean;
+  item_images: boolean;
   teacher_image: boolean;
 }
 export interface About {
