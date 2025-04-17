@@ -45,13 +45,12 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   const headerIsVisible = useHideHeader();
   useHandleScrollbar(ref as React.RefObject<HTMLElement | null>, menuIsOpen);
 
-  const listItems = [
-    { id: 'home', label: content.homeNav ?? 'Главная' },
-    { id: 'about', label: content.aboutNav ?? 'Обо мне' },
-    { id: 'services', label: content.servicesNav ?? 'Услуги' },
-    { id: 'reviews', label: content.reviewsNav ?? 'Отзывы' },
-    { id: 'contacts', label: content.contactsNav ?? 'Контакты' },
-  ];
+  const header = content.header || {};
+
+  const listItems = Object.entries(header).map(([key, value]) => ({
+    id: key,
+    label: value,
+  }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +58,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
 
       const headerRect =
         (ref as React.RefObject<HTMLElement>).current?.getBoundingClientRect().bottom || 0;
-      const sections = ['home', 'about', 'services', 'reviews', 'contacts'];
+      const sections = Object.keys(header);
 
       sections.forEach((id) => {
         const section = document.getElementById(id);
@@ -84,6 +83,8 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  if (Object.values(header).every((value) => !value)) return <></>;
 
   return (
     <LazyMotion features={domAnimation}>

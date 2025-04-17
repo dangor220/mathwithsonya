@@ -1,3 +1,11 @@
+export interface Header {
+  home: string;
+  about: string;
+  services: string;
+  reviews: string;
+  contacts: string;
+}
+
 export interface About {
   title: string;
   greeting: string;
@@ -85,11 +93,7 @@ export interface Footer {
 }
 
 export interface ContentItem {
-  homeNav: string;
-  aboutNav: string;
-  servicesNav: string;
-  reviewsNav: string;
-  contactsNav: string;
+  header: Header;
   name: string;
   surname: string;
   seo_title: string;

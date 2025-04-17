@@ -2,11 +2,13 @@ import { DefaultContent } from '../types/defaultContentTypes';
 
 const defaultContent: DefaultContent[] = [
   {
-    homeNav: 'Главная',
-    aboutNav: 'Обо мне',
-    servicesNav: 'Услуги',
-    reviewsNav: 'Отзывы',
-    contactsNav: 'Контакты',
+    header: {
+      home: 'Главная',
+      about: 'Обо мне',
+      services: 'Услуги',
+      reviews: 'Отзывы',
+      contacts: 'Контакты',
+    },
     name: 'Софья',
     surname: 'Алексеевна',
     seo_title: 'Репетитор по математике для 4–9 классов в Москве и онлайн — Софья Алексеевна',
