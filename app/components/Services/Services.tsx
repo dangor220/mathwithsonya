@@ -111,11 +111,18 @@ export default function Services({
                   </div>
                   <div className={styles.price}>
                     Стоимость занятия:{' '}
-                    <span>{content.services.options[activeTab].content.price}</span> рублей за 60
+                    <span>{content.services.options[activeTab].content.price}</span> рублей
+                    {content.services.options[activeTab].content.attention && <span>*</span>} за 60
                     минут
                     <div className={styles.discount}>
                       {content.services.options[activeTab].content.discount}
                     </div>
+                    {content.services.options[activeTab].content.attention && (
+                      <div className={styles.attention}>
+                        <span className={styles.price}>*</span>
+                        {content.services.options[activeTab].content.attention}
+                      </div>
+                    )}
                   </div>
                 </div>
               </m.div>

@@ -11,6 +11,7 @@ export interface Content {
   discount: string;
   goal: string;
   call_to_action: string;
+  attention?: string;
 }
 export interface ServiceOptions {
   [key: string]: { id: number; type: string; content: Content; slides: Slides[] };

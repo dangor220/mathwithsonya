@@ -117,3 +117,12 @@
 .images {
   width: 100%;
 }
+
+.attention {
+  font-size: $small;
+  font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: calc($x-small);
+  }
+}
