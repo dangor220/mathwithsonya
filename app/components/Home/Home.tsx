@@ -23,9 +23,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
   return (
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>
-        <h1 className={styles.visuallyHidden}>
-          Репетитор по математике для 4–9 классов в Москве и онлайн — Софья Алексеевна
-        </h1>
+        <h1 className={styles.visuallyHidden}>{content.seo_title}</h1>
         <LazyMotion features={domAnimation}>
           <m.h1 style={{ transform: translateY }} className={styles.title}>
             <span className={styles.name}>{content.name}</span>
@@ -33,9 +31,7 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
           </m.h1>
         </LazyMotion>
         <div className={styles.hero}>
-          <blockquote className={styles.quote}>
-            Любовь к математике начинается с хорошего учителя!
-          </blockquote>
+          <blockquote className={styles.quote}>{content.quote}</blockquote>
           <div className={styles.teacher}>
             <Image
               className={styles.image}

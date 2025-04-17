@@ -85,6 +85,7 @@ export interface ContentItem {
   contactsNav: string;
   name: string;
   surname: string;
+  seo_title: string;
   quote: string;
   about: About;
   services: Services;
