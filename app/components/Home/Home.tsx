@@ -20,40 +20,52 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -400]);
   const translateY = useTransform(y, (value) => `translateY(${value}px)`);
 
+  const home = content.home || {};
+
   return (
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>
-        <h1 className={styles.visuallyHidden}>{content.seo_title}</h1>
+        <h1 className={styles.visuallyHidden}>{home.seo_title}</h1>
         <LazyMotion features={domAnimation}>
           <m.h1 style={{ transform: translateY }} className={styles.title}>
-            <span className={styles.name}>{content.name}</span>
-            <span className={styles.surname}>{content.surname}</span>
+            {home.name && <span className={styles.name}>{home.name}</span>}
+            {home.surname && <span className={styles.surname}>{home.surname}</span>}
           </m.h1>
         </LazyMotion>
         <div className={styles.hero}>
-          <blockquote className={styles.quote}>{content.quote}</blockquote>
-          <div className={styles.teacher}>
-            <Image
-              className={styles.image}
-              src={teacher}
-              fill
-              alt="Софья Герасимова"
-              quality={85}
-              sizes="(max-width: 375px) 40vw, (max-width: 425px) 50vw, (max-width: 480px) 60vw, (max-width: 768px) 75vw, (max-width: 1200px) 70vw, 700px"
-              priority
-            />
-          </div>
-          <div className={styles.items}>
-            <Image className={styles.note} src={note} quality={50} loading="lazy" alt="Тетрадь" />
-            <Image
-              className={styles.calc}
-              src={calc}
-              quality={50}
-              loading="lazy"
-              alt="Калькулятор"
-            />
-            <Image className={styles.ruler} src={ruler} quality={50} loading="lazy" alt="Линейка" />
-          </div>
+          {home.quote && <blockquote className={styles.quote}>{home.quote}</blockquote>}
+          {home.teacher_image && home.teacher_image === true && (
+            <div className={styles.teacher}>
+              <Image
+                className={styles.image}
+                src={teacher}
+                fill
+                alt="Софья Герасимова"
+                quality={85}
+                sizes="(max-width: 375px) 40vw, (max-width: 425px) 50vw, (max-width: 480px) 60vw, (max-width: 768px) 75vw, (max-width: 1200px) 70vw, 700px"
+                priority
+              />
+            </div>
+          )}
+          {home.item__images && home.item__images === true && (
+            <div className={styles.items}>
+              <Image className={styles.note} src={note} quality={50} loading="lazy" alt="Тетрадь" />
+              <Image
+                className={styles.calc}
+                src={calc}
+                quality={50}
+                loading="lazy"
+                alt="Калькулятор"
+              />
+              <Image
+                className={styles.ruler}
+                src={ruler}
+                quality={50}
+                loading="lazy"
+                alt="Линейка"
+              />
+            </div>
+          )}
         </div>
       </div>{' '}
       <Image

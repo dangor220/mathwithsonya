@@ -5,7 +5,14 @@ export interface Header {
   reviews: string;
   contacts: string;
 }
-
+export interface Home {
+  name: string;
+  surname: string;
+  seo_title: string;
+  quote: string;
+  item__images: boolean;
+  teacher_image: boolean;
+}
 export interface About {
   title: string;
   greeting: string;
@@ -94,10 +101,7 @@ export interface Footer {
 
 export interface ContentItem {
   header: Header;
-  name: string;
-  surname: string;
-  seo_title: string;
-  quote: string;
+  home: Home;
   about: About;
   services: Services;
   reviews: Reviews;
