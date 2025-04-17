@@ -23,6 +23,9 @@ export default function Home({ content }: { content: DefaultContent }): React.Re
   return (
     <section className={styles.home} id="home">
       <div className={`container ${styles.wrapper}`}>
+        <h1 className={styles.visuallyHidden}>
+          Репетитор по математике для 4–9 классов в Москве и онлайн — Софья Алексеевна
+        </h1>
         <LazyMotion features={domAnimation}>
           <m.h1 style={{ transform: translateY }} className={styles.title}>
             <span className={styles.name}>{content.name}</span>
