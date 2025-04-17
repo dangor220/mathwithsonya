@@ -119,7 +119,7 @@ export default function Services({
                     </div>
                     {content.services.options[activeTab].content.attention && (
                       <div className={styles.attention}>
-                        <span className={styles.price}>*</span>
+                        <span className={styles.price}>* </span>
                         {content.services.options[activeTab].content.attention}
                       </div>
                     )}
