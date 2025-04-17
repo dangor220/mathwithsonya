@@ -25,6 +25,8 @@ export interface About {
   final_message: string;
   experience_block: Experience;
   advantages: string[];
+  show_diplom: boolean;
+  show_teacher: boolean;
 }
 
 export interface Experience {

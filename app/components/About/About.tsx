@@ -51,26 +51,32 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
 
   useHandleScrollbar(headerRef, open);
 
+  const about = content.about || {};
+
+  if (Object.values(about).every((value) => !value)) return <></>;
+
   return (
     <section className={styles.about} id="about">
       <div className={`container ${styles.wrapper}`}>
-        <LazyMotion features={domAnimation}>
-          <m.h2
-            initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: {
-                type: 'spring',
-                bounce: 0.4,
-                duration: 1,
-              },
-            }}
-            viewport={{ amount: 0.3 }}
-            className={styles.title}>
-            {content.about.title}
-          </m.h2>
-        </LazyMotion>
+        {about.title && (
+          <LazyMotion features={domAnimation}>
+            <m.h2
+              initial={scrollDirection === 'down' ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: {
+                  type: 'spring',
+                  bounce: 0.4,
+                  duration: 1,
+                },
+              }}
+              viewport={{ amount: 0.3 }}
+              className={styles.title}>
+              {about.title}
+            </m.h2>
+          </LazyMotion>
+        )}
 
         <div className={styles.content}>
           <div className={styles.contentRow}>
@@ -87,67 +93,78 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                   },
                 }}
                 className={styles.text}>
-                <div>
-                  {content.about.greeting} {content.about.education}
-                </div>
-                <div>
-                  {content.about.teaching_mission} {content.about.teaching_goal}
-                </div>
-                <div>
-                  <h3>{content.about.experience_block.title}</h3>
-                  <ul>
-                    {content.about.experience_block.places.map((place, index) => (
-                      <li key={index}>{place}</li>
-                    ))}
-                  </ul>
-                </div>
+                {(about.greeting || about.education) && (
+                  <div>
+                    {about.greeting || ''} {about.education || ''}
+                  </div>
+                )}
+                {(about.teaching_mission || about.teaching_goal) && (
+                  <div>
+                    {about.teaching_mission || ''} {about.teaching_goal || ''}
+                  </div>
+                )}
 
-                <div>{content.about.individual_approach}</div>
+                {about.experience_block?.title &&
+                  Array.isArray(about.experience_block?.places) &&
+                  about.experience_block.places.length > 0 && (
+                    <div>
+                      <h3>{about.experience_block.title}</h3>
+                      <ul>
+                        {about.experience_block.places.map((place, index) => (
+                          <li key={index}>{place}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                {about.individual_approach && <div>{about.individual_approach}</div>}
               </m.div>
-              <m.div
-                initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    type: 'spring',
-                    bounce: 0.4,
-                    duration: 1,
-                    delay: 0.3,
-                  },
-                }}
-                className={styles.teacher}>
-                <Image
-                  src={graduate}
-                  className={styles.image}
-                  loading="lazy"
-                  alt="Софья с красным дипломом"
-                />
-
+              {about.show_diplom && about.show_diplom === true && (
                 <m.div
-                  animate={{ y: [-32, 0, -32], rotate: [3, 0, 3] }}
-                  transition={{
-                    duration: 3,
-                    ease: 'easeInOut',
-                    repeat: Infinity,
+                  initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: 'spring',
+                      bounce: 0.4,
+                      duration: 1,
+                      delay: 0.3,
+                    },
                   }}
-                  className={styles.click}>
+                  className={styles.teacher}>
                   <Image
-                    src={arrow}
+                    src={graduate}
+                    className={styles.image}
                     loading="lazy"
-                    alt="Нажми на диплом"
-                    fill
-                    sizes="100vw"
-                    quality={50}
+                    alt="Софья с красным дипломом"
                   />
-                </m.div>
 
-                <button
-                  className={styles.button}
-                  aria-label="Открыть диплом"
-                  type="button"
-                  onClick={() => setOpen(true)}></button>
-              </m.div>
+                  <m.div
+                    animate={{ y: [-32, 0, -32], rotate: [3, 0, 3] }}
+                    transition={{
+                      duration: 3,
+                      ease: 'easeInOut',
+                      repeat: Infinity,
+                    }}
+                    className={styles.click}>
+                    <Image
+                      src={arrow}
+                      loading="lazy"
+                      alt="Нажми на диплом"
+                      fill
+                      sizes="100vw"
+                      quality={50}
+                    />
+                  </m.div>
+
+                  <button
+                    className={styles.button}
+                    aria-label="Открыть диплом"
+                    type="button"
+                    onClick={() => setOpen(true)}></button>
+                </m.div>
+              )}
             </LazyMotion>
           </div>
           <div className={styles.contentRow}>
@@ -164,37 +181,45 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                   },
                 }}
                 className={styles.text}>
-                <div>
-                  <h3>{content.about.section_title}</h3>
-                  <ul>
-                    {content.about.advantages.map((advantage, index) => (
-                      <li key={index}>{advantage}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>{content.about.emotional_reward}</div>
-                <div>{content.about.final_message}</div>
+                {about?.section_title &&
+                  Array.isArray(about?.advantages) &&
+                  about.advantages.length > 0 && (
+                    <div>
+                      <h3>{about.section_title}</h3>
+                      <ul>
+                        {about.advantages.map((advantage, index) => (
+                          <li key={index}>{advantage}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                {about.emotional_reward && <div>{about.emotional_reward}</div>}
+                {about.final_message && <div>{about.final_message}</div>}
               </m.div>
-              <m.div
-                initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    type: 'spring',
-                    bounce: 0.4,
-                    duration: 1,
-                    delay: 0.3,
-                  },
-                }}
-                className={styles.teacher}>
-                <Image
-                  src={sonya}
-                  className={styles.image}
-                  loading="lazy"
-                  alt="Софья играет с котом"
-                />
-              </m.div>
+
+              {about.show_teacher && about.show_teacher === true && (
+                <m.div
+                  initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: 'spring',
+                      bounce: 0.4,
+                      duration: 1,
+                      delay: 0.3,
+                    },
+                  }}
+                  className={styles.teacher}>
+                  <Image
+                    src={sonya}
+                    className={styles.image}
+                    loading="lazy"
+                    alt="Софья играет с котом"
+                  />
+                </m.div>
+              )}
             </LazyMotion>
           </div>
         </div>
