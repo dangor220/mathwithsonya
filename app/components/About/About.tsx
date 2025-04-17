@@ -77,7 +77,6 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
             </m.h2>
           </LazyMotion>
         )}
-
         <div className={styles.content}>
           <div className={styles.contentRow}>
             <LazyMotion features={domAnimation}>
@@ -103,7 +102,6 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                     {about.teaching_mission || ''} {about.teaching_goal || ''}
                   </div>
                 )}
-
                 {about.experience_block?.title &&
                   Array.isArray(about.experience_block?.places) &&
                   about.experience_block.places.length > 0 && (
@@ -116,7 +114,6 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                       </ul>
                     </div>
                   )}
-
                 {about.individual_approach && <div>{about.individual_approach}</div>}
               </m.div>
               {about.show_diplom && about.show_diplom === true && (
@@ -193,11 +190,9 @@ export default function About({ content, headerRef, scrollDirection }: Props): R
                       </ul>
                     </div>
                   )}
-
                 {about.emotional_reward && <div>{about.emotional_reward}</div>}
                 {about.final_message && <div>{about.final_message}</div>}
               </m.div>
-
               {about.show_teacher && about.show_teacher === true && (
                 <m.div
                   initial={{ opacity: 0, y: scrollDirection === 'down' ? -200 : 200 }}
