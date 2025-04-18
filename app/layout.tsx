@@ -89,6 +89,9 @@ export default function RootLayout({
     <html
       lang="ru"
       className={`${montserrat.variable} ${marckScript.variable} ${bonaNovaSC.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body>{children}</body>
     </html>
   );
