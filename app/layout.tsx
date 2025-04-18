@@ -52,7 +52,16 @@ export const metadata: Metadata = {
     'репетитор Софья Алексеевна',
     'репетитор рядом с Бунинскими Лугами',
   ],
-  authors: [{ name: 'Софья Алексеевна', url: 'https://www.mathwithsonya.ru/' }],
+  authors: [
+    {
+      name: 'Софья Алексеевна',
+      url: 'https://www.mathwithsonya.ru/',
+    },
+    {
+      name: 'Данил Гордеев',
+      url: 'https://www.dangor.ru/',
+    },
+  ],
   creator: 'Данил Гордеев',
   metadataBase: new URL('https://www.mathwithsonya.ru'),
   applicationName: 'Math&Sonya',
