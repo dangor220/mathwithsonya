@@ -45,7 +45,7 @@ export interface Content {
   attention?: string;
 }
 export interface ServiceOptions {
-  [key: string]: { id: number; type: string; content: Content; slides: Slides[] };
+  [key: string]: { id: number; active: boolean; type: string; content: Content; slides: Slides[] };
 }
 export interface Slides {
   src: string;
@@ -86,6 +86,7 @@ export interface Contacts {
   formCaptcha: string;
   formPhone: string;
   place: string;
+  yplace: string;
   place_link: string;
 }
 export interface Footer {

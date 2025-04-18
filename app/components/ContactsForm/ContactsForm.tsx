@@ -35,6 +35,8 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
   const [message, setMessage] = useState('');
   const [messageStatus, setMessageStatus] = useState<MessageStatus>(MessageStatus.Idle);
 
+  const contacts = content.contacts || {};
+
   const formRef = useRef<HTMLFormElement>(null);
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
@@ -132,15 +134,15 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           </>
         );
       case MessageStatus.Success:
-        return content.contacts.formSuccess;
+        return contacts?.formSuccess || 'Готово!';
       case MessageStatus.Failed:
-        return content.contacts.formFailed;
+        return contacts?.formFailed || 'Ошибка при отправке';
       case MessageStatus.Captcha:
-        return content.contacts.formCaptcha;
+        return contacts?.formCaptcha || 'Подтвердите что вы не робот';
       case MessageStatus.Phone:
-        return content.contacts.formPhone;
+        return contacts?.formPhone || 'Введите корректный номер';
       default:
-        return content.contacts.formSend;
+        return contacts?.formSend || 'Записаться';
     }
   };
 
@@ -168,7 +170,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
           className={styles.name}
           type="text"
           name="name"
-          placeholder={content.contacts.formName}
+          placeholder={contacts?.formName || 'Как к вам обращаться?'}
           required
           value={user}
           onChange={(e) => {
@@ -197,7 +199,7 @@ export default function ContactsForm({ content }: { content: DefaultContent }): 
         className={styles.message}
         name="message"
         value={message}
-        placeholder={content.contacts.formMessage}
+        placeholder={contacts?.formMessage || 'Записаться на пробный урок'}
         required
         minLength={10}
         onChange={(e) => {

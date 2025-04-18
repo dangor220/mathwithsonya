@@ -56,6 +56,7 @@ const defaultContent: DefaultContent[] = [
       options: {
         myHome: {
           id: 1,
+          active: true,
           type: 'У репетитора',
           content: {
             title: 'Формат занятий у репетитора дома (1300 рублей за занятие) 🏡',
@@ -102,6 +103,7 @@ const defaultContent: DefaultContent[] = [
         },
         yourHome: {
           id: 2,
+          active: true,
           type: 'С выездом',
           content: {
             title: 'Формат занятий с выездом (1500 рублей за занятие) 🚗',
@@ -140,6 +142,7 @@ const defaultContent: DefaultContent[] = [
         },
         online: {
           id: 3,
+          active: true,
           type: 'Онлайн',
           content: {
             title: 'Формат онлайн-занятий (1000 рублей за занятие) 💻',
@@ -270,6 +273,8 @@ const defaultContent: DefaultContent[] = [
       formCaptcha: 'Подтвердите что вы не робот',
       formPhone: 'Введите корректный номер',
       place: 'Москва, ЖК Бунинские Луга, улица Александры Монаховой, 84к1, подъезд 4',
+      yplace:
+        'https://yandex.com/map-widget/v1/?ll=37.483346%2C55.545213&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgozMTI4NzY3NzQ3EtYB0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCd0L7QstC-0LzQvtGB0LrQvtCy0YHQutC40Lkg0LDQtNC80LjQvdC40YHRgtGA0LDRgtC40LLQvdGL0Lkg0L7QutGA0YPQsywg0L_QvtGB0ZHQu9C-0Log0JrQvtC80LzRg9C90LDRgNC60LAsINGD0LvQuNGG0LAg0JDQu9C10LrRgdCw0L3QtNGA0Ysg0JzQvtC90LDRhdC-0LLQvtC5LCA4NNC6MSwg0L_QvtC00YrQtdC30LQgNCIKDdHuFUIVri5eQjCzmvzUDw%2C%2C&z=19.69',
       place_link:
         'https://yandex.com/maps/geo/zhk_buninskiye_luga_2_4_1_podyezd_4/4204727603/?from=mapframe&ll=37.483346%2C55.545213&z=19',
     },

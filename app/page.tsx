@@ -23,5 +23,6 @@ async function getData() {
 
 export default async function Home() {
   const content = await getData();
+  if (!content[0]) return <ClientApp content={defaultContent[0]} />;
   return <ClientApp content={content[0]} />;
 }

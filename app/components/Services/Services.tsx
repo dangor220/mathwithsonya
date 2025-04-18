@@ -23,7 +23,7 @@ export default function Services({
 }: Props): React.ReactElement {
   const services = content.services || {};
   const options = services.options || {};
-  const arrayOptions = Object.entries(options);
+  const arrayOptions = Object.entries(options).filter((arr) => arr[1].active);
 
   const [activeTab, setActiveTab] = useState(arrayOptions.length > 0 ? arrayOptions[0][0] : '');
   const activeOption = options[activeTab];
