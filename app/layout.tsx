@@ -52,6 +52,9 @@ export const metadata: Metadata = {
     'репетитор Софья Алексеевна',
     'репетитор рядом с Бунинскими Лугами',
   ],
+  authors: [{ name: 'Софья Алексеевна', url: 'https://www.mathwithsonya.ru/' }],
+  creator: 'Данил Гордеев',
+  metadataBase: new URL('https://www.mathwithsonya.ru'),
   applicationName: 'Math&Sonya',
   appleWebApp: {
     title: 'Math&Sonya',
@@ -77,7 +80,14 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     type: 'website',
   },
-  metadataBase: new URL('https://www.mathwithsonya.ru'),
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'Репетитор по математике — Софья Алексеевна • Москва: Бунинские Луга, Коммунарка, Потапово',
+    description:
+      'Индивидуальные занятия по математике для учеников 4–9 классов. Онлайн, выезд на дом или занятия у преподавателя рядом с метро Новомосковская, Потапово, Коммунарка, Бунинская Аллея. Репетитор: Софья Алексеевна.',
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({
