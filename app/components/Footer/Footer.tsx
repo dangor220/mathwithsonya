@@ -15,7 +15,7 @@ export default function Footer({ content }: { content: DefaultContent }): React.
         <div className={styles.left}>
           {footer.place && footer.place_link && (
             <p>
-              <a className={styles.link} href={footer.place_link}>
+              <a className={styles.link} href={footer.place_link} target="_blank">
                 {footer.place}
               </a>
             </p>
