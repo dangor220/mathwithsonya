@@ -85,9 +85,7 @@ export interface Contacts {
   formSend: string;
   formCaptcha: string;
   formPhone: string;
-  place: string;
   yplace: string;
-  place_link: string;
 }
 export interface Footer {
   phone: string;
