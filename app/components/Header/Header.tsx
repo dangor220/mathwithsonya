@@ -155,6 +155,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
                   <li className={styles.item} key={item.id}>
                     <Link
                       className={styles.link}
+                      offset={-(headerRef?.current?.getBoundingClientRect().height - 1)}
                       to={item.id}
                       href={`#${item.id}`}
                       smooth={true}
