@@ -46,6 +46,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
   useHandleScrollbar(ref as React.RefObject<HTMLElement | null>, menuIsOpen);
 
   const header = content.header || {};
+  const headerRef = ref as React.RefObject<HTMLElement>;
 
   const listItems = Object.entries(header).map(([key, value]) => ({
     id: key,
@@ -126,6 +127,7 @@ const Header = forwardRef<HTMLElement, { content: DefaultContent }>(({ content }
                   <m.li key={item.id} variants={itemVariants} className={styles.item}>
                     <Link
                       className={styles.link}
+                      offset={-(headerRef?.current?.getBoundingClientRect().height - 1)}
                       to={item.id}
                       href={`#${item.id}`}
                       smooth={true}
