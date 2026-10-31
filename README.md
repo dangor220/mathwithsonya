@@ -1,5 +1,7 @@
 <a id="readme-top"></a>
 
+[![READMEENG](https://img.shields.io/badge/readme_en-white?style=for-the-badge&logo=en)](https://github.com/dangor220/mathwithsonya/blob/main/README.en.md)
+
 <!-- PROJECT LOGO -->
 
 <div align="center">
